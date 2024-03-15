@@ -1,0 +1,680 @@
+Skip to main content
+Nature Communications
+Search
+Log in
+Explore content
+About the journal
+Publish with us
+nature  nature communications  articles  article
+Download PDF
+Article
+Open access
+Published: 16 July 2019
+Structural basis for the adsorption of a single-stranded RNA bacteriophage
+Ran Meng, Mengqiu Jiang, Zhicheng Cui, Jeng-Yih Chang, Kailu Yang, Joanita Jakana, Xinzhe Yu, Zhao Wang, Bo Hu & Junjie Zhang 
+Nature Communications volume 10, Article number: 3130 (2019) Cite this article
+
+7053 Accesses
+
+33 Citations
+
+16 Altmetric
+
+Metricsdetails
+
+Abstract
+Single-stranded RNA bacteriophages (ssRNA phages) infect Gram-negative bacteria via a single maturation protein (Mat), which attaches to a retractile pilus of the host. Here we present structures of the ssRNA phage MS2 in complex with the Escherichia coli F-pilus, showing a network of hydrophobic and electrostatic interactions at the Mat-pilus interface. Moreover, binding of the pilus induces slight orientational variations of the Mat relative to the rest of the phage capsid, priming the Mat-connected genomic RNA (gRNA) for its release from the virions. The exposed tip of the attached Mat points opposite to the direction of the pilus retraction, which may facilitate the translocation of the gRNA from the capsid into the host cytosol. In addition, our structures determine the orientation of the assembled F-pilin subunits relative to the cell envelope, providing insights into the F-like type IV secretion systems.
+
+Similar content being viewed by others
+
+The ϕPA3 phage nucleus is enclosed by a self-assembling 2D crystalline lattice
+Article Open access
+18 February 2023
+
+The architecture and stabilisation of flagellotropic tailed bacteriophages
+Article Open access
+27 July 2020
+
+Structural assembly of the tailed bacteriophage ϕ29
+Article Open access
+30 May 2019
+Introduction
+Single-stranded RNA bacteriophages (ssRNA phages) are positive-sense RNA viruses that infect a variety of Gram-negative bacteria, including Escherichia coli, Acinetobacter spp., Caulobacter crescentus, and Pseudomonas aeruginosa, etc.1,2,3,4,5. The infection cycle consists of the following steps: first, the ssRNA phage adsorbs to the side of a retractile pilus via its maturation protein (Mat), presented as a single copy in the virion shell. Then the Mat, along with the genomic RNA (gRNA), is released from the viral capsid and taken up by the host, presumably through the retractile force of the host pilus6. Cytosolic internalization of the gRNA initiates the expression of the viral genes, resulting in replication, virion morphogenesis, and lysis of the host7.
+
+All known varieties of retractile pili in Proteobacteria can serve as the receptor of ssRNA phages, including conjugative pili (e.g. F and M)6,8,9, type IV twitching motility pili10, and species-specific pili, such as the Tad pili of swarmer Caulobacter cells11. It should be noted that ssRNA phages specific for the pili encoded on conjugal plasmids may not have a required bacterial host as these plasmids can have a wide host range12.
+
+The binding affinity of a particular phage to pili of the same family can vary significantly. For example, MS2 binds tightly to the F-pili encoded by the pOX38 plasmid but weakly to the pili encoded by pED208, which belongs to the same F-like plasmid family13. Mutations on the F-pilin can abolish the binding of the ssRNA phages, leading to phage-resistant mutants13,14. The underlying structural cause for the differences in adsorption of ssRNA phages is unknown, primarily due to the lack of high-resolution structures of ssRNA phages bound to their receptor pili. The only structure of phage bound to host pili is a 39 Å-resolution cryo-electron tomography (cryo-ET) subtomogram average of MS2 in complex with the purified F-pilus, in which the interactions between amino acid residues are not clear15. A better understanding of the adsorption requirements of ssRNA phages to their respective hosts can facilitate the engineering of new ssRNA phages to deliver foreign RNA molecules to a variety of cells16,17.
+
+Here, we investigate the canonical model system of MS2 and its receptor, the F-pilus, in high resolution. The capsid of MS2 is composed of a single copy of Mat and 178 coat proteins (89 coat protein dimers) with a T = 3 quasi-icosahedral symmetry1,18,19. The encapsidated gRNA (3569 bp) interact with the Mat and coat proteins in a defined three-dimensional (3D) conformation1,18,19 with its 3′ end attached to the Mat1. The F-pilus, the receptor for MS2, is a dynamic filament assembled by the F plasmid-encoded type IV secretion system (T4SS), which directs the conjugative transfer of F plasmids20. The retraction of the F-pilus brings donor and recipient cells into direct contact as a prerequisite for the formation of the mating junction, through which the plasmid DNA can be transferred21. ssRNA phages bind to the outside of the F-pilus and apparently have no access to its inner channel6,22. How the gRNA is translocated across the two membranes of Gram-negative bacteria to enter the cytosol remains a mystery.
+
+A recent high-resolution cryo-EM structure revealed that the conjugative F-pilus is an assembly of a stoichiometric pilin-phospholipid complex forming a five-start helical filament23. Each pilin subunit has three helices termed: ɑ1, ɑ2, and ɑ3, respectively, from the N- to the C-termini (Supplementary Fig. 1a). The loop connecting ɑ2 and ɑ3 is located in the inner lumen of the pilus and interacts with a phospholipid, while the N- and C-termini of the pilin face outside, potentially interacting with ssRNA phages. Of note, the overall orientation of the F-pilus relative to the cell membrane is still unknown: it is unclear whether the membrane-proximal end of the F-pilus consists of the ɑ2–ɑ3 loops or the N-/C-termini of the pilins. This information is important to decipher the mechanism of infection for ssRNA phages, as well as to understand the assembly/retraction dynamics of F-pili.
+
+In this study, we present the single-particle cryo-EM structures of different conformations of the MS2/F-pilus complex at resolutions ranging from 5.6 to 7.3 Å and an average reconstruction with all particles at 5.0 Å resolution. We reveal a network of hydrophobic and electrostatic interactions at the phage–pilus interface. We also observe slight variations of the orientations for the Mat within the capsid upon pilus binding, which may prime the Mat-gRNA complex for its release. Combined with cryo-ET and subtomogram averaging of the MS2 particles that are bound to the F-pili emanating from the E. coli cells, our structures allow us to unambiguously determine the orientation of MS2 relative to the E. coli cell envelope, as well as the orientation of the F-pilin monomers in the F-pilus relative to the bacterial cell envelope.
+
+Results
+The overall architecture of the MS2/F-pilus complex
+One major challenge when using single-particle cryo-EM to study the MS2/F-pilus interaction is that the F-pilus is a long filamentous oligomer of pilin monomers, lying parallel to the cryo-EM grid, which leads to preferred orientations of the adsorbed phages (Fig. 1a). To minimize the range of missing orientations for the MS2/F-pilus complex, each micrograph was collected with the specimen grid at a tilting angle of either 0°, 15°, or 30° and processed in combination (see Methods and Supplementary Fig. 2)24. This approach has recently been used to mitigate the preferred-orientation problem for single-particle cryo-EM25,26. Finally, we obtained a density map of the MS2/F-pilus complex at an overall resolution of 5.0 Å (Supplementary Fig. 3b, Supplementary Movie 1). The cryo-EM density for the two ends of the F-pilus is weak and has a lower local resolution (Supplementary Fig. 3a) compared to other parts of the map, suggesting that there is a relative motion of the F-pilus with regard to the MS2 phage particle. To improve the resolution of the F-pilus, we created a loose mask around the F-pilus and the Mat to locally align the density within this mask. This allowed us to achieve a more uniformly resolved density of the F-pilus/Mat complex at an overall resolution of 6.2 Å (Supplementary Fig. 3b). The ɑ-helices in each pilin monomer are clearly resolved, as is the internally buried phospholipid, which interacts with the ɑ2–ɑ3 loop of each F-pilin (Supplementary Fig. 4a). These features are consistent with the previous structures of the F-pilus without phages bound23.
+
+Fig. 1
+figure 1
+The overall architecture of the MS2/F-pilus complex. a An electron micrograph of the MS2/F-pilus complex. The scale bar denotes 500 Å. b The side view of the MS2/F-pilus complex with the F-pilus colored in orange, the Mat colored in pink, coat proteins in blue, and gRNA in light yellow. For visualization, the density map in Fig. 1 is a composite map with the density of the F-pilus/Mat complex replaced by the 6.2 Å-resolution map, which has a more uniformly well-resolved F-pilus fragment. The axis of the F-pilus is labeled by a horizontal dashed black line with another vertical dashed black line perpendicular to it. A dashed red arrow denotes the two-fold axis on the side of the MS2 capsid. The angle between the vertical dashed black line and the dashed red arrow is 7.8°. c The model of the Mat/F-pilus complex fit in the cryo-EM map. One of the F-pilin is colored from purple (N terminus) to green (C terminus) as in the inset to show the orientation of the F-pilins in the assembled pilus. The three ɑ-helices of an F-pilin are also labeled in the inset. d Cut-in view of the density map of the MS2/F-pilus complex viewed from the direction of the eye cartoon in panel b. The outer and inner diameters of the F-pilus are 87 and 28 Å, respectively. The diameter of the MS2 capsid is ~250 Å. The density of the gRNA is from the refinement of all particles without any mask and low-pass filtered to 8 Å. The inset shows a cartoon model for the asymmetric distribution of the gRNA
+
+Full size image
+Overall, the structure of the MS2 particle, within the MS2/F-pilus complex, is similar to what has been previously reported1,18,19. The particle diameter is ~250 Å and the Mat replaces one coat protein dimer at the two-fold axis of the capsid, disrupting the otherwise perfect icosahedral symmetry of the viral capsid. The outer and inner diameters of the F-pilus are 87 and 28 Å, respectively, consistent with the previous structure of the apo-state F-pilus23. The binding of MS2 does not break the F-pilus filament as the structure of the F-pilus is still intact (Fig. 1). We observe that the exposed surface of the β-sheet-rich region (or β-region) in the Mat lies parallel to the axis of the F-pilus and directly interacts with the N- and C-termini of the pilin subunits within the F-pilus (Fig. 1b, c) in a defined manner, in which the tip of the β-region (Supplementary Fig. 4b) leans opposite to the N- and C-termini of the F-pilins (Fig. 1c).
+
+The gRNA inside the capsid of the F-pilus-bound MS2 is in the same conformation as previously reported for the free virions1,18,19. This is consistent with the fact that binding to the F-pilus alone does not liberate the gRNA27. The two-fold axis on the side of the MS2 capsid (the dashed red line in Fig. 1b) is not perpendicular to the axis of the pilus. Instead, it tilts 7.8° away from the tip of the β-region (Fig. 1b). Notably, when viewed from the tip of the β-region, the gRNA is more compact on the right hemisphere within the capsid compared to the left (Fig. 1d). Such an asymmetry in the gRNA packing is formed as the gRNA folds and the capsid proteins assemble around it. These asymmetric features within the single-particle cryo-EM structure stay apparent even after we low-pass filtered the map to 80 Å-resolution (Supplementary Fig. 5), so that they can serve as structural markers to distinguish the orientation of the Mat and the F-pilus in the cryo-electron tomography study of MS2 bound to the native F-pilus protruding from the cell (see below).
+
+Orientational variations of the pilus-bound Mat
+The lower resolution at the two distal ends of the MS2-bound F-pilus suggests structural flexibility within the MS2/F-pilus complex. To further investigate this motion, we performed multibody refinement on the MS2/F-pilus complex and principal component analysis of the variations of the conformations (see Methods)28. The major structural flexibility between the F-pilus and the phage particle can be described by two principal motion vectors (the first two eigenvectors), which describe the tilting and swiveling of the F-pilus relative to the phage particle (Supplementary Fig. 6a, Supplementary Movies 2 and 3).
+
+To measure the tilting and swiveling angles of the F-pilus relative to the MS2, we performed the 3D classification of the MS2/F-pilus complex and identified three major conformations, referred to as Classes 1–3, reconstructed from 34.38%, 33.29%, and 11.99% of all the particles, respectively (see Methods)29. Consistent with the results from the multibody refinement and principal component analysis, these three conformations represent the relative swiveling and tilting of the F-pilus against the phage particles (Fig. 2). Class 2 represents a conformation that is similar to the average structure obtained by combining all the particles, with the two-fold axis on the side of the phage particle deviating 7.8° from the line perpendicular to the axis of the pilus (Fig. 2e). Class 1 and Class 2 have almost the same swiveling angle for the F-pilus (Fig. 2a, d). However, the F-pilus in Class 3 swivels ~4° counter-clockwise relative to Classes 1 and 2 when viewed from the F-pilus-side of the complex (Fig. 2g). Compared with Class 2, Classes 1 and 3 represent two conformations with the pilus tilting ~2° towards or away from the tip of the β-region, respectively (Fig. 2b, h). The tilting of the F-pilus in Class 3 is so strong that it disrupts the connection between the pilus and the tip of the β-region (the black arrow in Fig. 2i and Supplementary Fig. 6b), while this connection is preserved in Classes 1 and 2.
+
+Fig. 2
+figure 2
+Three conformations of the MS2/F-pilus complex. a, d, g Top views of the MS2/F-pilus complex for Classes 1, 2, and 3. Class 1 and Class 3 are superimposed with Class 2 (gray density) for comparison in panels a and g. The dashed lines in green and black in panel g represent the axes of the F-pilus in Class 2 and 3. b, e, h Side views of the MS2/F-pilus complex for Classes 1, 2, and 3. Class 1 and Class 3 are superimposed with Class 2 (gray density) for comparison in panels b and h. The axis of the F-pilus is labeled by a dashed black line (parallel with the axis of the F-pilus) with another dashed black line perpendicular to it. The dashed red arrow denotes the two-fold axis on the side of the capsid. The angles between the perpendicular black line and the dashed red arrow are 5.1°, 7.8°, and 10.0° for Classes 1, 2, and 3, respectively. c, f, i Cut-in views from the side for Classes 1, 2, and 3. The angles between the tip of the β-region and phage capsid are 28.5°, 28.5°, and 32.3° in Classes 1, 2, and 3, respectively. A solid black arrow in panel i indicates the detachment of the tip of the β-region from the F-pilus
+
+Full size image
+The relative motions of the F-pilus against the MS2 virion result in a slight difference in the positioning of the attached Mat within the MS2 capsid. The values of the angle between the β-region of the Mat and the phage capsid range from 28.5° to 32.3° (Fig. 2c, f, i, Supplementary Fig. 6b). Of note, there is relatively little internal plasticity within the Mat, and at our current resolutions of the maps, there is no detectable variation in the tertiary structure of the Mat in these three classes of conformations (Supplementary Fig. 7). Such a variation for the positioning of the Mat is not observed in our control experiment, imaging the pilus-free MS2, with most of the particles (93%) in the apo MS2 have the Mat in a position angle the same as in Class 2 (Supplementary Fig. 6b). The other 7% of the particles either do not show the Mat (6%) or are of too small a number (1%) to generate good density maps.
+
+Interactions at the pilus–Mat interface
+The interaction between the MS2 and the F-pilus is strong, to an extent that most of the Mat proteins tend to remain associated with the F-pili even after a severe sonication30. The area of the interface between the β-region of the Mat and the pilus is ~1062.89 Å2. Within the interface between the F-pilus and MS2, four points of interaction on the surface of four pilin subunits are identified (labeled by a black sphere and three aspartic acid residues, respectively in Fig. 3a). At the pilus–Mat interface, residues of opposite charges have electrostatic interactions. The positively charged His357 from the Mat interacts with the Asp7 from one pilin (Fig. 3b). Two arginine residues, Arg36 and Arg99 from the Mat interact with two aspartic acids, Asp7 and Asp23, from the pilins, respectively (Fig. 3c). It is interesting to note that a D23G (Asp to Gly) mutant pilin still assembles F-pili; but the assembled pili do not bind to phage R1713. The protein sequences of the Mat for R17 and MS2 are 97% identical and have these positively charged residues conserved (Supplementary Fig. 1b). It is likely the mutation from an aspartic acid to a glycine has compromised the electrostatic interactions between the F-pilus and the Mat. Another pilin mutant, A18E (Ala to Glu), similarly assembles R17-resistant F-pili13. Since Ala18 is within the pilus–Mat interface, the change to a larger sidechain of the glutamic acid likely interferes with the Mat binding (Supplementary Fig. 4b). The first five amino acids (AGSSG, Ala-Gly-Ser-Ser-Gly) at the N terminus of the mature F-pilin are generally flexible in the apo F-pilus and could not be resolved in previous work23. In contrast, in the phage-bound structure, we see extra cryo-EM density extending from the N terminus of one pilin subunit into a hydrophobic pocket (consisting of Val15, Phe31, Leu33, Phe92, and Phe94) on the exposed surface of the Mat (Fig. 3d, Supplementary Fig. 4c). This electron density may correspond to the five N-terminal amino acids of a pilin subunit, which were previously missing due to their flexibility but are now stabilized by the Mat. These five amino acids are present in F-pilins produced by the pOX38 plasmid but absent in F-pilins produced by pED208 (ref. 31) (Supplementary Fig. 1a), which may contribute to the weakened binding of MS2 to pED208-encoded pili13. Interestingly, a loop at the tip of the β-region connects to the N terminus of an adjacent F-pilin subunit. Such a connection is present in the conformations of Classes 1 and 2 but disrupted in the conformation described in Class 3 (Supplementary Fig. 6b), due to an over-tilting of the F-pilus away from the tip of the β-region. The above-mentioned hydrophobic and positively charged amino acids in Mats, mediating the F-pilus binding, are conserved in four out of the five MS2-like phages, including MS2, R17, M12, and JP501. Fr, whose Mat sequence is less homogeneous to MS2, has the Phe92 and Phe94 missing, but still has the Val15, Leu31, and Leu33, partially preserving the hydrophobic pocket. The positively charged amino acids are conserved in Fr (Supplementary Fig. 1b).
+
+Fig. 3
+figure 3
+The molecular interface between MS2 and the F-pilus. a Four F-pilin subunits, which have specific interactions with the Mat, are colored tan, orange, gold, and khaki, respectively. The inset shows the overall side view of the F-pilus/Mat complex and the location of these four F-pilins within the pilus. Three aspartic acids are labeled as sphere models and the N terminus of one pilin is labeled by a black sphere. Arrows indicate the viewing directions for panels b–d. b The negatively charged residue Asp7 (red bead) from one F-pilin is in close proximity to the positively charged His357 (blue bead) from the Mat. c The negatively charged residues Asp7 and Asp23 (red beads) from two F-pilins are in close proximity to Arg36 and Arg99 (blue beads) from the Mat, respectively. d The N terminus of one pilin extends into a hydrophobic pocket consisting of five hydrophobic residues (Val15, Phe31, Leu33, Phe92, and Phe94, labeled by gray beads) from the Mat. The dashed black line denotes the location of the five missing residues (AGSSG) at the N terminus of one pilin. The cryo-EM density map is shown as a gray transparent envelope
+
+Full size image
+The bound Mat orients opposite to the pilus retraction
+In our single-particle cryo-EM structure of the complex formed by MS2 with purified F-pili, we have determined that each MS2 particle binds to the F-pilus in a defined orientation with the tip of the β-region pointing opposite to the N- and C-termini of the F-pilins. However, the orientation of the F-pilus relative to the cell envelope is still a mystery23. Specifically, it is unknown if pilins are oriented so that the ɑ2–ɑ3 loops, or the two termini of the pilins, are closer to the cell envelope. This orientation has important implications regarding the mechanism of the F-pilus assembly and retraction. Definition of this orientation would also establish whether, during pilus retraction, the adsorbed phage particle approaches the cell with the tip of its Mat facing the cell or the opposite. To address this issue, we used cryo-ET to image MS2 adsorbed to pOX38 F-pili extruded from E. coli cells. The reconstructed tomograms showed that the phage particles are tightly adsorbed to the F-pilus emanating from the cell envelope (Fig. 4a). We are able to determine an averaged cryo-ET structure of the MS2/F-pilus complex in situ at 32.3 Å resolution (Fig. 4c, d, Supplementary Fig. 3b).
+
+Fig. 4
+figure 4
+MS2 adsorbed to F-pili in situ. a A slice view of a tomogram. The scale bar denotes 500 Å. b A slice view of the tomogram superimposed with the mapped-back subtomogram averages. MS2 are colored blue. The F-pilus is colored orange. The outer and inner membranes of the E. coli are labeled by two green curves. The scale bar denotes 500 Å. c A slice view of the subtomogram average of the MS2/F-pilus complex. d A cut-in view of the subtomogram average with the gRNA colored yellow, coat proteins blue, the Mat pink, and the F-pilus orange
+
+Full size image
+To analyze the relative orientation of MS2 particles to the cell envelope, we mapped the subtomogram averages back to the original tomograms (Fig. 4b). The relatively small size of the Mat may lead to ambiguity in determining its orientation relative to the cell at the current resolution of our cryo-ET subtomogram average. Therefore, we relied on features that are still apparent, even at low resolution, to verify the orientation of the phage particle against the cell. These include the asymmetric features in the MS2/F-pilus complex such as the tilting angle of the particle relative to the pilus and the uneven distribution of the gRNA inside the capsid (Supplementary Fig. 5) as shown in our single-particle structure of the MS2/F-pilus complex. Since the subtomogram average structure is solved by binding MS2 to the cell-connected F-pilus, the cell proximal end of the F-pilus is known to be on the right in Fig. 5a. With the β-region of the Mat attached parallel to the axis of the pilus, the MS2 capsid leans towards the cell envelope, leaving the two-fold symmetry axis (the dashed red line) tilting to the opposite side of the tip of the β-region. This is consistent with the single-particle cryo-EM structure of the Mat/F-pilus complex, in which the phage capsid leans opposite to the tip of the β-region (Fig. 5b). In addition, when viewed against the tip of the β-region, the encapsidated gRNA (the yellow density in Fig. 5d) is denser on the right side of the capsid. Such a pattern of the unevenly distributed gRNA is also observed in the subtomogram average of the MS2/F-pilus complex (Fig. 5c), further confirming the orientation of the Mat within the tomogram. We conclude that when MS2 is adsorbed to the side of the F-pilus, the tip of its Mat is pointed toward the tip of the F-pilus and opposite the cell envelope. These findings also allow us to orient the pilins within the F-pilus relative to the cell envelope: the N- and C-termini of the pilins are positioned more closely than the phospholipid/central loop to the cell envelope (Fig. 6).
+
+Fig. 5
+figure 5
+Comparison of the subtomogram average and the single-particle cryo-EM map. a A side view of the subtomogram average of the MS2/F-pilus complex with the direction to the cell envelope labeled by a solid black arrow. b A side view of the low-pass filtered single-particle cryo-EM map of the MS2/F-pilus complex at 30-Å resolution. The axis of the F-pili is labeled by a horizontal dashed black line with another dashed black line perpendicular to it. A dashed red arrow indicates the two-fold axis on the side of the near-icosahedral capsid. Green lines indicate the icosahedral lattice of the capsid. c, d Cut-in views of the subtomogram average map and the low-pass filtered single-particle cryo-EM map of the MS2/F-pilus complex viewed from the orientation labeled by the eye cartoons in panels a and b. The inset shows a cartoon model for the asymmetric distribution of the gRNA
+
+Full size image
+Fig. 6
+figure 6
+A model for adsorption of MS2 to the host. a MS2 adsorbed to the side of the F-pilus with the tip of the β-region facing opposite to the pilus retraction. As the F-pilus retracts, MS2 virions are brought closer to the cell envelope. Finally, the Mat-gRNA complex enters the cytoplasm. b Binding of the F-pilus causes slight orientational variations of the Mat relative to the rest of the MS2 capsid. c The orientation of the Mat may facilitate its detachment from the capsid just as opening a pop tab on a coke can
+
+Full size image
+Discussion
+In this paper, we have revealed the molecular and structural requirements for adsorption of the phage MS2 onto the wild-type F-pili. A network of electrostatic and hydrophobic interactions is identified between the conjugative F-pilus and the Mat of MS2. As the conjugative plasmids for the pili are subject to strong selection for mutations that confer phage resistance yet allow conjugation, and the ssRNA phages evolve to suppress the resistance, such a pattern of interacting protein residues (Supplementary Fig. 1) may have evolved to maintain a balance between the phage and its host. Given the genetic power of the E. coli/ssRNA phage system, the structural data from this work can provide more information on the phage-receptor interaction than is available for any other prokaryotic viral system, and may provide a unique platform for probing the evolution of virus–host interactions.
+
+As shown in our cryo-electron tomograms of the MS2 infecting the F+ E. coli cell, most of the phages are tightly bound to the F-pilus. F-pili naturally extend and retract through the polymerization and depolymerization of the F-pilin subunits in the T4SS basal body, processes that involve rotation of the pilus6. During ssRNA phage adsorption, the Mat binds to the side of the pilus through interactions involving hydrophobic and charged amino acids that are strong enough to maintain the attachment of the phage particles during retraction and rotation. It was reported that when ssRNA phage R17 infects the cell, its Mat (39 kDa) is cleaved into two fragments (24 and 15 kDa, respectively). This cleavage reaction is presumed to occur after binding to the F-pilus, but before the Mat and the gRNA enter the cell30. Such a processing reaction may facilitate Mat’s ability to cross the cell envelope. The orientation we defined here for pilus-bound Mat may provide a cell-associate protease access to a cleavage site in the Mat during pilus retraction32. Such an orientation of the Mat, with its tip opposite to the direction of the pilus retraction (Fig. 6a), may also facilitate detachment of the Mat from the capsid, as if it were a pop tab on a soda can (Fig. 6c). Finally, we observed that the binding of the F-pilus causes the variations in the orientations for the Mat relative to the neighboring coat proteins (Fig. 6b). As the Mat is still attached to the gRNA, the flexibility induced by the pilus binding may prime the Mat-gRNA complex to leave the rest of the capsid.
+
+For most of MS2 phage particles bound to either purified or cell-connected F-pili, gRNA remains inside the capsid. This strongly indicates that phage binding to the F-pilus does not release the gRNA. Rather, as indicated above, this release event is envisioned to occur when, as a consequence of pilus retraction, the phage collides with the cell surface or the T4SS basal structure. At this point of contact, the capsid of coat proteins is blocked, whereas the released Mat-gRNA complex is able to transit the cell envelope through a yet unidentified route. Conceivably, the T4SS basal structure may provide such a routing pathway, but this remains to be tested. Previous studies established that the phage gRNA become RNase-sensitive at a specific point in the infection process22. Presumably, when MS2 collides with the cell envelope during pilus retraction, the released Mat-gRNA complex is transiently accessible to RNase prior to entering the cell.
+
+In this study, we used single-particle cryo-EM at tilted angles to alleviate the preferred-orientation of the phage particles as they attach to the F-pili that lack the end-on views. Such a strategy may be used to study other macromolecules as they interact with filamentous specimens, e.g., to study motor proteins decorated on cytoskeletons33. The use of large asymmetrical phage particles that have firm binding to the pili may also serve as structural markers to provide an alternative strategy to determine the unknown polarity of other pili from the cells.
+
+Methods
+F-pili and MS2 purifications
+E. coli F+ strain MC4100 containing the pOX38 (Kanamycin) plasmid was used for F-pili production. The pilin gene on the pOX38 plasmid was confirmed by colony PCR and sequencing. The purification protocol for F-pili is optimized from the previously published method23. Briefly, E. coli MC4100 cells were grown on 100 Luria-Bertani (LB) plates with kanamycin 5 μg/ml for the F-pili production for 16 h. The E. coli cells were scraped from the surface of the plates with pre-chilled SSC buffer (15 mM sodium citrate, 150 mM NaCl, pH 7.2), then passed through 25 1/2 G needles for three times. The suspension was collected and incubated at 4 °C for 4 h with gentle stirring. The cells were pelleted out by centrifugation. Five percent PEG 6000 were gradually added into the supernatant fraction and the NaCl concentration was adjusted to 500 mM. Then the fraction was incubated at 4 °C for 4 h with gentle stirring. The pili were precipitated by centrifugation at 15,000g for 50 min and then resuspended in 1 ml of the F-pili buffer (50 mM Tris-HCl, 200 mM NaCl, pH 8.0). The suspension was layered on pre-formed CsCl step gradients (1.1–1.3 g/cm3) and centrifuged at 192,000g for 19 h at 4 °C. The band for F-pili was dialyzed against the F-pili buffer. MS2 were amplified by infecting E. coli ER2738. Phage particles were precipitated from phage lysate using ammonium sulfate and purified with CsCl gradient34. The final concentration is about ~5 mg/ml of the phage proteins. The titer is ~1012 plaque-forming units.
+
+Single-particle cryo-EM specimen preparation and imaging
+Phage MS2 and F-pili were incubated for 30 min at 37 °C for adsorption. Three microliters of the sample was applied to a 400-mesh 1.2/1.3 c-flat copper grid and frozen with a Vitrobot Mark III (FEI Company). The sample was imaged under JEM3200FSC cryo-electron microscope operated at 300 kV. Movie stacks were collected using SerialEM35 in the manual mode with a Gatan K2 Summit direct detection camera (Gatan) at a nominal magnification of ×30,000 in the super-resolution mode, leading to a sub-pixel size of 0.615 Å. A total electron dose of ~37 e−/Å2 was fractionated over 40 frames (0.2 s/frame, 8 s in total). An in-column energy filter was used with a slit width of 30 eV. To address the preferred-orientation problem, we used the tilting strategy25. In total, 4195 super-resolution movie stacks were obtained, with 1,490, 1,241, and 1,464 stacks collected at 0°, 15°, and 30° tilting, respectively.
+
+Single-particle cryo-EM image processing
+The super-resolution movie stacks were binned by 2 then aligned and filtered by Motion Correction 2 (ref. 36). In total, 168,989 particles with good quality were semi-automatically picked from 4,195 micrographs by EMAN2 (ref. 37). Gctf was used to estimate the contrast transfer function for each particle38. Then the unsupervised refinement was performed in Relion29 with the C1 symmetry without any mask, which yielded a map of the MS2/F-pilus complex (with the gRNA). The refinement was also performed with a mask around the F-pilus and the MS2 capsid and yielded the 5.0 Å-resolution map of the MS2/F-pilus complex (without the gRNA). This refinement was continued with a loose mask around the Mat and the F-pilus, which resulted in more uniform resolutions around the region of the Mat and the F-pilus. The multibody refinement was performed with the F-pilus and MS2 in their respective masks, followed by the principal component analysis to analyze the most dominant structural variations within the structure28. To further explore the flexibility in the MS2/F-pilus complex, we also continued the refinement from the MS2/F-pilus complex (with gRNA) reconstruction with a spherical mask of 280 Å in diameter to further align the phage particles. We then did the Relion 3D classification with a loose mask of the F-pilus without alignment. The particles were classified into four classes with 34.38% in Class 1, 33.29% in Class 2, 11.99% in Class 3, and 20.34% in Class 4. Refinements were then performed separately for Classes 1–4 with a mask around the F-pilus and the MS2 capsid. Class 4 was a junk class showing the F-pilus as two layers due to severe preferred orientations.
+
+Single-particle cryo-EM imaging and processing of apo MS2
+The apo-state MS2 was imaged using an FEI TF20 cryo-electron microscope operated at 200 kV equipped with a Gatan K2 Summit direct detection camera at a nominal magnification of ×29,000 in the super-resolution mode, yielding a sub-pixel size of 0.625 Å. In all, 1,329 movie stacks were collected using SeilEM in the automated mode. For each movie stack, a total dose of ~34 e−/Å2 was fractionated over 33 frames with 0.2 s per frame and 6.6 s in total. A total of 44,987 particles were picked and refined by Relion, produced a density map at 6.6 Å resolution. To investigate the flexibility in the Mat, the same 3D Classification strategy, used in the pilus-bound state, was performed with a loose mask around the Mat region with the alignment skipped. Almost all (93%) of the particles went into the same class, indicating a relatively homogeneous conformation in this region of the phage particle.
+
+Molecular modeling and map visualization
+To build the model for the Mat/F-pilus complex, the PDB models (accession number 5LER and the Chain M of 5TC1) were first fit into the density map and used as the initial models for the F-pilus and the Mat, respectively. The Cα of the tip region for the Mat was manually traced in the density using Coot39. Then the model of the complex was refined by the real-space refinement in Phenix40. The statistics of the refined model is described in Supplementary Table 1. To compare the internal plasticity within the Mat from three different conformations, the same initial model of the Mat was refined against the density maps for Classes 1, 2, and 3, respectively, using MDFF41. The map segmentation and visualization were done in UCSF Chimera42. It has been reported that the wild-type F-pili have two helical-rise parameters of 13.2 and 12.5 Å23. Such a difference only leads to less than a 2-Å shift, between the two types of helical symmetry, at the distal ends within the binding site of a single Mat and may not affect the interaction points which occur in the center of the binding interface.
+
+Specimen preparation for cryo-ET
+E. coli F+ strain MC4100 with the pOX38 (Kanamycin) plasmid was grown in LB liquid culture. Then the cell pellet was spun down and resuspended in the MS2 buffer, which was pre-warmed to 37 °C. MS2 phages were incubated with the cells for 30 min at 37 °C for adsorption. The 6nm-diameter gold particles were added as fiducial markers for image alignment. Three microliters of the sample was applied on the Quantifoil 3.5/1 grids and frozen with the Vitrobot Mark III (FEI Company).
+
+Cryo-ET data collection and subtomogram averaging
+Frozen-hydrated specimens were imaged at −170 °C, using a Polara G2 electron microscope (FEI) equipped with a field emission gun and a Gatan K2 Summit direct detection camera. The microscope was operated at 300 kV with a magnification of ×9,400 with an effective pixel size of 4.45 Å without binning. Using SerialEM, low-dose, single-axis tilt series were collected at −6 to −9 μm defocus with a cumulative dose of ~80 e−/Å2 distributed over 35 stacks and covering an angular range of −51° to +51°, with an angular increment of 3°. Each stack contains eight frames. We used Tomoauto43 to facilitate data processing which includes drift correction of dose-fractionated data using Motioncorr44, assembly of corrected sums into tilt series, automatic fiducial seed model generation, alignment and contrast transfer function correction of tilt series by IMOD45, and reconstruction of tilt series into tomograms by Tomo3D46. In total, 100 tomographic reconstructions were generated. To make sure the pili are directly connected with E. coli, a total of 1,245 subtomograms (400 × 400 × 400 voxels) were visually identified and then extracted from 30 tomographic reconstructions in which the pili are extended from the E. coli cell membrane. Then we used the tomographic package I3 (0.9.9) for subtomogram analysis as described previously47. The initial orientation of each particle was estimated by the phage and pili coordinates, thereby providing the three Euler angles. To accelerate image analysis, 4 × 4 × 4 binned subtomograms (100 × 100 × 100 voxels) were used for initial alignment. The alignment proceeded iteratively with each iteration consisting of three parts in which references and classification masks were generated, subtomograms were aligned and classified, and finally class averages were aligned with each other. After multiple cycles of alignment and classification for the 4 × 4 × 4 binned subtomograms, we used the 2 × 2 × 2 binned subtomograms for refinement. Fourier shell correlation (FSC) between the two independent reconstructions was used to estimate the resolution of the averaged structures.
+
+Reporting Summary
+Further information on research design is available in the Nature Research Reporting Summary linked to this article.
+
+Data Availability
+The cryo-EM and cryo-ET density maps of the MS2/F-pilus complex and the apo MS2 have been deposited into the EMData Bank with accession numbers EMD-9397, EMD-0453, EMD-9399, EMD-0448, EMD-0450, EMD-0338, and EMD-0451. The model of the F-pilus/maturation protein complex has been deposited to the protein data bank with the accession ID 6NM5 [https://doi.org/10.2210/pdb6NM5/pdb]. The authors declare that all data supporting the findings of this study are available from the corresponding authors upon request.
+
+References
+Dai, X. et al. In situ structures of the genome and genome-delivery apparatus in a single-stranded RNA virus. Nature 541, 112–116 (2017).
+
+Article
+ 
+ADS
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Gorzelnik, K. V. et al. Asymmetric cryo-EM structure of the canonical Allolevivirus Qbeta reveals a single maturation protein and the genomic ssRNA in situ. Proc. Natl. Acad. Sci. USA 113, 11519–11524 (2016).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Klovins, J., Overbeek, G. P., van den Worm, S. H., Ackermann, H. W. & van Duin, J. Nucleotide sequence of a ssRNA phage from Acinetobacter: kinship to coliphages. J. Gen. Virol. 83, 1523–1533 (2002).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Kazaks, A., Voronkova, T., Rumnieks, J., Dishlers, A. & Tars, K. Genome structure of caulobacter phage phiCb5. J. Virol. 85, 4628–4631 (2011).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Tars, K., Fridborg, K., Bundule, M. & Liljas, L. The three-dimensional structure of bacteriophage PP7 from Pseudomonas aeruginosa at 3.7-A resolution. Virology 272, 331–337 (2000).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Clarke, M., Maddera, L., Harris, R. L. & Silverman, P. M. F-pili dynamics by live-cell imaging. Proc. Natl. Acad. Sci. USA 105, 17978–17981 (2008).
+
+Article
+ 
+ADS
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Chamakura, K. & Young, R. Phage single-gene lysis: Finding the weak spot in the bacterial cell wall. J. Biol. Chem. 294, 3350–3358 (2019).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Date, T. Kinetic studies of the interaction between MS2 phage and F pilus of Escherichia coli. Eur. J. Biochem 96, 167–175 (1979).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Coetzee, J. N., Bradley, D. E., Hedges, R. W., Fleming, J. & Lecatsas, G. Bacteriophage M: an incompatibility group M plasmid-specific phage. J. Gen. Microbiol 129, 2271–2276 (1983).
+
+CAS
+ 
+PubMed
+ 
+Google Scholar
+ 
+
+Mattick, J. S. Type IV pili and twitching motility. Annu Rev. Microbiol 56, 289–314 (2002).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Sommer, J. M. & Newton, A. Sequential regulation of developmental events during polar morphogenesis in Caulobacter crescentus: assembly of pili on swarmer cells requires cell separation. J. Bacteriol. 170, 409–415 (1988).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Klumper, U. et al. Broad host range plasmids can invade an unexpectedly diverse fraction of a soil bacterial community. ISME J. 9, 934–945 (2015).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Manchak, J., Anthony, K. G. & Frost, L. S. Mutational analysis of F-pilin reveals domains for pilus assembly, phage infection and DNA transfer. Mol. Microbiol 43, 195–205 (2002).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Frost, L. S. & Paranchych, W. DNA sequence analysis of point mutations in traA, the F pilin gene, reveal two domains involved in F-specific bacteriophage attachment. Mol. Gen. Genet 213, 134–139 (1988).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Dent, K. C. et al. The asymmetric structure of an icosahedral virus bound to its receptor suggests a mechanism for genome release. Structure 21, 1225–1234 (2013).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Pan, Y. et al. Development of a microRNA delivery system based on bacteriophage MS2 virus-like particles. FEBS J. 279, 1198–1208 (2012).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Pumpens, P. et al. The True Story and Advantages of RNA Phage Capsids as Nanotools. Intervirology 59, 74–110 (2016).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Zhong, Q. et al. Genetic, Structural, and Phenotypic Properties of MS2 Coliphage with Resistance to ClO2 Disinfection. Environ. Sci. Technol. 50, 13520–13528 (2016).
+
+Article
+ 
+ADS
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Koning R. I., et al. Asymmetric cryo-EM reconstruction of phage MS2 reveals genome structure in situ. Nat Commun 7, https://doi.org/10.1038/ncomms12524 (2016).
+
+Christie, P. J., Whitaker, N. & Gonzalez-Rivera, C. Mechanism and structure of the bacterial type IV secretion systems. Biochim Biophys. Acta 1843, 1578–1591 (2014).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Lawley, T. D., Klimke, W. A., Gubbins, M. J. & Frost, L. S. F factor conjugation is a true type IV secretion system. FEMS Microbiol Lett. 224, 1–15 (2003).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Paranchych, W., Ainsworth, S. K., Dick, A. J. & Krahn, P. M. Stages in phage R17 infection. V. Phage eclipse and the role of F pili. Virology 45, 615–628 (1971).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Costa, T. R. et al. Structure of the Bacterial Sex F Pilus Reveals an Assembly of a Stoichiometric Protein-Phospholipid Complex. Cell 166, 1436–1444 (2016). e1410.
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Fernandez-Leiro, R. & Scheres, S. H. W. A pipeline approach to single-particle processing in RELION. Acta Crystallogr D. Struct. Biol. 73, 496–502 (2017).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Tan, Y. Z. et al. Addressing preferred specimen orientation in single-particle cryo-EM through tilting. Nat. Methods 14, 793–796 (2017).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Naydenova K., Russo C. J. Measuring the effects of particle orientation to improve the efficiency of electron cryomicroscopy. Nat Commun 8, https://doi.org/10.1038/s41467-017-00782-3 (2017).
+
+Valentine, R. C. & Wedel, H. The extracellular stages of RNA bacteriophage infection. Biochem Biophys. Res Commun. 21, 106–112 (1965).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Nakane T., Kimanius D., Lindahl E., Scheres S. H. Characterisation of molecular motions in cryo-EM single-particle data by multi-body refinement in RELION. Elife 7, https://doi.org/10.7554/eLife.36861 (2018).
+
+Scheres, S. H. A Bayesian view on cryo-EM structure determination. J. Mol. Biol. 415, 406–418 (2012).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Krahn, P. M., O’Callaghan, R. J. & Paranchych, W. Stages in phage R17 infection. VI. Injection of A protein and RNA into the host cell. Virology 47, 628–637 (1972).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Finlay, B. B., Frost, L. S. & Paranchych, W. Nucleotide sequence of the tra YALE region from IncFV plasmid pED208. J. Bacteriol. 168, 990–998 (1986).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Hritonenko, V. & Stathopoulos, C. Omptin proteins: an expanding family of outer membrane proteases in Gram-negative Enterobacteriaceae. Mol. Membr. Biol. 24, 395–406 (2007).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Kapitein, L. C. & Hoogenraad, C. C. Building the Neuronal Microtubule Cytoskeleton. Neuron 87, 492–506 (2015).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Strauss, J. H. Jr. & Sinsheimer, R. L. Purification and properties of bacteriophage MS2 and of its ribonucleic acid. J. Mol. Biol. 7, 43–54 (1963).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Mastronarde, D. N. Automated electron microscope tomography using robust prediction of specimen movements. J. Struct. Biol. 152, 36–51 (2005).
+
+Article
+ 
+Google Scholar
+ 
+
+Zheng, S. Q. et al. MotionCor2: anisotropic correction of beam-induced motion for improved cryo-electron microscopy. Nat. Methods 14, 331–332 (2017).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Tang, G. et al. EMAN2: an extensible image processing suite for electron microscopy. J. Struct. Biol. 157, 38–46 (2007).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Zhang, K. Gctf: Real-time CTF determination and correction. J. Struct. Biol. 193, 1–12 (2016).
+
+Article
+ 
+ADS
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Emsley, P. & Cowtan, K. Coot: model-building tools for molecular graphics. Acta Crystallogr D. Biol. Crystallogr 60, 2126–2132 (2004).
+
+Article
+ 
+Google Scholar
+ 
+
+Adams, P. D. et al. PHENIX: a comprehensive Python-based system for macromolecular structure solution. Acta Crystallogr D Biol Crystallogr 66, (213–221 (2010).
+
+Google Scholar
+ 
+
+Trabuco, L. G., Villa, E., Mitra, K., Frank, J. & Schulten, K. Flexible fitting of atomic structures into electron microscopy maps using molecular dynamics. Structure 16, 673–683 (2008).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Pettersen, E. F. et al. UCSF Chimera-a visualization system for exploratory research and analysis. J. Comput Chem. 25, 1605–1612 (2004).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Morado D. R., Hu B., Liu J. Using Tomoauto: A Protocol for High-throughput Automated Cryo-electron Tomography. J Vis Exp, https://doi.org/10.3791/53608 (2016).
+
+Li, X. et al. Electron counting and beam-induced motion correction enable near-atomic-resolution single-particle cryo-EM. Nat. Methods 10, 584–590 (2013).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Kremer, J. R., Mastronarde, D. N. & McIntosh, J. R. Computer visualization of three-dimensional image data using IMOD. J. Struct. Biol. 116, 71–76 (1996).
+
+Article
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Agulleiro, J. I. & Fernandez, J. J. Tomo3D 2.0-exploitation of advanced vector extensions (AVX) for 3D reconstruction. J. Struct. Biol. 189, 147–152 (2015).
+
+Article
+ 
+Google Scholar
+ 
+
+Hu, B. et al. Visualization of the type III secretion sorting platform of Shigella flexneri. Proc. Natl. Acad. Sci. USA 112, 1047–1052 (2015).
+
+Article
+ 
+ADS
+ 
+CAS
+ 
+Google Scholar
+ 
+
+Download references
+
+Acknowledgements
+We thank the Microscopy and Imaging Center at Texas A&M University for providing instrumentation for the initial screening of the phage particles and the data collection for the apo-state MS2; the Texas A&M High-Performance Research Computing Center for providing the computational resources for the data processing; and the National Center for Macromolecular Imaging (NCMI) at Baylor College of Medicine for single-particle cryo-EM data collection of the MS2/F-pilus complex. NCMI is supported by NIH Grants P41GM103832 and U24GM1167. J.Z. is supported by start-up funding from the Department of Biochemistry and Biophysics at Texas A&M University. J.Z. acknowledges the support of the Center for Phage Technology, jointly sponsored by Texas AgriLife and Texas A&M University, and the NIH grants R21AI137696, P01AI095208. J.Z. and B.H. acknowledge the Welch Foundation grants A-1863 (to J.Z.) and AU-1953 (to B.H.). R.M. and M.J. are partly supported by the Texas A&M Triads for Transformation grant, the TAMU School of Science Strategic Transformative Research Program and the CST*R Foundation. E. coli F+ strain MC4100 containing the pOX38 plasmid was a gift from Dr. Peter J. Christie. We also thank Dr. Peter J. Christie, Dr. Ry Young, and Karl V. Gorzelnik for insightful critiques on the manuscript.
+
+Author information
+Author notes
+Kailu Yang
+
+Present address: Howard Hughes Medical Institute, Department of Molecular and Cellular Physiology, Stanford University, Stanford, CA, 94305, USA
+
+Authors and Affiliations
+Department of Biochemistry and Biophysics, Center for Phage Technology, Texas A&M University, College Station, TX, 77843, USA
+
+Ran Meng, Mengqiu Jiang, Zhicheng Cui, Jeng-Yih Chang, Kailu Yang & Junjie Zhang
+
+National Center for Macromolecular Imaging, Verna and Marrs McLean Department of Biochemistry and Molecular Biology, Baylor College of Medicine, Houston, TX, 77030, USA
+
+Joanita Jakana, Xinzhe Yu & Zhao Wang
+
+Department of Microbiology and Molecular Genetics, The University of Texas Health Science Center at Houston, Houston, TX, 77030, USA
+
+Bo Hu
+
+Contributions
+R.M., B.H. and J.Z. designed research; R.M., M.J., Z.C., J-Y.C., K.Y., B.H. and J.Z. performed research with the assistance of J.J., X.Y., and Z.W.; R.M., B.H., and J.Z. analyzed data; and R.M., B.H. and J.Z. wrote the paper.
+
+Corresponding authors
+Correspondence to Bo Hu or Junjie Zhang.
+
+Ethics declarations
+Competing interests
+The authors declare no competing interests.
+
+Additional information
+Peer review information: Nature Communications thanks Ning Gao and other anonymous reviewer(s) for their contribution to the peer review of this work. Peer reviewer reports are available.
+
+Publisher’s note: Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+
+Supplementary information
+Supplementary information
+Peer Review File
+Description of Additional Supplementary Files
+Supplementary movie 1
+Supplementary movie 2
+Supplementary movie 3
+Reporting Summary
+Rights and permissions
+Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons license, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons license and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+
+Reprints and permissions
+
+About this article
+Check for updates. Verify currency and authenticity via CrossMark
+Cite this article
+Meng, R., Jiang, M., Cui, Z. et al. Structural basis for the adsorption of a single-stranded RNA bacteriophage. Nat Commun 10, 3130 (2019). https://doi.org/10.1038/s41467-019-11126-8
+
+Download citation
+
+Received
+14 March 2019
+
+Accepted
+24 June 2019
+
+Published
+16 July 2019
+
+DOI
+https://doi.org/10.1038/s41467-019-11126-8
+
+Share this article
+Anyone you share the following link with will be able to read this content:
+
+Get shareable link
+Provided by the Springer Nature SharedIt content-sharing initiative
+
+Subjects
+Cryoelectron microscopy
+Cryoelectron tomography
+Phage biology
+This article is cited by
+Self-assembling nanofibrous bacteriophage microgels as sprayable antimicrobials targeting multidrug-resistant bacteria
+Lei TianLeon HeZeinab Hosseinidoust
+Nature Communications (2022)
+
+Rapid de novo evolution of lysis genes in single-stranded RNA phages
+Karthik R. ChamakuraJennifer S. TranRy Young
+Nature Communications (2020)
+
+Comments
+By submitting a comment you agree to abide by our Terms and Community Guidelines. If you find something abusive or that does not comply with our terms or guidelines please flag it as inappropriate.
+
+Nature Communications (Nat Commun) ISSN 2041-1723 (online)
+
+nature.com sitemap
+About Nature Portfolio
+About us
+Press releases
+Press office
+Contact us
+Discover content
+Journals A-Z
+Articles by subject
+Protocol Exchange
+Nature Index
+Publishing policies
+Nature portfolio policies
+Open access
+Author & Researcher services
+Reprints & permissions
+Research data
+Language editing
+Scientific editing
+Nature Masterclasses
+Research Solutions
+Libraries & institutions
+Librarian service & tools
+Librarian portal
+Open research
+Recommend to library
+Advertising & partnerships
+Advertising
+Partnerships & Services
+Media kits
+Branded content
+Professional development
+Nature Careers
+Nature Conferences
+Regional websites
+Nature Africa
+Nature China
+Nature India
+Nature Italy
+Nature Japan
+Nature Korea
+Nature Middle East
+Privacy Policy Use of cookies Your privacy choices/Manage cookies Legal notice Accessibility statement Terms & Conditions Your US state privacy rights
+Springer Nature
+© 2024 Springer Nature Limited
+

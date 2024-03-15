@@ -1,0 +1,152 @@
+Skip to main contentSkip to article
+Elsevier logo
+
+Current Opinion in Biotechnology
+Volume 68, April 2021, Pages 186-192
+Phage-specific antibodies
+Author links open overlay panelKatarzyna Gembara, Krystyna Dąbrowska
+Show more
+Share
+Cite
+https://doi.org/10.1016/j.copbio.2020.11.011
+Get rights and content
+Highlights
+•
+Phages are T-dependent antigens; phage-specific immune response is common and similar to that induced by many other antigens.
+
+•
+Controlling effective doses may help in controlling the immune response to phage.
+
+•
+Phage therapy design may benefit from predicting possible cross-reactions between antibodies specific to different phages.
+
+•
+Identification of phage-specific epitopes could be an important part of phage characterization.
+
+
+Antibodies specific to phage virions have been observed many times, both in animals and in humans. Phages induce the T-dependent type of immune response, which is fundamental for immunological memory and long retention of abilities to recognize and respond to foreign epitopes. Experimental models have shown that phage-specific antibodies can be devastating for a phage in vivo. Observations from phage treatment in humans demonstrate however that antibodies do not necessarily hinder phage therapy. Controlling effective doses may help in controlling the immune response to phage and to create ‘therapeutic windows’ for the phage. Phage therapy design may also benefit from understanding phage antigenicity and predicting possible cross-reactions between antibodies specific to different phages.
+
+Graphical abstract
+
+Download : Download high-res image (52KB)
+Download : Download full-size image
+
+Introduction
+Immune systems of humans and animals, when exposed to a foreign substance (antigen), respond with production of protective proteins: antibodies (immunoglobulins, Igs). This specific response is crucial in defense against pathogens and toxins, but the variety of unknown threats makes the immune system respond ‘just in case’, even to non-pathogenic objects such as bacteriophages (phages). Antibodies specific to phage virions have been observed many times, both in phage-treated animals and in humans [1•] (Supplementary material: Table S1). Phage-specific antibodies have also been observed in non-treated individuals, since phages, being ubiquitous in the environment and in natural microbiomes (the phageome), enter human or animal bodies and challenge the immune system [2, 3, 4, 5, 6].
+
+Antibodies are a manifestation of adaptive immunity, which is a part of the immune system that must be ‘trained’ to specifically recognize and respond to foreign antigens, but typically its resulting capacity to neutralize foreign objects is spectacular. Major effectors of the adaptive immunity are lymphocytes (T cells and B cells) that are able to develop a variety of specific receptors to recognize antigens. Antibodies are produced by B cells, while antigen-specific armed helper T cells may deliver stimulating signals to cause the B cell to differentiate into antibody-secreting cells. The T-dependent type of immune response is fundamental for immunological memory and long retention of abilities to recognize and respond to foreign epitopes [7••]. Phage virions typically consist of many proteins that cover a nucleic acid; these proteins carry differentiated epitopes. Specifically, many different proteins can be found in one phage, but also there is an extremely high diversity between proteins of different phages, with a myriad of possible epitopes. Phages as protein antigens comply with biochemical characteristics of typical T-dependent antigens [6,8,9, 10, 11]. This raises the question whether specific immune responses and immunological memory may determine outcomes of phage therapies?
+
+In this review, we intend to address this question, providing a comprehensive summary of phage-antibody interactions and highlighting aspects that relate to phage therapy. We will focus on both how phage induces phage-specific antibodies and how phage-specific antibodies affect phage, including an insight into phage antigenicity and to typical modes of response to phage.
+
+Section snippets
+Types of antibodies induced by bacteriophages
+Different classes (isotypes) and subclasses of antibodies determine the biological role and outcomes of their rise. Induction of IgM followed by IgG in blood serum as well as IgA secretion on mucosal surfaces is the most frequent ‘proper’ mode of response, which allows for effective neutralization of a target. IgM and IgG are important for systemic neutralization. IgA presents an immune barrier on mucosal surfaces. Commonly, bacteriophages first induce specific IgM as the primary response to
+
+Kinetics of specific antibody induction by bacteriophages (timing)
+The variety of possible administration schedules and extreme differentiation of phages (between phage strains) make it difficult to establish a universal model of kinetics of specific antibody induction by phages. In most cases, first phage-specific antibodies (IgM) appeared within one week [12••,26,27], detectable even as early as within 24−35 hours after challenge [14,28, 29, 30]. The IgG fraction peaks later, usually 2–4 weeks after the challenge [12••,26,31] (Figure 1). Effective induction
+
+Dose effect
+Anti-phage antibodies could not always be found after phage administration to humans or to animals. Phage neutralizing humoral responses, when observed, are positively correlated with phage dose, with weaker or even ineffective immunizations by low-dose applications [15,18,28,33, 34, 35]. Thus, a key condition that may help to control development of a specific humoral response to phages seems to be the phage dose (Figure 2).
+
+Notably, the route of phage administration strongly determines phage
+
+Phage proteins as immunogens: is this a neutralizing antibody?
+Phages are not simple antigens; they are complex structures composed of many proteins, each displaying many potential epitopes. Therefore so-called ‘phage-specific’ antibodies are rather a sum of responses to different proteins of a phage (polyclonal). It is possible to develop antibodies that specifically recognize an epitope on a selected protein (monoclonal) [36], but this is not the case when humans or animals are treated with complete phage virions. Direct neutralization of phage is
+
+Cooperation of innate immunity with phage-specific antibodies
+Adaptive immunity, including antibodies, is not a separate mode of response, but instead it enhances and expands non-specific, innate functions of the immune system. Antibodies may target antigens directly, but they also add an ability to target the response of other elements of the immune system, such as phagocytosis and the complement system. This is mainly by facilitating phagocytosis of antigens opsonized with antibodies or by activation of the complement system with antibodies that bind to 
+
+Can phage-specific antibodies affect phage therapy outcomes?
+Antibodies may potentially affect phage therapy in three major ways: (i) pre-existing natural antibodies my decrease or prevent therapeutic efficacy of phage, (ii) rapid induction of antibodies specific to a therapeutic phage during treatment might decrease or prevent therapeutic success, or (iii) phage-specific antibodies induced by the first round of phage treatment may hinder the next round when the same or a very similar phage is used. Unfortunately, none of these has been investigated
+
+Conclusions and outlook
+Bacteriophages are non-pathogenic viruses, but human and animal immune systems effectively respond to phages with specific antibodies. Phages seem to be T-dependent antigens, since the phage-specific immune response is similar to that induced by many other antigens, with affinity maturation and isotype switching [6,8,9,10,11,19] (Figure 1). The primary response is IgM, followed by IgG, and secretory IgA. The potential of phage-specific IgM, IgG, and IgA to affect or even neutralize phage
+
+Conflict of interest statement
+Nothing declared.
+
+References and recommended reading
+Papers of particular interest, published within the period of review, have been highlighted as:
+• of special interest
+
+•• of outstanding interest
+
+
+Acknowledgements
+This work was supported by the National Science Centre in Poland grant no. UMO-2019/35/B/NZ7/01824. Authors would like to express sincere thanks to prof. Andrzej Górski for inspiring fascination with bacteriophages.
+
+References (55)
+S. Nonoyama et al.
+B cell activation via CD40 is required for specific antibody production by antigen-stimulated human B cells
+J Exp Med
+(1993)
+M. Zaczek et al.
+Antibody production in response to staphylococcal MS-1 phage cocktail in patients undergoing phage therapy
+Front Microbiol
+(2016)
+K. Wojtyna et al.
+Hypersensitivity to phages is a rare phenomenon
+S. Gruenheid et al.
+Microbial pathogenesis and cytoskeletal function
+Nature
+(2003)
+R. Barfoot et al.
+Some properties of dendritic macrophages from peripheral lymph
+Immunology
+(1989)
+J. Wang et al.
+Use of bacteriophage in the treatment of experimental animal bacteremia from imipenem-resistant Pseudomonas aeruginosa
+Int J Mol Med
+(2006)
+W.E. Huff et al.
+Evaluation of aerosol spray and intramuscular injection of bacteriophage to treat an Escherichia coli respiratory infection
+Poult Sci
+(2003)
+W.E. Huff et al.
+Prevention of Escherichia coli infection in broiler chickens with a bacteriophage aerosol spray
+Poult Sci
+(2002)
+K. Dabrowska
+Phage therapy: what factors shape phage pharmacokinetics and bioavailability? Systematic and critical review
+Med Res Rev
+(2019)
+J.D. Van Belleghem et al.
+Interactions between bacteriophage, bacteria, and the mammalian immune system
+Viruses
+(2018)
+View more references
+Cited by (21)
+Bacteriophage therapy and current delivery strategies for orthopedic infections: A SCOPING review
+2024, Journal of Infection
+Show abstract
+Alginate microbeads and hydrogels delivering meropenem and bacteriophages to treat Pseudomonas aeruginosa fracture-related infections
+2023, Journal of Controlled Release
+Show abstract
+Endocytosis of Bacteriophages
+2022, Current Opinion in Virology
+Citation Excerpt :
+Engulfed objects can be destroyed inside the cells, and further they can be processed for presentation of epitopes to other elements of the immune system, mostly by professional phagocytes: macrophages, monocytes, neutrophils, mast cells, and dendritic cells. Intracellular processing and presentation of foreign antigens plays a key role in development of the adaptive immune response [26]. Phage-inhibitory effects have been demonstrated ex vivo or in vitro with leukocytes but also with other cells (epithelial, endothelial) (Table S1) [7,12••,27].
+
+Show abstract
+Recent Progress in Phage-Based Nanoplatforms for Tumor Therapy
+2024, Small
+Bacteriophage Challenges in Industrial Processes: A Historical Unveiling and Future Outlook
+2024, Pathogens
+Bacteriophage therapy for drug-resistant Staphylococcus aureus infections
+2024, Frontiers in Cellular and Infection Microbiology
+View all citing articles on Scopus
+View full text
+© 2020 Elsevier Ltd. All rights reserved.
+Elsevier logo with wordmark
+About ScienceDirect
+Remote access
+Shopping cart
+Advertise
+Contact and support
+Terms and conditions
+Privacy policy
+Cookies are used by this site. Cookie Settings
+
+All content on this site: Copyright © 2024 Elsevier B.V., its licensors, and contributors. All rights are reserved, including those for text and data mining, AI training, and similar technologies. For all open access content, the Creative Commons licensing terms apply.
+
+RELX group home page

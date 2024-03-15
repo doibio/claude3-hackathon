@@ -1,0 +1,46 @@
+
+Main menu
+WikipediaThe Free Encyclopedia
+Search
+
+Personal tools
+
+Toggle the table of contents
+MS2 tagging
+
+Article
+Talk
+
+Tools
+From Wikipedia, the free encyclopedia
+MS2 tagging is a technique based upon the natural interaction of the MS2 bacteriophage coat protein with a stem-loop structure from the phage genome,[1] which is used for biochemical purification of RNA-protein complexes and partnered to GFP for detection of RNA in living cells.[2] More recently, the technique has been used to monitor the appearance of RNA in living cells, at the site of transcription, or simply by observing the changes in RNA number in the cytoplasm.[3][4] This has revealed that transcription of both prokaryotic and eukaryotic genes occurs in a discontinuous fashion with bursts of transcription separated by irregular intervals.
+
+Procedure
+Start with single-stranded RNA, and create a pattern of stem-loop structures by adding copies of the MS2 RNA-binding sequences to a noncoding region.[5] The MS2 protein must be fused with GFP and bonded to an mRNA, a complex that contains the MS2’s RNA-binding sequence copies.[5] The MS2-GFP fusion protein was expressed by transferring it to a cell with a plasmid [5] (Robert Singer’s lab). The signal encodes within RNA and the signal presences of the nuclear localization signal (NLS) within GFP-MS2 are two signals that introduce from EGFP-MS2-RNA complexes.[6]
+
+MS2 biotin-tagged RNA affinity purification (MS2-BioTRAP) is one in vivo method of identifying protein-RNA interactions.[7] Both the RNA that tagged with MS2 and the MS2 protein tag were expressed, and then, the affinity interaction was used to help the process of identifying protein-RNA interactions.[7]
+
+Advantages and Disadvantages
+Advantages:
+
+The MS2-BioTRAP method is fast, flexible, and easy to set up; it scales well and allows the study of the physiological conditions of the protein-RNA interactions.[7] The MS2 tag is also effective for small molecules when an MS2 coat protein is used to isolate a variety of ribonucleoprotein particles (RNPs).[8]
+
+Disadvantages:
+
+One caveat of MS2 tagging is that many copies of the MS2 stem-loop inside the RNA need to be added to produce enough signal to view and track one RNA molecule in the nucleus.[5] When tracking more than one RNA sequence in the nucleus of cultured cells, more than one target sequence is needed.[5] This could be affected by the MS2 protein, which has a classical basic nuclear localization signal (NLS), so it could affect the location of the RNA complex, and the nucleus would have most of the GFP-MS2 [5](Robert Singer’s lab).[6] The accumulation of GFP-MS2 in the nucleus will result in strong nuclear fluorescence signals, which will delay or prevent the analysis of RNA nuclear localization because it will hinder the analysis of splicing, RNA editing, the nuclear export of RNA, and RNA translation.[6] Moreover, due to the addition of the tag, the RNA secondary structure may introduce an artifact.[5]
+
+Additionally, the small noncoding RNA (sRNA) expression levels and regulatory properties will be influenced by MS2 tag.[8] Also, by using MS2 as an affinity tag to purify a protein in E. coli bacteria, scientists expressed MS2-MBP, which is an MS2 coat protein carrying mutations fused with maltose-binding proteins. The mutations prevented oligomerization.[8]
+
+References
+ Johansson HE, Liljas L, Uhlenbeck OC (1997). "RNA recognition by the MS2 phage coat protein". Seminars in Virology. 8 (3): 176–185. doi:10.1006/smvy.1997.0120.
+ Bertrand E, Chartrand P, Schaefer M, Shenoy SM, Singer RH, Long RM (October 1998). "Localization of ASH1 mRNA particles in living yeast". Molecular Cell. 2 (4): 437–45. doi:10.1016/s1097-2765(00)80143-4. PMID 9809065.
+ Golding I, Paulsson J, Zawilski SM, Cox EC (December 2005). "Real-time kinetics of gene activity in individual bacteria". Cell. 123 (6): 1025–36. doi:10.1016/j.cell.2005.09.031. PMID 16360033. S2CID 10319035.
+ Chubb JR, Trcek T, Shenoy SM, Singer RH (May 2006). "Transcriptional pulsing of a developmental gene". Current Biology. 16 (10): 1018–25. doi:10.1016/j.cub.2006.03.092. PMC 4764056. PMID 16713960.
+ "Live and In Color | The Scientist Magazine®". The Scientist. Retrieved 2017-03-12.
+ "Technology". Lucerna, Inc. Retrieved 2017-03-12.
+ Marchese D, de Groot NS, Lorenzo Gotor N, Livi CM, Tartaglia GG (November 2016). "Advances in the characterization of RNA-binding proteins". Wiley Interdisciplinary Reviews: RNA. 7 (6): 793–810. doi:10.1002/wrna.1378. PMC 5113702. PMID 27503141.
+ Said N, Rieder R, Hurwitz R, Deckert J, Urlaub H, Vogel J (November 2009). "In vivo expression and purification of aptamer-tagged small RNA regulators". Nucleic Acids Research. 37 (20): e133. doi:10.1093/nar/gkp719. PMC 2777422. PMID 19726584.
+Categories: ProteinsLaboratory techniques
+This page was last edited on 29 January 2023, at 17:06 (UTC).
+Text is available under the Creative Commons Attribution-ShareAlike License 4.0; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policyAbout WikipediaDisclaimersContact WikipediaCode of ConductDevelopersStatisticsCookie statementMobile viewWikimedia FoundationPowered by MediaWiki

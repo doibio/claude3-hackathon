@@ -1,0 +1,148 @@
+
+Search Wikipedia
+Bacteriophage MS2
+Species of virus / From Wikipedia, the free encyclopedia
+Bacteriophage
+Lambda phage
+Transduction (genetics)
+DEAR WIKIWAND AI, LET'S KEEP IT SHORT BY SIMPLY ANSWERING THESE KEY QUESTIONS:
+Can you list the top facts and stats about Bacteriophage MS2?
+
+Summarize this article for a 10 year old
+
+SHOW ALL QUESTIONS
+Bacteriophage MS2 (Emesvirus zinderi), commonly called MS2, is an icosahedral, positive-sense single-stranded RNA virus that infects the bacterium Escherichia coli and other members of the Enterobacteriaceae. MS2 is a member of a family of closely related bacterial viruses that includes bacteriophage f2, bacteriophage Qβ, R17, and GA.
+
+Quick Facts Emesvirus zinderi, Virus classification ...
+Emesvirus zinderi
+MS2 capsid
+Bacteriophage MS2 capsid structure. The three quasi-equivalent conformers are labelled blue (chain a), green (chain b) and magenta (chain c)
+Virus classificationEdit this classification
+(unranked):
+Virus
+Realm:
+Riboviria
+Kingdom:
+Orthornavirae
+Phylum:
+Lenarviricota
+Class:
+Leviviricetes
+Order:
+Norzivirales
+Family:
+Fiersviridae
+Genus:
+Emesvirus
+Species:
+Emesvirus zinderi
+Close
+It is small and contains a maturation protein, coat protein, and genomic RNA. It also has one of the smallest known genomes, encoding four proteins.
+
+The MS2 lifecycle involves infecting bacteria with the fertility factor, enabling the virus to attach to the pilus, though the mechanism by which the virus's RNA enters the bacterium remains unknown. Once inside, the viral RNA starts functioning as a messenger RNA to produce viral proteins. MS2 replicates its plus-strand genome by creating a minus strand RNA as a template. The virus then assembles, and the bacterial cell lyses, releasing new viruses.
+
+The virus was isolated in 1961 and its genome was the first to be fully sequenced, in 1976, providing a crucial understanding of genetic codes. In practical applications, MS2's structural components have been used to detect RNA in living cells. The virus is also under research for potential uses in drug delivery, tumor imaging, and light harvesting. Furthermore, because of its structural similarities to noroviruses, its preferred proliferation conditions, and its lack of pathogenicity to humans, MS2 serves as a substitute in studies of norovirus disease transmission.
+
+Virology
+Genome
+caption
+Bacteriophage MS2 genome
+More information Gene, Size ...
+Gene	Size	Gene product	aa
+mat
+(MS2g1)
+
+1487 nt	maturation
+protein
+
+393
+cp
+(MS2g2)
+
+510 nt	coat protein	130
+lys
+(MS2g3)
+
+295 nt	lysis protein	75
+rep
+(MS2g4)
+
+2055 nt	RNA replicase,
+beta subunit
+
+545
+Close
+The MS2 genome is one of the smallest known, consisting of 3569 nucleotides of single-stranded RNA. It encodes just four proteins: the maturation protein (A-protein), the lysis (lys) protein, the coat protein (cp), and the replicase (rep) protein. The gene encoding lys overlaps both the 3'-end of the upstream gene (cp) and the 5'-end of the downstream gene (rep), and was one of the first known examples of overlapping genes. The positive-stranded RNA genome serves as a messenger RNA, and is translated upon viral uncoating within the host cell. Although the four proteins are encoded by the same messenger/viral RNA, they are not all expressed at the same levels.
+
+Structure
+
+Schematic drawing of a Levivirus virion (cross section and side view)
+An MS2 virion (viral particle) is about 27 nm in diameter, as determined by electron microscopy. It consists of one copy of the maturation protein and 180 copies of the coat protein (organized as 90 dimers) arranged into an icosahedral shell with triangulation number T=3, protecting the genomic RNA inside. The virion has an isoelectric point (pI) of 3.9.
+
+The structure of the coat protein is a five-stranded β-sheet with two α-helices and a hairpin. When the capsid is assembled, the helices and hairpin face the exterior of the particle, while the β-sheet faces the interior.
+
+Life cycle
+MS2 infects enteric bacteria carrying the fertility (F) factor, a plasmid that allows cells to serve as DNA donors in bacterial conjugation. Genes on the F plasmid specifies the proteins of the F pilus, which includes the F-pilin protein that serves as the viral receptor. MS2 attaches to the F-pilin on the side of the pilus using its single maturation protein.
+
+Once the viral RNA has entered the cell, it begins to function as a messenger RNA for the production of phage proteins. The gene for the most abundant protein, the coat protein, can be immediately translated. The translation start of the replicase gene is normally hidden within RNA secondary structure, but can be transiently opened as ribosomes pass through the coat protein gene. Replicase translation is also shut down once large amounts of coat protein have been made; coat protein dimers bind and stabilize the RNA "operator hairpin", blocking the replicase start. The start of the maturation protein gene is accessible in RNA being replicated but hidden within RNA secondary structure in the completed MS2 RNA; this ensures translation of only a very few copies of maturation protein per RNA. Finally, the lysis protein gene can only be initiated by ribosomes that have completed translation of the coat protein gene and "slip back" to the start of the lysis protein gene, at about a 5% frequency.
+
+
+Bacteriophage MS2 life cycle
+Replication of the plus-strand MS2 genome requires synthesis of the complementary minus strand RNA, which can then be used as a template for synthesis of a new plus strand RNA. MS2 replication has been much less well studied than replication of the highly related bacteriophage Qβ, partly because the MS2 replicase has been difficult to isolate, but is likely to be similar.
+
+The formation of the virion is thought to be initiated by binding of maturation protein to the MS2 RNA; in fact, the complex of maturation protein and RNA is infectious. The assembly of the icosahedral shell or capsid from coat proteins can occur in the absence of RNA; however, capsid assembly is nucleated by coat protein dimer binding to the operator hairpin, and assembly occurs at much lower concentrations of coat protein when MS2 RNA is present.
+
+Bacterial lysis and release of newly formed virions occurs when sufficient lysis protein has accumulated. Lysis (L) protein forms pores in the cytoplasmic membrane, which leads to loss of membrane potential and breakdown of the cell wall. The lysis protein is known to bind to DnaJ via an important P330 residue. A LS dipeptide motif on the L protein is found throughout the genus Levivirus and appears to be essential to the lysis activity, although their different locations suggest that they have evolved independently.
+
+MS2 in History of Science and Use
+In 1961, MS2 was isolated by Alvin John Clark and recognized as an RNA-containing phage very similar to bacteriophage f2.
+
+In 1976, the MS2 genome was the first genome to be completely sequenced. This was accomplished by Walter Fiers and his team, building upon their earlier milestone in 1972 of the first gene to be completely sequenced, the MS2 coat protein. These sequences were determined at the RNA level. The first effort at a statistical analysis of the MS2 genome was a search for patterns in the nucleotide sequence. Several non-coding sequences were identified, however at the time of this investigation (1979), the functions of the non-coding patterns were unknown.
+
+Since 1998, the MS2 operator hairpin and coat protein have found utility in the detection of RNA in living cells (see MS2 tagging). MS2 and other viral capsids are also currently under investigation as agents in drug delivery, tumor imaging, and light harvesting applications.
+
+MS2, due to its structural similarities to noroviruses, its similar optimum proliferation conditions, and non-pathogenicity to humans, has been used as substitute for noroviruses in studies of disease transmission.
+
+See also
+icon	Viruses portal
+bacteriophage
+bacteriophage f2
+bacteriophage Qβ
+phi-X174 phage
+References
+External links
+Enjoying Wikiwand?
+Give good old Wikipedia a great new look
+
+Vector field
+VECTOR FIELD
+Machine learning
+MACHINE LEARNING
+Surfing
+SURFING
+Yosemite Valley
+YOSEMITE VALLEY
+Golden Gate Bridge
+GOLDEN GATE BRIDGE
+Ronald Reagan
+RONALD REAGAN
+Big Sur
+BIG SUR
+Martin Luther King Jr.
+MARTIN LUTHER KING JR.
+Rocky Mountains
+ROCKY MOUNTAINS
+Lady Gaga
+LADY GAGA
+Vladimir Lenin
+VLADIMIR LENIN
+Brandenburg-class battleship
+BRANDENBURG-CLASS BATTLESHIP
+Home
+About us
+FAQ
+Press
+Site map
+Terms of service
+Privacy policy
+Bacteriophage MS2 - Wikiwand

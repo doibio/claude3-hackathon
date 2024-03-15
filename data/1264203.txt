@@ -1,0 +1,119 @@
+Skip to main page content
+U.S. flagAn official website of the United States government Here's how you know 
+NIH NLM LogoLog in
+
+Access keysNCBI HomepageMyNCBI HomepageMain ContentMain Navigation
+pubmed logo
+Search:
+Search
+Advanced
+User Guide
+SaveEmailSend to
+Display options
+Nature
+. 1976 Apr 8;260(5551):500-7. doi: 10.1038/260500a0.
+Complete nucleotide sequence of bacteriophage MS2 RNA: primary and secondary structure of the replicase gene
+W Fiers, R Contreras, F Duerinck, G Haegeman, D Iserentant, J Merregaert, W Min Jou, F Molemans, A Raeymaekers, A Van den Berghe, G Volckaert, M Ysebaert
+PMID: 1264203 DOI: 10.1038/260500a0
+Full text linksCite
+Abstract
+Bacteriophage MS2 RNA is 3,569 nucleotides long. The nucleotide sequence has been established for the third and last gene, which codes for the replicase protein. A secondary structure model has also been proposed. Biological properties, such as ribosome binding and codon interactions can now be discussed on a molecular basis. As the sequences for the other regions of this RNA have been published already, the complete, primary chemical structure of a viral genome has now been established.
+
+PubMed Disclaimer
+
+Similar articles
+Studies on the bacteriophages MS2. XXXIII. Comparison of the nucleotide sequences in related bacteriophage RNAs.
+Jou WM, Fiers W.
+J Mol Biol. 1976 Oct 5;106(4):1047-60. doi: 10.1016/0022-2836(76)90352-1.
+PMID: 978743 No abstract available.
+A-protein gene of bacteriophage MS2.
+Fiers W, Contreras R, Duerinck F, Haegmean G, Merregaert J, Jou WM, Raeymakers A, Volckaert G, Ysebaert M, Van de Kerckhove J, Nolf F, Van Montagu M.
+Nature. 1975 Jul 24;256(5515):273-8. doi: 10.1038/256273a0.
+PMID: 806810 No abstract available.
+Proceedings: Bacteriophage ms2 rna: nucleotide sequence determination of the A protein gene.
+Jou WM, Merregaert J, Contreras R, Duerinck F, Haegeman G, Raeymaekers A, Volckaert G, Ysebaert M, Fiers W.
+Hoppe Seylers Z Physiol Chem. 1974 Oct;355(10):1231.
+PMID: 4461559 No abstract available.
+Nucleotide sequence of a single-stranded RNA phage from Pseudomonas aeruginosa: kinship to coliphages and conservation of regulatory RNA structures.
+Olsthoorn RC, Garde G, Dayhuff T, Atkins JF, Van Duin J.
+Virology. 1995 Jan 10;206(1):611-25. doi: 10.1016/s0042-6822(95)80078-6.
+PMID: 7831817
+Bacteriophage Ms2 RNA: nucleotide sequence of the end of the a protein gene and the intercistronic region.
+Contreras R, Ysebaert M, Jou WM, Fiers W.
+Nat New Biol. 1973 Jan 24;241(108):99-101. doi: 10.1038/newbio241099a0.
+PMID: 4512458 No abstract available.
+See all similar articles
+Cited by
+Real-time single-molecule imaging of transcriptional regulatory networks in living cells.
+Hwang DW, Maekiniemi A, Singer RH, Sato H.
+Nat Rev Genet. 2024 Jan 9. doi: 10.1038/s41576-023-00684-9. Online ahead of print.
+PMID: 38195868 Review.
+Isolation and characterization of novel plasmid-dependent phages infecting bacteria carrying diverse conjugative plasmids.
+Parra B, Cockx B, Lutz VT, Brøndsted L, Smets BF, Dechesne A.
+Microbiol Spectr. 2024 Jan 11;12(1):e0253723. doi: 10.1128/spectrum.02537-23. Epub 2023 Dec 8.
+PMID: 38063386 Free PMC article.
+Structural and Genomic Diversity of Bacteriophages.
+Ely B, Lenski J, Mohammadi T.
+Methods Mol Biol. 2024;2738:3-16. doi: 10.1007/978-1-0716-3549-0_1.
+PMID: 37966589 Review.
+Evolutions in Commercial Meat Poultry Breeding.
+Neeteson AM, Avendaño S, Koerhuis A, Duggan B, Souza E, Mason J, Ralph J, Rohlf P, Burnside T, Kranis A, Bailey R.
+Animals (Basel). 2023 Oct 9;13(19):3150. doi: 10.3390/ani13193150.
+PMID: 37835756 Free PMC article. Review.
+Foundation of the Belgian Society for Viruses of Microbes and Meeting Report of Its Inaugural Symposium.
+Latka A, Aertsen A, Boeckaerts D, Blasdel B, Ceyssens PJ, Garcia-Pino A, Gillis A, Lavigne R, Lima-Mendez G, Matthijnssens J, Onsea J, Peeters E, Pirnay JP, Thiry D, Vandenheuvel D, Van Mechelen E, Venneman J, Verbeken G, Wagemans J, Briers Y.
+Viruses. 2023 May 22;15(5):1213. doi: 10.3390/v15051213.
+PMID: 37243298 Free PMC article.
+See all "Cited by" articles
+MeSH terms
+Base Sequence
+Codon
+Coliphages / analysis*
+Nucleic Acid Conformation
+Protein Biosynthesis
+RNA, Viral / analysis*
+RNA, Viral / metabolism
+Viral Proteins*
+Substances
+Codon
+RNA, Viral
+Viral Proteins
+Associated data
+GENBANK/J02467
+GENBANK/V00642
+Related information
+Cited in Books
+Gene
+MedGen
+Nucleotide
+Protein
+Protein (RefSeq)
+Related Project
+LinkOut - more resources
+Full Text Sources
+Nature Publishing Group
+Other Literature Sources
+The Lens - Patent Citations
+Research Materials
+NCI CPTC Antibody Characterization Program
+NCBI Literature Resources MeSH PMC Bookshelf Disclaimer The PubMed wordmark and PubMed logo are registered trademarks of the U.S. Department of Health and Human Services (HHS). Unauthorized use of these marks is strictly prohibited.
+FOLLOW NCBI
+Connect with NLM
+
+  
+National Library of Medicine
+8600 Rockville Pike
+Bethesda, MD 20894
+
+Web Policies
+FOIA
+HHS Vulnerability Disclosure
+
+Help
+Accessibility
+Careers
+
+NLM
+NIH
+HHS
+USA.gov

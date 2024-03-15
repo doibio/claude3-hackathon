@@ -1,0 +1,144 @@
+Skip to main contentSkip to article
+Elsevier logo
+
+Journal of Photochemistry and Photobiology B: Biology
+Volume 178, January 2018, Pages 404-411
+Photodynamic inactivation of bacteriophage MS2: The A-protein is the target of virus inactivation
+Author links open overlay panelHussaini Majiya a, Oluwapelumi O. Adeyemi b, Nicola J. Stonehouse b, Paul Millner a
+Show more
+Share
+Cite
+https://doi.org/10.1016/j.jphotobiol.2017.11.032
+Get rights and content
+Highlights
+•
+TMPyP in the presence of light and oxygen generates singlet oxygen (1O2).
+
+•
+The 1O2 mediated oxidation resulted to photodynamic inactivation (PDI) of MS2.
+
+•
+MS2 capsid (i.e. coat protein and A-protein) was the primary target of PDI.
+
+•
+PDI caused cross-linkage of the coat protein and aggregation of the MS2 particles.
+
+•
+The rate of PDI correlates to antigenic loss at 2 antigenic sites on the A-protein.
+
+
+Abstract
+Singlet oxygen mediated oxidation has been shown to be responsible for photodynamic inactivation (PDI) of viruses in solution with photosensitisers such as 5, 10, 15, 20-tetrakis (1-methyl-4-pyridinio) porphyrin tetra p-toluenesulfonate (TMPyP). The capsids of non-enveloped viruses, such as bacteriophage MS2, are possible targets for viral inactivation by singlet oxygen oxidation. Within the capsid (predominantly composed of coat protein), the A-protein acts as the host recognition and attachment protein. The A-protein has two domains; an α-helix domain and a β-sheet domain. The α-helix domain is attached to the viral RNA genome inside the capsid while the β-sheet domain, which is on the surface of the capsid, is believed to be the site for attachment to the host bacteria pilus during infection. In this study, 4 sequence-specific antibodies were raised against 4 sites on the A-protein. Changes induced by the oxidation of singlet oxygen were compared to the rate of PDI of the virus. Using these antibodies, our results suggest that the rate of PDI is relative to loss of antigenicity of two sites on the A-protein. Our data further showed that PDI caused aggregation of MS2 particles and crosslinking of MS2 coat protein. However, these inter- and intra-capsid changes did not correlate to the rate of PDI we observed in MS2. Possible modes of action are discussed as a means to gaining insight to the targets and mechanisms of PDI of viruses.
+
+Introduction
+Photodynamic inactivation (PDI) of viruses has been shown to be an efficient alternative to antiviral agents in the control of resistant and emerging viruses [1], [2], [3], [4], [5], [6], [7], [8], [9], [10]. When irradiated with visible light and in the presence of molecular oxygen in aqueous solution, photosensitisers such as 5,10,15,20-tetrakis (1-methyl-4-pyridinio) porphyrin tetra p-toluenesulfonate (TMPyP) can generate singlet oxygen by a type 2 reaction (and other reactive oxygen species (ROS) by type 1 reaction) [11], [12], [13]. Singlet oxygen and other ROS can react rapidly and cause irreversible damage to biomolecules thereby leading to the inactivation of viruses and other microorganisms [11], [14], [15], [16], [17], [18], [19]. Singlet oxygen is the most likely ROS to be implicated in viral PDI [11], [20]. All ROS have a short-life and high reactivity, thereby causing damage only to surrounding molecules close to the point of generation [11]. Capsid proteins (including host recognition proteins) are immediate targets of singlet oxygen oxidation in non-enveloped viruses, while envelope glycoproteins, including host-recognition proteins are potential targets of singlet oxygen oxidation in enveloped viruses. Prolonged exposure to singlet oxygen may also result in oxidative damage to viral nucleic acid by PDI [21], [22], [23], [24].
+
+Although virus capsids serve to protect the genome, they may contain small pores. Furthermore, under physiological conditions, the capsids of non-enveloped viruses can undergo a constant movement that suggests a dynamic state otherwise referred to as “capsid breathing” e.g. picornaviruses [25], [26], [27], nodaviruses [28], tombusviruses [29] sobemoviruses [30]. By means of a thermofluor assay that incorporates a pair of dyes to bind the nucleic acid and hydrophobic capsid residues, respectively, capsid permeability of picornaviruses has been shown to increase with temperature [31], [32], [33]. Although the permeability of viral capsids to singlet oxygen molecules has not been shown, the presence of small pores in the capsid and access to the viral genome could result to oxidation-induced damages to the viral capsid and genome. Reaction of proteins with singlet oxygen occurs within a range of bimolecular rate constants of 105 to 109 M− 1 S− 1. This range is much higher than for other biomolecules including RNA, which has a rate constant range of 104 to 106 M− 1 S− 1 [24]. Amongst amino acids, the bimolecular rate constants and oxidation effects vary [21], [22], [34], [35], [36], with tryptophan, histidine, methionine, cysteine and tyrosine being the most susceptible to singlet oxygen oxidation under physiological pH conditions [21], [22].
+
+Changes to viral proteins as result of PDI have been measured by SDS-PAGE and infrared (IR) spectroscopy [12]. However, these methods are not specific to PDI-mediated effects. The use of SDS-PAGE is limited to overall effects on viral proteins but cannot give detail of the domains affected. In addition, the reaction of singlet oxygen with proteins can result in multiple effects including oxidation of side chains, backbone fragmentation, dimerisation and/or aggregation, unfolding or conformational changes. These effects can result in enzymatic inactivation and alterations in cellular handling and turnover [21], [22]. Owing to the presence of reducing agents in SDS-PAGE as well as heat-treatment of proteins, there is significant reduction in assay sensitivity. Similarly, IR spectroscopy cannot detect changes induced by PDI on specific protein residues but can only provide an overall effect on proteins. Matrix assisted laser desorption ionization (MALDI) and electrospray ionization (ESI) mass spectrometry have been applied to the evaluation of site-specific protein damage due to singlet oxygen oxidation [37].
+
+In most studies aimed at photoinactivation and chemical disinfection of human viruses, bacteriophage MS2 has been used as a model organism owing to its similarity in size and morphology to some human viruses [38] as well as its non-pathogenicity to humans and ease of propagation [38], [39]. It has been recently shown that A-protein of MS2 is the main target of chemical oxidants such as chlorine dioxide (ClO2). The ClO2 inactivates MS2 by modifying structural proteins especially the A-protein, thereby hindering the ability of MS2 to attach and infect host bacteria cells [39]. MS2 is a bacteriophage of the genus Levivirus within the family Leviviridae. It has a single stranded positive sense (3569 nt) RNA genome which is enclosed within a ≈ 27 nm icosahedral capsid that is composed of 178 copies of coat protein (≈ 13.7 KDa) and one copy of maturation protein also called the A-protein (≈ 44 KDa). The A-protein is attached to viral RNA from inside the inner surface of the capsid shell, with a portion embedded within the capsid such that its external surface which blends with the outside of the capsid (Fig. 1), recognises and binds to the host bacteria pilus in the course of infection [40]. The assembled MS2 capsid has 32 pores, each of which is about 1.8 nm in diameter, and may be permeable to small molecules [41], [42].
+
+Polyclonal sequence-specific antibodies are collections of immunoglobulin molecules that react against a specific epitope of an antigen (e.g. A-protein of MS2). Sequence-specific antibodies are sensitive enough to detect antigens via western blot. Changes to antigenic epitopes caused by oxidation could result to a switch in antigenicity from a native and detectable state to a non-native state and may correlate with the rate of PDI. Antigenic switches vary across epitopes even under similar treatment conditions. In order to detect such antigenic changes, standard polyclonal antibodies are not ideal owing to a binding to a range of epitopes in the target protein. In this study, sequence-specific antibodies against the MS2 antigenic sites on the A-protein were generated. This proposes a novel method to evaluate the effect of singlet oxygen induced oxidation, caused by PDI on different regions of viral target proteins.
+
+Section snippets
+Light Source and Conditions for PDI
+The light source used for PDI experiments was a Schott KL 2500 LCD (Schott Ltd., Stafford, UK) which provides a cool white light. Fluence rate of illumination during photoinactivation experiments were measured using a light meter (Clas Ohlson, UK). Visible light was used and the fluence rate (radiant exposure) was 32 mW cm− 2. This light intensity corresponds to approximately 3% of bright mid-day time sunlight under clear sky conditions in the sub-Saharan Africa and about 10% of mid-day time
+
+Photodynamic Inactivation (PDI) of MS2
+PDI of MS2 was investigated with different concentrations of photosensitisers in solution and at different times of illumination. Our data [43] suggested that at a minimum concentration of 0.2 μM in solution, TMPyP can inactivate MS2 (9.5 log reductions PFU/ml) within 60 s when illuminated at 32 mW cm− 2. At 10 s of illumination there were 1.5 log reductions in PFU/ml and at 30 s of illumination there were 4 log reductions in PFU/ml of MS2. Photosensitiser alone in the dark (D) or light alone (NS) did 
+
+Discussion
+PDI of viruses in solution by photosensitisers has been reported previously [1], [2], [3], [4], [5], [6], [20], [38], [51], [52]. However, the molecular effect of PDI on virus particles has not been fully described. In this study, we have used MS2 as a model virus. In our previous work [43] we showed that, at a minimum concentration of 0.2 μM TMPyP in solution, MS2 was inactivated within 1 min under illumination at 32 mW cm− 2. The primary steps of viral infections involve recognition and attachment 
+
+Conclusion
+The results obtained from our previous study [43] suggested that a minimum concentration of 0.2 μM of TMPyP inactivates bacteriophage MS2 under 1 min illumination at 32 mW cm− 2. In this study, complete MS2 particle aggregation was observed after 60 min of PDI. Formation of dimers of MS2 coat protein was observed after 10 min PDI. The cause of aggregation of MS2 particles might be due to either and or cumulative effects of formation of di-tyrosine from tyrosine residues that are present in the coat
+
+Acknowledgements
+This work was supported by Petroleum Technology Development Fund (PTDF) (PTDF/E/OSS/PHD/MHM/644/14), Nigeria. The authors would like to thank members of the Millner and Stonehouse labs at the University of Leeds, UK.
+
+References (58)
+L. Costa et al.
+Involvement of type I and type II mechanisms on the photoinactivation of non-enveloped DNA and RNA bacteriophages
+J. Photochem. Photobiol. B Biol.
+(2013)
+L. Costa et al.
+SDS-PAGE and IR spectroscopy to evaluate modifications in the viral protein profile induced by a cationic porphyrinic photosensitizer
+J. Virol. Methods
+(2014)
+M.C. Derosa et al.
+Photosensitized singlet oxygen and its applications
+Coord. Chem. Rev.
+(2002)
+C.M.B. Carvalho et al.
+Photoinactivation of bacteria in wastewater by porphyrins: Bacterial beta-galactosidase activity and leucine-uptake as methods to monitor the process
+J. Photochem. Photobiol., B
+(2007)
+M.J. Davies
+Singlet oxygen-mediated damage to proteins and its consequences
+Biochem. Biophys. Res. Commun.
+(2003)
+M. Gracanin et al.
+Singlet-oxygen-mediated amino acid and protein oxidation: formation of tryptophan peroxides and decomposition products
+Free Radic. Biol. Med.
+(2009)
+M.A. Jiménez-Clavero et al.
+Immune recognition of swine vesicular disease virus structural proteins: novel antigenic regions that are not exposed in the capsid
+Virology
+(2000)
+T. Pulli et al.
+Antigenic sites of coxsackievirus A9
+Virology
+(1998)
+B. Bothner et al.
+Maturation of a tetravirus capsid alters the dynamic properties and creates a metastable complex
+Virology
+(2005)
+M. Jaegle et al.
+Accessibility of three Continuous Epitopes in Tomato Bushy Stunt Virus. Annales de l'Institut Pasteur/Virologie
+(1988)
+View more references
+Cited by (28)
+Mitigation of viruses of concern and bacteriophage surrogates via common unit processes for water reuse: A meta-analysis
+2024, Water Research
+Show abstract
+Singlet oxygen: Properties, generation, detection, and environmental applications
+2024, Journal of Hazardous Materials
+Show abstract
+Potential of a methanolic extract of Lawsonia inermis (L.) leaf as an alternative sanitiser in the time of COVID-19 Pandemic and beyond
+2023, Journal of Herbal Medicine
+Show abstract
+High enrichment and near real-time quantification of airborne viruses using a wet-paper-based electrochemical immunosensor under an electrostatic field
+2023, Journal of Hazardous Materials
+Citation Excerpt :
+In this study, we present a novel electrostatic airborne virus quantification system comprising a wet-paper-based electrochemical immunosensor and a modified EPC for the near real-time enrichment and quantification of airborne MS2 viruses. MS2 viruses are extensively used in viral aerosol studies because their morphology is similar to that of nonenveloped pathogenic viruses (Majiya et al., 2018). This paper-based sensor is portable, lightweight, and can be produced at a low cost.
+
+Show abstract
+Photodynamic inactivation in food systems: A review of its application, mechanisms, and future perspective
+2022, Trends in Food Science and Technology
+Citation Excerpt :
+However, these damages were mainly observed in lag-phase cells; more pronounced degradation of polysaccharides and lipids was observed in stationary-phase cells (Baptista, Sabino, et al., 2017). Majiya, Adeyemi, Stonehouse, and Millner (2018) assessed the impact of PDI mediated by porphyrin derivative 5,10,15,20-tetrakis(1-methyl-4-pyridinio) porphyrin tetra p-toluenesulfonate (TMPyP) and cool white light on the host recognition and attachment protein (A-protein) of bacteriophage MS2, a commonly used surrogate for human norovirus. The authors first illuminated MS2 for 1–60 min with 1 μM TMPyP and then conducted western blot with sequence-specific antibodies targeting four selected antigenic regions of the A-protein.
+
+Show abstract
+UVC-based photoinactivation as an efficient tool to control the transmission of coronaviruses
+2021, Science of the Total Environment
+Citation Excerpt :
+Inactivation of the viruses is one of the safest goals to prevent the spread of infections. Such inactivation makes viruses incapable of infection/multiplication by either altering their structural core (DNA/RNA) or by denaturing viral proteins (capsid) in the viral assembly (Guo et al., 2018; Majiya et al., 2018; Zhang et al., 2019a). Broadly, virus inactivation techniques are classified into physical and chemical methods.
+
+Show abstract
+View all citing articles on Scopus
+View full text
+© 2017 Elsevier B.V. All rights reserved.
+Elsevier logo with wordmark
+About ScienceDirect
+Remote access
+Shopping cart
+Advertise
+Contact and support
+Terms and conditions
+Privacy policy
+Cookies are used by this site. Cookie Settings
+
+All content on this site: Copyright © 2024 Elsevier B.V., its licensors, and contributors. All rights are reserved, including those for text and data mining, AI training, and similar technologies. For all open access content, the Creative Commons licensing terms apply.
+
+RELX group home page

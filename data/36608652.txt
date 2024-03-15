@@ -1,0 +1,139 @@
+Skip to main page content
+U.S. flagAn official website of the United States government Here's how you know 
+NIH NLM LogoLog in
+
+Access keysNCBI HomepageMyNCBI HomepageMain ContentMain Navigation
+pubmed logo
+Search:
+Search
+Advanced
+User Guide
+SaveEmailSend to
+Display options
+Review Cell
+. 2023 Jan 5;186(1):17-31. doi: 10.1016/j.cell.2022.11.017.
+Phage therapy: From biological mechanisms to future directions
+Steffanie A Strathdee 1, Graham F Hatfull 2, Vivek K Mutalik 3, Robert T Schooley 4
+Affiliations expand
+PMID: 36608652 PMCID: PMC9827498 DOI: 10.1016/j.cell.2022.11.017
+Free PMC article
+Full text linksCite
+Abstract
+Increasing antimicrobial resistance rates have revitalized bacteriophage (phage) research, the natural predators of bacteria discovered over 100 years ago. In order to use phages therapeutically, they should (1) preferably be lytic, (2) kill the bacterial host efficiently, and (3) be fully characterized to exclude side effects. Developing therapeutic phages takes a coordinated effort of multiple stakeholders. Herein, we review the state of the art in phage therapy, covering biological mechanisms, clinical applications, remaining challenges, and future directions involving naturally occurring and genetically modified or synthetic phages.
+
+Keywords: bacteriophage; bacteriophage therapy; phage; phage therapy.
+
+Copyright © 2022 The Authors. Published by Elsevier Inc. All rights reserved.
+
+PubMed Disclaimer
+
+Conflict of interest statement
+Declaration of interests S.A.S. owns stock in Adaptive Phage Therapeutics and is an unpaid advisor to Felix Biosciences. R.T.S. is a scientific consultant to LyseNTech and GSK. G.F.H. receives support from Janssen Inc through a Collaborative Research Agreement and is a consultant for Janssen, Inc. and Tessera, Inc. V.K.M. is a co-founder of Felix Biotechnology.
+
+Figures
+Figure 1.
+Figure 1.. Examples of therapeutically useful phages.
+ 
+Figure 2.
+Figure 2.. Phage therapy reports and Phage…
+ 
+Figure 3.
+Figure 3.. Methods used in Phage Engineering.
+ 
+Figure 4.
+Figure 4.. Building synthetic phage genomes. Using…
+ 
+Figure 5.
+Figure 5.. Potential phage therapy applications from…
+Similar articles
+Bacteriophage therapy for management of bacterial infections in veterinary practice: what was once old is new again.
+Squires RA.
+N Z Vet J. 2018 Sep;66(5):229-235. doi: 10.1080/00480169.2018.1491348. Epub 2018 Jul 16.
+PMID: 29925297 Review.
+Preclinical data and safety assessment of phage therapy in humans.
+Nale JY, Clokie MR.
+Curr Opin Biotechnol. 2021 Apr;68:310-317. doi: 10.1016/j.copbio.2021.03.002. Epub 2021 Apr 13.
+PMID: 33862490 Free PMC article. Review.
+Bacteriophage therapy as an alternative treatment for human infections. A comprehensive review.
+Kakasis A, Panitsa G.
+Int J Antimicrob Agents. 2019 Jan;53(1):16-21. doi: 10.1016/j.ijantimicag.2018.09.004. Epub 2018 Sep 17.
+PMID: 30236954 Review.
+Bacteriophage therapy against ESKAPE bacterial pathogens: Current status, strategies, challenges, and future scope.
+Kulshrestha M, Tiwari M, Tiwari V.
+Microb Pathog. 2024 Jan;186:106467. doi: 10.1016/j.micpath.2023.106467. Epub 2023 Nov 28.
+PMID: 38036110 Review.
+Phage Therapy Is Effective in a Mouse Model of Bacterial Equine Keratitis.
+Furusawa T, Iwano H, Hiyashimizu Y, Matsubara K, Higuchi H, Nagahata H, Niwa H, Katayama Y, Kinoshita Y, Hagiwara K, Iwasaki T, Tanji Y, Yokota H, Tamura Y.
+Appl Environ Microbiol. 2016 Aug 15;82(17):5332-9. doi: 10.1128/AEM.01166-16. Print 2016 Sep 1.
+PMID: 27342558 Free PMC article.
+See all similar articles
+Cited by
+Bacteriophage DNA induces an interrupted immune response during phage therapy in a chicken model.
+Podlacha M, Gaffke L, Grabowski Ł, Mantej J, Grabski M, Pierzchalska M, Pierzynowska K, Węgrzyn G, Węgrzyn A.
+Nat Commun. 2024 Mar 13;15(1):2274. doi: 10.1038/s41467-024-46555-7.
+PMID: 38480702
+PqsA mutation-mediated enhancement of phage-mediated combat against Pseudomonas aeruginosa.
+Su Q, Lu D, Kong J, Lin H, Xuan G, Wang J.
+Front Cell Infect Microbiol. 2024 Feb 26;14:1296777. doi: 10.3389/fcimb.2024.1296777. eCollection 2024.
+PMID: 38469347 Free PMC article.
+The Citizen Phage Library: Rapid Isolation of Phages for the Treatment of Antibiotic Resistant Infections in the UK.
+Fletcher J, Manley R, Fitch C, Bugert C, Moore K, Farbos A, Michelsen M, Alathari S, Senior N, Mills A, Whitehead N, Soothill J, Michell S, Temperton B.
+Microorganisms. 2024 Jan 25;12(2):253. doi: 10.3390/microorganisms12020253.
+PMID: 38399657 Free PMC article.
+Lytic bacteriophages interact with respiratory epithelial cells and induce the secretion of antiviral and proinflammatory cytokines.
+Zamora PF, Reidy TG, Armbruster CR, Sun M, Van Tyne D, Turner PE, Koff JL, Bomberger JM.
+bioRxiv [Preprint]. 2024 Feb 6:2024.02.06.579115. doi: 10.1101/2024.02.06.579115.
+PMID: 38370761 Free PMC article. Preprint.
+CRISPR-Cas in Pseudomonas aeruginosa provides transient population-level immunity against high phage exposures.
+Watson BNJ, Capria L, Alseth EO, Pons BJ, Biswas A, Lenzi L, Buckling A, van Houte S, Westra ER, Meaden S.
+ISME J. 2024 Jan 8;18(1):wrad039. doi: 10.1093/ismejo/wrad039.
+PMID: 38366022 Free PMC article.
+See all "Cited by" articles
+References
+Antimicrobial Resistance Collaborators (2022). Global burden of bacterial antimicrobial resistance in 2019: a systematic analysis. Lancet 399, 629–655. 10.1016/s0140-6736(21)02724-0. - DOI - PMC - PubMed
+World Health Organiztion (2017). WHO publishes list of bacteria for which new antibiotics are urgently needed. In Davies OL, ed. News release. WHO.
+CDC (2022). COVID-19: U.S. Impact on Antimicrobial Resistance, Special Report 2022. 10.15620/cdc:117915. - DOI
+CDC (2022). COVID-19 & Antimicrobial Resistance. https://www.cdc.gov/drugresistance/covid19.html.
+O’Neill J (2016). Tackling drug-resistant infections globally: final report and recommendations. Report Government of the United Kingdom. https://apo.org.au/node/63983.
+Show all 147 references
+Publication types
+Review
+Research Support, N.I.H., Extramural
+Research Support, U.S. Gov't, Non-P.H.S.
+Research Support, Non-U.S. Gov't
+MeSH terms
+Bacteria
+Bacteriophages*
+Phage Therapy*
+Grants and funding
+R01 ES011184/ES/NIEHS NIH HHS/United States
+R35 GM131729/GM/NIGMS NIH HHS/United States
+UM1 AI104681/AI/NIAID NIH HHS/United States
+LinkOut - more resources
+Full Text Sources
+Elsevier Science
+Europe PubMed Central
+PubMed Central
+Other Literature Sources
+The Lens - Patent Citations
+NCBI Literature Resources MeSH PMC Bookshelf Disclaimer The PubMed wordmark and PubMed logo are registered trademarks of the U.S. Department of Health and Human Services (HHS). Unauthorized use of these marks is strictly prohibited.
+FOLLOW NCBI
+Connect with NLM
+
+  
+National Library of Medicine
+8600 Rockville Pike
+Bethesda, MD 20894
+
+Web Policies
+FOIA
+HHS Vulnerability Disclosure
+
+Help
+Accessibility
+Careers
+
+NLM
+NIH
+HHS
+USA.gov

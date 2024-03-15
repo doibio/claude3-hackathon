@@ -1,0 +1,164 @@
+### **Part A (From Pranam)**
+
+<aside>
+⚠️ Optional for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12**
+
+</aside>
+
+1. Sign up for HuggingFace and request access for PepMLM:
+    
+    https://huggingface.co/ChatterjeeLab/PepMLM-650M
+    
+2. Find the amino acid sequence for SOD1 in UniProt (ID: [P00441](https://www.uniprot.org/uniprotkb/P00441/entry)), a protein when mutated, can cause Amyotrophic lateral sclerosis (ALS). In fact, the A4V (when you change position 4 from Alanine to Valine) causes the most aggressive form of ALS, so make that change in the sequence
+3. Enter your mutated SOD1 sequence into the PepMLM inference API and generate 4 peptides of length 12 amino acids (Step 5 takes a while so you can also just pick 1 or 2 peptides)
+4. To your list, add this known SOD1-binding peptide to your list: FLYRWLPSRRGG [from -https://genesdev.cshlp.org/content/22/11/1451]
+5. Go to AlphaFold-Multimer (https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb). This is similar to what you did for homework last week but instead for a protein-peptide complex
+* Set model_type: alphafold2_multimer_v3 (this model has been shown to recapitulate peptide-protein binding accurately: https://www.frontiersin.org/articles/10.3389/fbinf.2022.959160/full). * Add your query sequence - Its the SOD1Sequence:PeptideSequence. : is important.
+6. After running AlphaFold-Multimer with your 5 peptides alongside your mutated SOD1 sequence, plot the ipTM scores, which measures the relative confidence of the binding region.
+7. Provide a 1 paragraph write-up of your results and be sure to cite the relevant works
+
+## **Part B (Final Project: L-Protein Mutants)**
+
+<aside>
+⚠️ Mandatory for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12
+This homework requires computation that might take you a while to run. So please get started early.**
+
+</aside>
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+You can read more about the final project in the [Final Project Page](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21). 
+
+![source - https://www.oaepublish.com/articles/mrr.2023.28](https://prod-files-secure.s3.us-west-2.amazonaws.com/37c92dd4-fd87-4f80-99f7-88cb0226cbd8/bbb2354b-ee49-47db-b00b-77dae8fa8d76/6fa8f596749f456c8ddb98d9e8d48735.jpg)
+
+source - https://www.oaepublish.com/articles/mrr.2023.28
+
+## **Goal:**
+
+Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+
+## L-Protein and DNAj Sequence
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj. 
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)** 
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+In this homework we will be doing the following steps. Step 2 might vary from student to student
+
+![Untitled presentation.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/37c92dd4-fd87-4f80-99f7-88cb0226cbd8/3c1fedd4-a593-4e16-aa99-6fa4c5286f1f/Untitled_presentation.png)
+
+**Additional Information**
+
+1. Using the mutational analysis of lysis protein from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/  Here is a list of some mutations and their effect on lysis  [https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) [Three columns highlighted ! Please copy the sheet before any edits).
+2. In the last class, we used pBLAST to find evolutionary sequences from other organisms and visualized it using clustalomega. BLAST results for L-protein are here - https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link .  You can upload it to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments)
+3. Additional Information about the sequence is linked here - [https://www.notion.so/howtogrowalmostanything/L-Protein-Sequence-Information-7a29684affaa4e3b9adf070cbb7c9908?pvs=4](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21) 
+
+SUBMIT YOUR MUTATIONS HERE. Also add one sentence about what approach you are using. Just make a new sheet with your lastname_firstname_approach
+
+https://docs.google.com/spreadsheets/d/15Ho8WCnXI7iYK6XSmsMG0diEDQhgZZVR9gfD13MCAgU/edit#gid=0
+
+| Approach | Description | Student 1 | Student 2 | Student 3 |
+| --- | --- | --- | --- | --- |
+| Mutagenesis using Protein Language Models | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+| Mutagenesis using Af2-Multimer | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+| Mutagenesis using Rosetta | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+| Random Mutagenesis | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+| Other | Only for students who have a background in protein engineering already |  |  |  |
+
+## Mutagenesis using Protein Language Models [Easiest One]
+
+<aside>
+⚠️ Designing these mutants with good computational confidence is hard. It will show you limitations of some of the structure based models. Ultimately you can pick various combinations of mutations and get lab results and then decide to pick the next round of mutations. But this assay won’t be easy to run at scale in this class. So using the information below you can either make a best guess or you can use the strategy Allan was talking about during recitation. Contact Manu or Allan if you need one on one help.
+
+</aside>
+
+1. Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein.  We want to identify possible mutations that are “positive” If you run this notebook - you will see a .CSV file in the sidebar. You can download it and look at it in the google sheets if that’s easier
+2. Use the experimental data here. This dataset contains information about mutants of the L-Protein and their effect on lysis in the lab - https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing
+3. First check, does the experimental data correlated with the scores from the notebook in (1) ? This should give you a clue on how well these language embeddings capture information about this protein sequence. 
+4. Using information about effect of protein mutations at these sites -  both the scores and the experimental data in the drive, come up with 5 mutations for each student along with how you came up with them and why you believe they would work. 2 of the variants you submit must have mutations in the transmembrane region (refer to notes above on what amino acid positions these are) and 2 of them must be in the soluble region . Remember that you can also use the pBLAST to see which residues are conserved and not mutate them if you want to. 
+
+One easy way to generate sequence mutations could be to look for residue positions and mutations that are have a positive mutational effect either in the experimental or have a positive score from step 1. And pick a combination of those mutations. 
+
+5. You can utilize Af2_Multimer to generate a Multimeric Assembly [TA: Ben Arias-Almeida]
+you can do this by making your query sequence as. We want to do this because -  A running hypothesis for how this protein function is that it *assembles* to make a perforation in the bacterial membrane. Our TA Ben Arias-Almeida discovered that when we predict the **assemble of 8 structures of the lysis protein***,* it indeed reveals a channel-like complex.
+
+    
+    ![Untitled-2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/37c92dd4-fd87-4f80-99f7-88cb0226cbd8/1c451192-20ec-4caf-b188-eb1208b60dbf/Untitled-2.png)
+    
+    ![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/37c92dd4-fd87-4f80-99f7-88cb0226cbd8/f530b8c0-caf0-4779-82fb-13819b52fcfc/Untitled.png)
+    
+    ```jsx
+    METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLL
+    ```
+    
+
+### Mutagenesis using Af2-Multimer
+
+<aside>
+👤 TA: Manu Ponnapati, Allan Costa
+
+</aside>
+
+<aside>
+⚠️ This approach is probably not going to work. Because the 
+You can also try co-folding just the soluble domain with the AlphaFold2 complex instead of the whole sequence. You might notice that Af2 is not good at predictions here so it might be worth while to also try just folding the soluble domain.
+
+</aside>
+
+1. One of our goals is to prevent the interaction of L-Protein with DNAj
+2. We will co-fold the DNAj protein sequence with L-Protein and study if any mutations affect their interaction. 
+3. DNAj sequence - MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+4. CoFold this sequence with the L-Protein Sequence, in the complex predicted by AF2 Multimer is the interaction where the L-protein soluble region residues are ?
+5. You can use the information found in mutational analysis experiments [here](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0)
+6. Try to come up with two mutations each with mutations at least in 3 different residue positions. Only make these mutations in the soluble region of the L-protein (refer to notes above on what amino acid positions these are). Explain how you picked your mutations
+7. Submit 5 mutations
+8. Notebook for AF2-Multimer - https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
+
+### Mutagenesis using Rosetta
+
+<aside>
+⚠️ This requires learning about an entirely new tool. May not work at all and is computationally expensive to try. Manu will have office hours over the weekend if you want to try this approach. This is an older way of doing things. Rosetta has forcefields that can be used to compute the structure of a protein sequence as well - It takes significantly longer. We provided the Rosetta results for the PDB predictions
+
+</aside>
+
+![This is the L-Protein Structure according Ab-initio Rosetta Fold. Different from what Af2 gave you. You can find the PDB here - https://drive.google.com/drive/folders/12Hx0mv6_c0tbBt7FTobdDvHO0X71R9sj?usp=share_link](https://prod-files-secure.s3.us-west-2.amazonaws.com/37c92dd4-fd87-4f80-99f7-88cb0226cbd8/6e811d48-6d72-49d3-b9b7-faaa58760704/rostta.png)
+
+This is the L-Protein Structure according Ab-initio Rosetta Fold. Different from what Af2 gave you. You can find the PDB here - https://drive.google.com/drive/folders/12Hx0mv6_c0tbBt7FTobdDvHO0X71R9sj?usp=share_link
+
+<aside>
+👤 TA: Manu Ponnapati,  Allan Costa
+
+</aside>
+
+1. Fold the DNAj sequence and the sequence of the L-Protein using Af2-Multimer. 
+2. Download the PDB file from Af2 Multimer
+3. We will utilize Rosetta (This is a non machine learning based computational protein engineering tool - and one of the most widely used protein engineering packages). We are going to run a protocol called “Point Mutation Scan”
+4. The notebook for it is here: https://colab.research.google.com/drive/1CW3BrzTbnIh9DUWevWsSz2_CIfrHpsb8?usp=sharing 
+5. Submit 5 mutations!
+6.  [Other rosetta tutorials can be found [here](https://rosettacommons.github.io/PyRosetta.notebooks/) ]
+7. If the multimer predictions are not good then you can try to do other things like using Rosetta PDB with ProteinMPNN or mutating the residues to find stabilizing mutants etc. 
+8. If the complex prediction doesn’t work you can try these tools as well - [AlphaRed], [Stabilize-PM] available to use online here -  https://r2.graylab.jhu.edu/apps/index [You have to login with your GitHub setup with an .edu account]
+
+### Random Mutagenesis
+
+<aside>
+👤 TA: Manu Ponnapati,  Allan Costa
+
+</aside>
+
+1. Create a python function to generate random mutation combinations at at least 2 residues by using the information found in mutational analysis experiments [here](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0)
+2. Co-Fold the random mutation with DNAj using Af2_Multimer. 
+DNAj sequence - MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+1. If the confidence of the multimer prediction is good. You can try docking it. And try the scoring strategy below
+2. Score the binding energy of the predicted complexes - You can refer to the Rosetta notebook if you want to use the interface analyzer in rosetta. And pick 5 mutations for each student and explain why you chose them. 
+3. [This is computationally expensive to run].

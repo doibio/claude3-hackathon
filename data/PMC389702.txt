@@ -1,0 +1,84 @@
+Skip to main content
+U.S. flagAn official website of the United States government Here's how you know 
+NIH NLM LogoLog in
+Access keysNCBI HomepageMyNCBI HomepageMain ContentMain Navigation
+
+
+As a library, NLM provides access to scientific literature. Inclusion in an NLM database does not imply endorsement of, or agreement with, the contents by NLM or the National Institutes of Health.
+Learn more: PMC Disclaimer | PMC Copyright Notice
+Logo of pnas
+Proc Natl Acad Sci U S A. 1972 Oct; 69(10): 3038–3042.  doi: 10.1073/pnas.69.10.3038
+PMCID: PMC389702PMID: 4507621
+A Replicating RNA Molecule Suitable for a Detailed Analysis of Extracellular Evolution and Replication
+D. L. Kacian, D. R. Mills, F. R. Kramer, and S. Spiegelman
+Author information Copyright and License information PMC Disclaimer
+Abstract
+The aim of the present study is to make available a replicating molecule of known sequence. Accordingly, we sought a molecule that has the following properties: (a) replicates in vitro in a manner similar to phage Qβ RNA; (b) produces antiparallel complementary strands that can be separated from one another; and (c) is small enough to yield its sequence with reasonable effort.
+
+We report here the isolation of a replicating RNA molecule that contains 218 nucleotides and possesses the other features desired for a definitive analysis of the replicating mechanism. Despite its small size, this molecule can mutate to previously determined phenotypes. It will, therefore, permit the precise identification of the base changes required to mutate from one phenotype to another in the course of extracellular Darwinian selection experiments.
+
+Full text
+Full text is available as a scanned copy of the original print version. Get a printable copy (PDF file) of the complete article (1.0M), or click on a page image below to browse page by page. Links to PubMed are also available for Selected References.
+
+ 
+icon of scanned page 3038
+3038
+icon of scanned page 3039
+3039
+icon of scanned page 3040
+3040
+icon of scanned page 3041
+3041
+icon of scanned page 3042
+3042
+ 
+Selected References
+These references are in PubMed. This may not be the complete list of references from this article.
+
+HARUNA I, NOZU K, OHTAKA Y, SPIEGELMAN S. AN RNA "REPLICASE" INDUCED BY AND SELECTIVE FOR A VIRAL RNA: ISOLATION AND PROPERTIES. Proc Natl Acad Sci U S A. 1963 Nov;50:905–911. [PMC free article] [PubMed] [Google Scholar]
+Haruna I, Spiegelman S. Specific template requirments of RNA replicases. Proc Natl Acad Sci U S A. 1965 Aug;54(2):579–587. [PMC free article] [PubMed] [Google Scholar]
+Haruna I, Spiegelman S. Recognition of size and sequence by an RNA replicase. Proc Natl Acad Sci U S A. 1965 Oct;54(4):1189–1193. [PMC free article] [PubMed] [Google Scholar]
+Haruna I, Spiegelman S. Autocatalytic synthesis of a viral RNA in vitro. Science. 1965 Nov 12;150(3698):884–886. [PubMed] [Google Scholar]
+Spiegelman S, Haruna I, Holland IB, Beaudreau G, Mills D. The synthesis of a self-propagating and infectious nucleic acid with a purified enzyme. Proc Natl Acad Sci U S A. 1965 Sep;54(3):919–927. [PMC free article] [PubMed] [Google Scholar]
+Pace NR, Spiegelman S. In vitro synthesis of an infectious mutant RNA with a normal RNA replicase. Science. 1966 Jul 1;153(3731):64–67. [PubMed] [Google Scholar]
+Mills DR, Peterson RL, Spiegelman S. An extracellular Darwinian experiment with a self-duplicating nucleic acid molecule. Proc Natl Acad Sci U S A. 1967 Jul;58(1):217–224. [PMC free article] [PubMed] [Google Scholar]
+Levisohn R, Spiegelman S. The cloning of a self-replicating RNA molecule. Proc Natl Acad Sci U S A. 1968 Jul;60(3):866–872. [PMC free article] [PubMed] [Google Scholar]
+Levisohn R, Spiegelman S. Further extracellular Darwinian experiments with replicating RNA molecules: diverse variants isolated under different selective conditions. Proc Natl Acad Sci U S A. 1969 Jul;63(3):805–811. [PMC free article] [PubMed] [Google Scholar]
+Saffhill R, Schneider-Bernloehr H, Orgel LE, Spiegelman S. In vitro selection of bacteriophage Q-beta ribonucleic acid variants resistant to ethidium bromide. J Mol Biol. 1970 Aug;51(3):531–539. [PubMed] [Google Scholar]
+Spiegelman S. An approach to the experimental analysis of precellular evolution. Q Rev Biophys. 1971 Aug;4(2):213–253. [PubMed] [Google Scholar]
+Mills DR, Pace NR, Spiegelman S. The in vitro synthesis of a noninfectious complex containing biologically active viral RNA. Proc Natl Acad Sci U S A. 1966 Dec;56(6):1778–1785. [PMC free article] [PubMed] [Google Scholar]
+Pace NR, Bishop DH, Spiegelman S. The kinetics of product appearance and template involvement in the in vitro replication of viral RNA. Proc Natl Acad Sci U S A. 1967 Aug;58(2):711–718. [PMC free article] [PubMed] [Google Scholar]
+Pace NR, Bishop DH, Spiegelman S. The immediate precursor of viral RNA in the Q-beta-repicase reaction. Proc Natl Acad Sci U S A. 1968 Jan;59(1):139–144. [PMC free article] [PubMed] [Google Scholar]
+Mills DR, Bishop HL, Spiegelman S. The mechanism and direction of RNA synthesis templated by free minus strands of a "little" variant of Q-beta RNA. Proc Natl Acad Sci U S A. 1968 Jun;60(2):713–720. [PMC free article] [PubMed] [Google Scholar]
+Spiegelman S, Pace NR, Mills DR, Levisohn R, Eikhom TS, Taylor MM, Peterson RL, Bishop DH. The mechanism of RNA replication. Cold Spring Harb Symp Quant Biol. 1968;33:101–124. [PubMed] [Google Scholar]
+Weissmann C, Feix G, Slor H. In vitro synthesis of phage RNA: the nature of the intermediates. Cold Spring Harb Symp Quant Biol. 1968;33:83–100. [PubMed] [Google Scholar]
+Billeter MA, Dahlberg JE, Goodman HM, Hindley J, Weissmann C. Sequence of the first 175 nucleotides from the 5' terminus of Qbeta RNA synthesized in vitro. Nature. 1969 Dec 13;224(5224):1083–1086. [PubMed] [Google Scholar]
+Banerjee AK, Rensing U, August JT. Replication of RNA viruses. X. Replication of a natural 6 s RNA by the Q-beta RNA polymerase. J Mol Biol. 1969 Oct 28;45(2):181–193. [PubMed] [Google Scholar]
+Kacian DL, Mills DR, Spiegelman S. The mechanism of Q replication: sequence at the 5' terminus of a 6-S RNA template. Biochim Biophys Acta. 1971 May 13;238(2):212–223. [PubMed] [Google Scholar]
+Kamen R. Characterization of the subunits of Q-beta replicase. Nature. 1970 Nov 7;228(5271):527–533. [PubMed] [Google Scholar]
+Eikhom TS, Spiegelman S. The dissociation of Q-beta-replicase and the relation of one of the components to a poly-C-dependent poly-G-polymerase. Proc Natl Acad Sci U S A. 1967 Jun;57(6):1833–1840. [PMC free article] [PubMed] [Google Scholar]
+Glynn IM, Chappell JB. A simple method for the preparation of 32-P-labelled adenosine triphosphate of high specific activity. Biochem J. 1964 Jan;90(1):147–149. [PMC free article] [PubMed] [Google Scholar]
+JOSSE J, KAISER AD, KORNBERG A. Enzymatic synthesis of deoxyribonucleic acid. VIII. Frequencies of nearest neighbor base sequences in deoxyribonucleic acid. J Biol Chem. 1961 Mar;236:864–875. [PubMed] [Google Scholar]
+Sanger F, Brownlee GG, Barrell BG. A two-dimensional fractionation procedure for radioactive nucleotides. J Mol Biol. 1965 Sep;13(2):373–398. [PubMed] [Google Scholar]
+Articles from Proceedings of the National Academy of Sciences of the United States of America are provided here courtesy of National Academy of Sciences
+FOLLOW NCBI
+Connect with NLM
+
+  
+National Library of Medicine
+8600 Rockville Pike
+Bethesda, MD 20894
+
+Web Policies
+FOIA
+HHS Vulnerability Disclosure
+
+Help
+Accessibility
+Careers
+
+NLM
+NIH
+HHS
+USA.gov
+Tell us what you think!

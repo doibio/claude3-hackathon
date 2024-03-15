@@ -1,0 +1,148 @@
+Skip to main content
+LOGIN
+BROWSE ASM
+SEARCH
+ASMAmerican Society for Microbiology
+Search our site...
+ BACK
+Who We Are
+What We Do
+Membership
+Events
+Careers & Education
+Publications
+Science Topics
+Phage Therapy: Past, Present and Future
+Aug. 31, 2022
+
+SHARE THIS
+Antimicrobial resistance (AMR) has made it so that, for a growing number of bacterial pathogens, the success rate of antibiotics is iffy, at best. More than 1.2 million people died as a direct result of AMR bacterial infections in 2019. If nothing changes, by 2050, 10 million people are expected to die from drug-resistant diseases every year. The message is clear: find alternative therapies or face a reality in which once-treatable infections cause once-preventable deaths.
+
+Enter: Bacteriophage Therapy
+phages 
+Bacteriophages.
+Source: Wikimedia.org
+Bacteriophages, or phages, are viruses that specifically target bacteria. Phage therapy involves using phages to treat bacterial infections. Phages are everywhere. From the soil to our guts, there are thousands of different types. In contrast to many antibiotics, which obliterate harmful bacteria, while simultaneously decimating the microbiota (thus triggering a new set of problems), each phage has evolved to more narrowly target bacterial strains or species. This specificity makes phage therapy an attractive alternative for managing infections, especially those caused by multi-drug resistant (MDR) bacteria.
+
+Yet, phage therapy has largely existed on the fringes of medicine, particularly in Western countries like the U.S., where it is occasionally approved for compassionate use (i.e., used on an emergency basis when no other approved therapies are available). Why? And what needs to happen to make phage therapy mainstream? The answers are entrenched in a tangle of historical skepticism, regulatory and manufacturing hurdles and physiological aspects of phages themselves.
+
+The Rise and Fall of Phage Therapy in the West
+Phage therapy is nothing new—its origins date back over 100 years. The French-Canadian microbiologist, Felix d'Herelle, is credited with discovering and naming bacteriophages (though there is debate as to whether d'Herelle or the British microbiologist, Frederick Twort, was the official discoverer of phage). In any case, d'Herelle's use of phages to combat bacterial infections jumpstarted international efforts—largely centered in the former Soviet Union—to test the efficacy of phage therapy for treating everything from typhoid fever to cholera.
+
+Felix d'Herelle
+Felix d'Herelle.
+Source: Wikimedia.org
+Early studies were promising, though experiments were often improperly designed by today's standards (i.e., lacked placebos or control groups, among other issues). The results were also published in non-English journals, making them largely inaccessible to Western scientists. Nevertheless, phage therapy did have a stint in the U.S. Throughout the 1940s, several U.S. pharmaceutical companies produced phage preparations to treat various infections, including those of the upper respiratory tract and abscesses.
+
+Phage Therapy Falls to the Wayside of Western Medicine
+However, phage therapy eventually fell out of favor in the West for several reasons. For one, scientists were skeptical about how well it worked. Improper phage storage or purification likely played a role. For instance, early commercial preparations included "preservatives," such as phenol, which denatured and inactivated phages. Scientists also didn't understand that phages were highly specific for the bacteria they targeted—phage preparations were often used to treat bacterial infections that were not susceptible to the therapeutic phage(s).
+
+Societal factors were also important. After World War II, phage therapy research and use continued in eastern European countries, where it persists to this day. Indeed, phage therapy is still a routine medical practice in Georgia, Poland and Russia. However, the war prompted scientists in western Europe and the U.S. to avoid phage therapy, given its close ties to the former Soviet Union. The discovery of penicillin was the final nail in phage therapy's coffin—the advent of antibiotics revolutionized how bacterial infections were treated and became the gold standard in much of the world.
+
+A Phage Therapy Renaissance
+Over the past decade, however, phage therapy has experienced a renaissance in the U.S., spurred, in part, by the growing threat of AMR. Dr. Steffanie Strathdee, Associate Dean of Global Health Sciences and Co-Founder and Co-Director of the Center for Innovative Phage Applications and Therapeutics (IPATH—the first dedicated phage therapy center in North America) at University of California, San Diego (UCSD), has been at the forefront of the phage therapy movement.
+
+Strathdee's foray into phage therapy stems from personal experience. In 2015, her husband, Dr. Tom Patterson, a professor of psychiatry at UCSD School of Medicine, contracted a deadly infection, caused by MDR Acinetobacter baumannii, while on vacation in Egypt. No antibiotics could control his infection. "The doctors basically said, 'there's nothing else that we can do'…And you could see him wasting away in front of us," Strathdee recalled.
+
+With time running out, she scoured the internet to find something—anything—that could save Patterson. An article about phage therapy piqued her interest and she broached the idea with Patterson's doctors, who, with approval from the U.S. Food and Drug Administration (FDA), agreed to give it a try.
+
+Steffanie Strathdee and Tom Patterson.
+Patterson, with Strathdee, 1 month after phage therapy began—it was his first trip outside.
+Source: Courtesy of Steffanie Strathdee.
+The team relied on researchers from the Center for Phage Technology at Texas A&M University, as well as scientists from the U.S. Navy, to find phages that could kill Patterson's A. baumannii isolate. The phage hunt—which included combing through pre-existing phage libraries (i.e., collections of phages previously isolated from diverse sources) and isolating new phages from sewage, barnyard waste and even the bilges of Navy ships—was successful. After receiving an intravenous phage cocktail, Patterson began to improve almost immediately. He made a full recovery and, 9 months after entering the hospital, went home. Four years later, Patterson and Strathdee published a book, The Perfect Predator, documenting the story.
+
+Patterson's high-profile case brought phage therapy research into the spotlight. Over the past few years, there have been a growing number of case studies in the U.S. and western European countries highlighting the efficacy of phage therapy for treating diverse MDR infections, from lung infections in cystic fibrosis patients to urinary tract infections.
+
+Challenges of Developing Phage Therapuetics
+Nevertheless, while phage therapy is no longer on the back burner of medicine in the U.S., it's not at the forefront either. "One of the biggest reasons why phage therapy is not mainstream in the West right now is because the clinical trials haven't been done to show that it's efficacious," Strathdee explained. She noted that clinical trials form the backbone of therapeutic development in the U.S.—anecdotal evidence and/or case studies are not enough.
+
+Finding the Right Phages Can Take Time
+There are 2 types of phages: lytic and temperate. Strictly lytic phages infect their host cell and cause it to burst, thus killing the bacterium. Temperate, or lysogenic, phages don't kill their bacterial prey outright—they integrate their genome (which may harbor AMR or toxin genes) into the host cell. The phage may eventually lyse the cell, but this does little to immediately thwart bacterial infection, and may contribute to the spread of AMR and other virulence genes. As such, it is critical to ensure strictly lytic phages are used for phage therapies.
+
+Diagram of lytic and lysogenic phage life cycles.
+Lytic phages replicate within bacteria and lyse the host cell immediately after assembly. In a lysogenic cycle, phages integrate their genome into that of the host cell.
+Source: ASM Journals
+
+With that in mind, the process for identifying phages to treat an infection can be lengthy. It often involves testing phages from existing libraries to find those that kill a patient's bacterial isolate. "It's like [having] a million keys and you're trying to sort through a million locks to figure out which key matches the lock," Strathdee said. One study reported a range of 28 to 386 days between the time of request for phage therapy and actual administration to the patient.
+
+However, there are products being developed with a broader target range. For example, Locus Biosciences, a company that develops engineered phage biotherapeutics, manufactures phage cocktail drug products for each of 4 different pathogens (Escherichia coli, Klebsiella pneumoniae, Pseudomonas aeruginosa and Staphyloccocus aureaus) that target >95% of clinical strains. This approach does not require culturing a patient's isolate and screening a library for the right phages, and thus may streamline the process.
+
+Manufacturing and Administrating Phage Therapeutics Isn't Straightforward
+Unlike antibiotics, where concentrations of the drug decrease within the body over time, phages multiply. This means that the dose of a phage cocktail that a patient is administered is not necessarily the dose they receive. How this self-replicating feature of phage therapies influences treatment efficacy, and potential for adverse effects, is still unknown. "[We need] pharmacokinetic and pharmacodynamic studies to try to figure out, ‘okay, [if] you deliver this amount of phage, but through this particular route, what happens to the phage?'" Strathdee said.
+
+Diagram of pharmacological obstacles to therapeutic success.
+Pharmacokinetic and pharmacodynamic studies are needed to inform the development and administration of effective phage therapeutics.
+Source: ASM Journals
+
+Similarly, researchers must confirm "that [the phages] perform in the matrix they're expected to perform [in]," said Dr. Nick Conley, Vice President of Technology at Locus Biosciences. For example, if phages are used to treat a urinary tract infection (UTI), they need to be active in urine.
+
+There are also important considerations from a manufacturing standpoint. For instance, to create phage preparations, the phages are amplified in bacterial hosts—they infect the bacteria, the bacteria lyse and release more phages to create a high-titer phage soup. However, upon lysis, "all of the guts of the bacteria get spilled out," Conley explained. This includes toxins and DNA, among other cell components, which must be removed before the phage could be, for example, injected into someone's bloodstream.
+
+Potential for Bacterial Phage Resistance
+Patients generally receive mixtures (cocktails) of phages that target bacteria in different ways. The chances of the bacteria evolving resistance to multiple phages is lower than for a single phage—lower, but not impossible. Patients receiving phage therapy must be continuously monitored to ensure the phages are still effective against their infection. If not, researchers must find a new set of phages that can combat the pathogen.
+
+Still, the development of resistance is not always a bad thing. In some cases, the modifications to the bacteria that promote phage resistance increase their susceptibility to antibiotics, and thus work synergistically with the antibiotics to promote their efficacy.
+
+The Future of Phage Therapy
+Despite the challenges, the outlook for phage therapy is promising. Strathdee emphasized that the FDA is "on board" with phage therapy and, according to Conley, "has been very thoughtful and reasonable" in its approach to regulating phage therapeutics. The U.S. National Institutes of Health (NIH) recently awarded $2.5 million to 12 institutes around the world to study phage therapy. Clinical trials are also underway, including a multi-center Phase 1b/2 trial assessing the microbiological activity of a single dose of phage therapy in cystic fibrosis patients chronically colonized with P. aeruginosa. Additionally, in July 2022, Locus kicked off a phase 2/3 trial evaluating the safety, tolerability, pharmacokinetics and efficacy of a phage drug product for treating acute uncomplicated UTI caused by MDR E. coli.
+
+Scientists are also studying whether they can optimize phage lifestyle to create more effective therapies. Locus, for instance, is developing phage therapeutics that use CRISPR-Cas3 technology. The phages deliver CRISPR-Cas3 to their bacterial host, which irreparably shreds the bacterial DNA. Compared to normal phages, this allows for more robust killing. Conley highlighted that the ability modify phages, including with many other non-Cas payloads, bolsters their potential as a key tool for fighting AMR moving forward.
+
+For Strathdee, the future of phage therapy rests in the hands of the next generation of scientists. There is a burgeoning community of young researchers "who are really excited about the prospect of phage therapy." It is this zeal, coupled with collaboration, increased funding and advancements in clinical trials, that will be key for bringing phage therapy out of the shadows. "Where there's a will, there's a way."
+
+Explore Antimicrobial Resistance Resources
+SHARE THIS
+CLINICIAN
+ 
+CLINICAL INFECTIONS & VACCINES
+ 
+ANTIMICROBIAL AGENTS & RESISTANCE
+ 
+RESEARCHER
+ 
+GLOBAL HEALTH
+ 
+ARTICLE
+ 
+PHAGE
+AUTHOR: MADELINE BARRON, PH.D.
+Madeline Barron, Ph.D.
+Madeline Barron, Ph.D. is the Science Communications Specialist at ASM. She obtained her Ph.D. from the University of Michigan in the Department of Microbiology and Immunology.
+Related Content
+A Road Map For Successful Phage Therapy
+Phages as Therapeutic Tools Against Multidrug Resistant Bacteria
+Therapy With Paleofeces and Phages
+ASM Microbe 2024 Registration Now Open!
+REGISTER NOW
+Discover ASM membership
+JOIN OR RENEW
+Get published in an ASM journal
+SUBMIT NOW
+American Society For Microbiology Logo Donate
+American Society for Microbiology
+1752 N St. NW
+Washington, DC 20036
+
+202-737-3600
+service@asmusa.org
+     
+Connect With ASM
+Customer Service
+Listservs
+Support ASM
+Volunteer
+Donate to ASM
+Stay Up to Date
+Newsroom
+Careers at ASM
+© 2024. The American Society for Microbiology | Privacy Policy, Terms of Use and State Disclosures
+
+Saved to Pocket
+Remove
+
+Phage Therapy: Past, Present and Future
+asm.org
+
+Add Tags
+Saves
+

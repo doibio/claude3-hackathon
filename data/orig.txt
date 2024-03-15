@@ -1,0 +1,122 @@
+Phage therapy; inactivation/neutralization:
+2023 Phage therapy: From biological mechanisms to future directions
+Phage therapy: From biological mechanisms to future directions
+2022 Phage-therapy-past,-present-and-future
+2018 Photodynamic inactivation of bacteriophage MS2:Photodynamic inactivation of bacteriophage MS2: The A-protein is the target of virus inactivation 
+2021 Neutralizing antibody response against subcutaneously injected phages in rabbit model
+2021 Phage-specific antibodies ("antibodies do not necessarily hinder phage therapy")
+
+Genome sequences 
+MS2 was the first genome sequenced (1976, 3,569 bp, 4 genes, ssRNA).  
+PhiX174 was the second genome sequenced (1977, 5,386 bp, 10 genes, ss-DNA) 
+MS2 relatives:  f2(? nt), Qβ(4217 nt), R17(3569 nt), GA (3466 nt), BZ13 (3393 nt)
+
+MS2 Genes in order from 5' end ... & interacting host proteins
+mp: A:  (393 aa)  maturation protein ... F-pilus (3D)
+cp:        (130 aa)  coat protein  ...  (none?)
+lys: L:   (75 aa)   lysis protein ... DnaJ host gene 
+rep:       (545 aa)  replicase subunit ...  EF-Tu and EF-Ts host factors (3D)
+
+In vitro replication examples:
+2018 Automated in vitro evolution of a translation-coupled RNA replication system
+1972 A Replicating RNA Molecule Suitable for a Detailed Analysis of Extracellular Evolution and Replication (218 nt)
+
+Technologies from MS2:
+MS2 tagging,  imaging, purification, activation
+star-protocols.cell.com/protocols/519
+CRISPR Prime-editor + MS2
+
+Automated in vitro evolution of a translation-coupled RNA replication system in a droplet flow reactor
+--George
+
+Final Project Description (crisp, 1-2 paragraphs)
+
+This project is geared toward advancing phage therapy efficacy through the strategic engineering of a crucial phage protein to overcome host bacterial resistance. Specifically, our focus lies in the customization of the MS2 phage to surmount resistance mechanisms in its host bacterium, Escherichia coli (E. coli). The MS2 phage executes lysis in E. coli by expressing its lysis protein "L". However, a challenge arises as the proper processing of this lysis protein is contingent upon the bacterial chaperone protein DnaJ. E. coli, in response, can mutate its DnaJ protein, impeding proper processing and interfering with the expression of the L protein, thereby rendering the phage less effective. 
+To address this issue, our objective is to engineer the L protein, freeing it from dependency on DnaJ for proper processing. For this purpose, we will create L protein mutants, and we plan to leverage the Nuclera system to investigate them for a) proper protein folding and b) interaction with wild-type DnaJ and some common mutants. The selection of mutations will be informed by existing literature and protein structure prediction software, e.g., AlphaFold. All mutants demonstrating the desired traits – proper folding and minimal interaction with DnaJ – will then be prioritized for testing in E. coli using a plaque assay and metabolic monitoring. For these assays, the MS2 genome will be synthesized by Twist, including smaller fragments containing the engineered L mutations. At approximately 3600 bp this is around a $3k Twist order, and we hope to find a mechanism to distribute to the remote labs under the Twist MTA rather than needing to distribute material from MIT. Through cloning, these mutations will be incorporated into the MS2 genome, and the corresponding phages will be produced in a phage-resistant E. coli strain such as XL1 Blue or C3000. Finally, to assess the practical effectiveness of the engineered phages, E. coli cultures will be infected and grown continuously for 72 hours at three distinct temperatures: 30 °C, 37 °C, and 42 °C. The plaque assay will be performed at different time points, 0 hours (without prior E. coli incubation), 24 hours, 48 hours, and 72 hours, to evaluate the phages' ability to combat bacterial resistance over the specified duration. Some mechanisms for assessing partial phage infectivity through metabolism monitoring are also under consideration, which can involve the Opentrons to automate the assays. This comprehensive approach integrates molecular engineering, protein analysis, genomic synthesis, and functional testing, with the ultimate goal of enhancing the therapeutic potential of phages in combating antibiotic-resistant bacterial infections.
+
+Final Project Technical Prompt
+
+Coming soon! In the meantime here are some references:
+Detail on the L protein/DnaJ interactions: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5446614/
+Characterization of the L protein: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10688784/
+An analysis of L protein mutants: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/
+metabolic characterization of MS2 (neat paper that does in-silico modeling and then uses glucose consumption to quantify partial phage infections in liquid culture): https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2813233/
+We investigated assembling in yeast, but in the end decided there was more technical risk there than was desirable: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7090958/
+
+Some additional protocols papers are coming! As well as detail on how to screen the mutants on the Nuclera platform, the Twist order details, and the detailed assay protocols.
+
+
+
+Open Questions:
+
+What proteins are we asking the students to design?
+Variants on the MS2 lysis protein
+What should the designs be optimizing for?
+Effectiveness in DnaJ chaperone protein variants
+How can we easily assay / test for best designs?
+Nuclera, plaque assays, metabolic data in liquid culture
+
+
+
+
+
+Final project description March 5
+Harnessing the Power of Bacteriophages
+
+
+Source: https://www.taconic.com/resources/phage-therapy-antibiotic-resistance
+
+Phage Therapy
+Phage therapy is the therapeutic use of bacteriophages to treat bacterial infections. Bacteriophages, or phages, are viruses that infect bacteria. They are highly specific, often infecting only a single strain of bacteria. Because of this specificity, phage therapy has potential advantages over traditional antibiotic treatment, which can kill beneficial bacteria along with the harmful ones. Phage therapy is seen as a solution to the problem of antibiotic resistance, which is becoming prevalent worldwide. At the current trend, in 26 years, the number of deaths attributed to antibiotic resistance are projected to become comparable with the number of deaths caused by cancer.
+
+This project represents our HTGAA large-scale group research effort, where every participant has the opportunity to contribute to state-of-the-art research using advanced techniques. The potential impact of this work is significant, with the potential to make a real difference in people's lives. For instance, consider the Patterson story, which highlights the transformative power of phage therapy. This Group Final Project is not just about academic advancement, but about making a tangible difference in the global fight against antibiotic resistance.
+
+A famous example: Tom Patterson and Steffanie Strathdee’s story
+
+As evidenced in the Patterson story, a significant challenge in phage therapy is the ability of bacteria to rapidly develop resistance to the phages. In Patterson's case, the initial phage cocktail became ineffective after a few days. Consequently, another cocktail was developed and administered. Once again, it became ineffective after a short period. It was not until the third cocktail was introduced that the patient was finally cured. This highlights the need for continual monitoring and adaptation in phage therapy, reflecting the dynamic nature of bacterial resistance.
+
+You can find a detailed introduction into bacteria, phages and phage therapy in our HTGAA Bootcamp Part 1
+
+The Group Final Project
+Despite the great advantages of phage therapy over conventional antibiotics, bacteriophages have a major limitation: Bacteria can develop ways to defend themselves against the phages and become resistant. But, in contrast to the static nature of antibiotics, phages have the power to evolve too. For billions of years, there has been an arms race between phages and bacteria. But now, with the development of new tools in synthetic biology such as protein engineering and the synthesis of new genomes harboring advantageous mutations, we can try to give the phages a head start. We attempt this by engineering their DNA or RNA, so they are prepared in case they encounter bacteria developing a resistance. This is the overall goal of the group final project. Specifically, we want to engineer the bacteriophage MS2 to be more prepared and more efficient in killing its host bacteria Escherichia coli (E. coli).
+
+MS2 bacteriophage
+MS2 bacteriophages infect E. coli bacteria with a high specificity. It is a very small virus consisting of coat proteins, a maturation protein and genetic material. They infect bacteria by attaching to the F-pilin protein on the host cell membrane and entering the cell. Once inside, the viral RNA acts as a messenger for phage protein production. All proteins for virion assembly are translated and the virus RNA is replicated. Next, new viruses form by assembling the coat and maturation proteins and encapsulating the virus RNA. Finally, a lysis protein expressed from the viral RNA triggers bacterial lysis by causing cell wall breakdown, whereby the new phages are released into the environment to infect new bacteria.
+
+
+
+
+
+
+
+
+
+
+
+Source: https://www.wikiwand.com/en/Bacteriophage_MS2
+
+
+Empowering MS2 in their fight against E. coli
+To make phages stronger against their host and to prepare them against host resistance, we can introduce mutations into their genes to slightly change the structure and/or function of the encoded proteins. Four genes are present on the MS2 RNA: 1. the maturation protein (A), 2. the coat protein (coat), 3. the lysis protein (L) and 4. the replicase (rep). For this course, we focus on the L gene encoding the lysis protein. 
+
+
+Source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5446614/
+
+The exact function of the L protein is unknown, however, it is thought to form oligomers that can then integrate into the cell membrane to form pores, which ultimately lyse and kill the bacterial cell. This lysis protein is crucial for the phage to complete its life cycle and release new phages to infect more bacteria. Because of its importance, E. coli can try to intervene in the lysis protein production to stop the spread of the phages. For the translation and processing of the viral proteins, the phage heavily relies on the bacterial protein machinery. One example for such a protein is DnaJ, a chaperone responsible for proper protein folding, which has been shown to be important for MS2 lysis protein processing. E. coli can mutate this chaperone, preventing the lysis protein from interacting with DnaJ. This in turn causes the lysis protein to lose its function and stops MS2 from infecting more bacteria. 
+In this project, we want to engineer the lysis protein to increase the ability of MS2 to overcome potential E. coli resistance. We can attempt this by mutating the lysis protein to change its properties. Together, we aim for finding mutations that change the lysis protein one of the following ways: (1) an independence of lysis protein processing from DnaJ or other bacterial chaperones and (2) a faster or more efficient killing of E. coli to reduce the window in which the host can acquire resistance. In the course of this class, we will proceed through the following stages to create and test new MS2 phage mutants:
+
+Stage 1: Engineer novel L protein mutants using protein design tools
+Stage 2: Synthesize the L protein mutant gene via Twist
+Stage 3: Clone the L protein mutant gene into a plasmid using Gibson Assembly
+Stage 4: Test the L protein mutant’s structural integrity using the Nuclera system
+Stage 5: Test the L protein in E. coli (details will follow)
+
+With this group project, each student will have the opportunity to actively contribute to authentic scientific research that will advance scientific knowledge and could potentially have an impact on people’s lives.
+
+In Depth Reading Material
+
+Identification MS2 lysis protein dependency on DnaJ
+Mutational analysis of the MS2 lysis protein L
+Characterization of the MS2 lysis protein properties
+Phage therapy: From biological mechanisms to future directions
+Phage-therapy-past,-present-and-future
