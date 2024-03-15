@@ -1,0 +1,162 @@
+# 04 | Protein Design (pt.2)
+
+![Image from Spiber Technology's Website](https://prod-files-secure.s3.us-west-2.amazonaws.com/21c770fc-347b-4081-ae1b-dc20a859adb2/82398ed9-412c-4c2f-881c-0e38fcc8e4b9/Screen_Shot_2024-03-08_at_10.46.55.png)
+
+Image from Spiber Technology's Website
+
+**HW for the week**
+
+1. Additionally, for our registered MIT/Harvard students, please share at least one final project idea to be reviewed in class next week on 3/12 [via the link here](https://docs.google.com/presentation/d/1qpu3XuCZ6jDYEPVBJ7iQo8cSFdiiiM1nR5N47qbC-m0/edit?usp=sharing).
+    1. Here is a specific protein that relates to a bigger problem
+    2. UN Sustainable goals
+2. L protein mutant genes design
+    1. Produce 5 different variations - choose my favorite, TA will also rank for us
+    2. Question: which sites are never changed at all?
+    3. can we make the protein more effective?
+    4. can we mutate it and get it fold?
+    5. Using PyMol to test out the folding. If it could fold back to how it originally looks like.
+    6. Use to tools and test out with different mutants
+
+**TA Office Hour**
+
+Manvitha: https://calendly.com/manvithaponnapati/hgtaa-office-hours
+
+**2023 Midterm Slides**
+
+https://docs.google.com/presentation/d/1TWaVkn5HgAFSXjUz-zUW2HoLMVlqSL0RaYvKiXyZe3g/edit#slide=id.g214de0d829e_0_0
+
+> **Final Group Projection Introduction:** Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+> 
+
+> **Bacteriophage Lysis Proteins**: Bacteriophages are viruses that infect bacteria. After replicating inside the host bacterium, bacteriophages often produce lysis proteins that facilitate the rupture of the bacterial cell wall, releasing new viral particles. These lysis proteins are crucial for the lytic cycle of bacteriophages.
+> 
+
+![Screen Shot 2024-03-12 at 11.28.30.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/21c770fc-347b-4081-ae1b-dc20a859adb2/5a8b11dc-d1ac-4495-b371-4439250f35fa/Screen_Shot_2024-03-12_at_11.28.30.png)
+
+![Screen Shot 2024-03-12 at 11.43.04.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/21c770fc-347b-4081-ae1b-dc20a859adb2/24c28a58-412d-4c27-ac39-3c031e73970e/Screen_Shot_2024-03-12_at_11.43.04.png)
+
+### GOAL
+
+> Our goal for this part of the homework is to **create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj**. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+> 
+
+### L protein mutants
+
+## L-Protein and DNAj Sequence
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj.
+
+**DNAj sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+
+```
+
+In this homework we will be doing the following steps. Step 2 might vary from student to student
+
+- 2 of the variants you submit must have mutations in the **transmembrane region**
+- 2 of them must be in the **soluble region**
+- use the pBLAST to see which residues are conserved and not mutate them if you want to.
+- look for residue positions and mutations that are have a **positive mutational effect** either in the experimental or have a positive score from step 1
+
+### Alpha Fold
+
+> AlphaFold uses deep learning techniques, specifically artificial neural networks, to predict the **3D structure of a protein** based on its **amino acid sequence**.
+> 
+
+Use [Alpha Fold](https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb) to get the 3D geometry
+
+### Heat map of L-Protein
+
+1. Using the mutational analysis of lysis protein from [Using protein language models](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing#scrollTo=XgK0ujXJU9Yt)
+
+![Anything highlighted in **yellow** is a mutation that is expected to be **positive for the function** of the protein and anything in blue is a bad mutation for the protein.](https://prod-files-secure.s3.us-west-2.amazonaws.com/21c770fc-347b-4081-ae1b-dc20a859adb2/b4d0338f-f662-4a2f-9619-7a464d0020a3/Unknown.png)
+
+Anything highlighted in **yellow** is a mutation that is expected to be **positive for the function** of the protein and anything in blue is a bad mutation for the protein.
+
+| Amino Acid Position | Amino Acid Change | Lysis | Protein Levels (ND=Not determined) |
+| --- | --- | --- | --- |
+|  |  |  |  |
+|  |  |  |  |
+
+<aside>
+💡 The yellow parts are mutations that won't affect overall protein function, which are presumably strong candidates for mutations to take place.
+
+</aside>
+
+![Unknown.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/21c770fc-347b-4081-ae1b-dc20a859adb2/a3e6e5a4-d28d-4be2-ab74-13bccd7d6ad2/Unknown.png)
+
+---
+
+Mar. 5 Class Note
+
+### Programmable Genome, Proteome, and Cell Engineering via Protein Design
+
+*Pranam Chatterjee, Phd from Duke*
+
+- Pranam's lab doing protein design in two ways
+    - Algorithms
+    - Proteins
+- Proteins to engineer biology programmably
+
+- **DNA**
+    - proteins that can be designed to change the DNA in your body
+    - Why?
+        - Cure diseases
+        - grow healthier foods
+        - develop new bioenergy solution
+        - shape our ecosystem (e.g. develop malaria resistance)
+    - How?
+        - step 1: bind to the DNA sequence
+        - step 2: cut it
+        - step 3: gene insertion
+        - TOOL: **CRISPR** — a bacterial adaptive immune system (target and cut viral DNA)
+            - PAM: short sequence besides the target sequence
+            - Search for PAMs by Alignment of Target
+    
+- Tools for Cell Engineering
+- DALL-E (text based model)
+- CLIP (Contrastive Language-Image Pertaining)
+
+- We are designing the peptides
+    - Protein interacts with other proteins
+    - learning which amino acids interact with most actively
+
+- Language models are good generators for peptides
+    - pepMLM: open source tool to be used during homework
+
+- Jason and Gabrial: looking at the structure of proteins
+- doing something in the first principle: BINDING
+- BINDING - if we bind we can do a lot
+    - Do we need to check if it's binding to all the critical cells?
+- Question:
+    - if we put the protein: what can we do to the cell?
+    - **level of abstraction**: design a protein to do a specific and well-regulated process
+- Where are we right now:
+    - not there yet
+    - make a good protein to create higher quality cells
+
+### Protein Design by Phil Lorenz
+
+- protein design: everything we build is from biodiversity
+- data-centric AI strategy for the Life Science
+- Impact:
+    - cure diseases: CRISPR technology
+    - controllability: *<controllable protein design with language models>*
+    - optimizations for product applications
+- Generation for protein design
+    - fixed-backbone design
+- Chroma: protein design model
+
+- Product side: structural material
+    - Protein products: CRISPR make something
+    - nuclides they make
+    - climate sustainability: hydrolis - one day we are gonna have the enzyme to tackle the issue…

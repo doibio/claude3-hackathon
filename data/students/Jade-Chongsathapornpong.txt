@@ -1,0 +1,21 @@
+# Week 4: Protein Design Part II
+
+# 3/5: Pranam Chatterjee’s lecture
+
+Today Pranam discussed the engineering of Cas9 enzymes, which by nature require adjacent sequences called PAMs in order to make a cut at a certain target sequence.
+
+- ML to predict the PAMs of found Cas9s
+- Engineering of existing Cas9s to have different PAMs
+- Combination of mutated Cas9s producing SpryC, a Cas9s with no PAM requirement.
+
+Also, creation of oocytes from stem cells (…why would we want to do this?)
+
+Also, computational design of peptides for interaction with target proteins, e.g. for therapeutics. Using machine learning (CLIP) and a dataset of protein-protein interactions to predict the interaction likelihood of different peptide snippets of proteins that are known to interact with other proteins. SnP (Chatterjee et al. 2023, Communications Biology). From there, one can use this model to try generating peptides from the latent space that might bind the protein, then using the CLIP model try to evaluate how well they may bind.
+
+The above (PepMLM), unlike a model like RFDiffusion, can work from just the target sequence, and doesn’t require the target structure. This is useful in floppy proteins that are sometimes involved in disease.
+
+**Future Outlook**: Right now we can e.g. design binding, design a structure, etc. But the next level of abstraction that needs to happen is… what sort of effect on a cell will raising/lowering the levels of this protein have? Can we design things so that a cell as a whole e.g. fixes nitrogen, or takes up more CO2?
+
+### random note on radiodurans
+
+Prof. Joe’s comment on radiodurans, a bacteria which can survive thousands of times more radiation than other organisms, by keeping many copies of its genome to enable templated repairs of double-stranded breaks from radiation. Typically 2-3 double stranded breaks on a single copy is too much for things to repair.

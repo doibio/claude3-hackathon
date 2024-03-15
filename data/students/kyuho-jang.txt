@@ -1,0 +1,388 @@
+# Week 4: Protein Design pt. 2
+
+## **Part B (Final Project: L-Protein Mutants)**
+
+<aside>
+⚠️ Mandatory for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12
+This homework requires computation that might take you a while to run. So please get started early.**
+
+</aside>
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+You can read more about the final project in the [Final Project Page](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21). 
+
+![source - https://www.oaepublish.com/articles/mrr.2023.28](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/bbb2354b-ee49-47db-b00b-77dae8fa8d76/6fa8f596749f456c8ddb98d9e8d48735.jpg)
+
+source - https://www.oaepublish.com/articles/mrr.2023.28
+
+## **Goal:**
+
+Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+
+## Solution presented in literature
+
+According to [Chamakura et al.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5446614/), they already found MS2-L protein mutation. 
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/af541b47-9dda-42b3-b84d-7f366bd65a3c/Untitled.png)
+
+Lodj1, Lodj2, Lodj3 can lysis E. coli without interaction with DnaJ and they lysis even faster than normal MS2-L protein. Therefore, choosing one of these mutations will give you a higher possibility of achieving the goal. 
+
+I will choose Lodj1
+
+<aside>
+💡 MSKTKRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+
+</aside>
+
+## L-Protein and DNAj Sequence
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj. 
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)** 
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+In this homework we will be doing the following steps. Step 2 might vary from student to student
+
+![Untitled presentation.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/3c1fedd4-a593-4e16-aa99-6fa4c5286f1f/Untitled_presentation.png)
+
+**Additional Information**
+
+1. Using the mutational analysis of lysis protein from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/  Here is a list of some mutations and their effect on lysis  [https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) [Three columns highlighted ! Please copy the sheet before any edits).
+2. In the last class, we used pBLAST to find evolutionary sequences from other organisms and visualized it using clustalomega. BLAST results for L-protein are here - https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link .  You can upload it to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments)
+    
+    I attached the alignment result file below
+    
+    [Clustal Omega alignment (1).txt](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/fb35a71e-1722-474e-8222-372f5c617857/Clustal_Omega_alignment_(1).txt)
+    
+3. Additional Information about the sequence is linked here - [https://www.notion.so/howtogrowalmostanything/L-Protein-Sequence-Information-7a29684affaa4e3b9adf070cbb7c9908?pvs=4](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21) 
+
+SUBMIT YOUR MUTATIONS HERE. Also add one sentence about what approach you are using. Just make a new sheet with your lastname_firstname_approach
+
+https://docs.google.com/spreadsheets/d/15Ho8WCnXI7iYK6XSmsMG0diEDQhgZZVR9gfD13MCAgU/edit#gid=0
+
+## Mutagenesis using Protein Language Models [Easiest One]
+
+<aside>
+⚠️ Designing these mutants with good computational confidence is hard. It will show you limitations of some of the structure based models. Ultimately you can pick various combinations of mutations and get lab results and then decide to pick the next round of mutations. But this assay won’t be easy to run at scale in this class. So using the information below you can either make a best guess or you can use the strategy Allan was talking about during recitation. Contact Manu or Allan if you need one on one help.
+
+</aside>
+
+1. Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein.  We want to identify possible mutations that are “positive” If you run this notebook - you will see a .CSV file in the sidebar. You can download it and look at it in the google sheets if that’s easier
+    
+    ### Answer
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/0a51cf4c-e459-4d84-a49b-470fa1c94c34/Untitled.png)
+    
+    According to recitation, this heatmap is generated by AI trained by guessing the most likely amino acids when the training sets are given with blocking sequence in the middle. Therefore, this result indicates the likely amino acids at each point. 
+    
+2. Use the experimental data here. This dataset contains information about mutants of the L-Protein and their effect on lysis in the lab - https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing
+3. First check, does the experimental data correlated with the scores from the notebook in (1) ? This should give you a clue on how well these language embeddings capture information about this protein sequence. 
+    
+    ### Answer
+    
+    I check the validity of the protein language model using the experimental data given above. I compared the score of protein language model and the lysis functionality obtained in the experimental data. you can find the code [here](https://colab.research.google.com/drive/1PLDxJBTCQ0bnZHlxsRbwjk-I4x1stJcf?usp=drive_link). 
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/da3871ea-eb8c-4fad-85a9-5057f591039b/Untitled.png)
+    
+    As a result, I could generate the plot above. However, you can see a bipolarity of scores when lysis ability is 0. If you closely look at the calculated score, high scores usually occur when the amino acids converted to STOP codon. Therefore, we excluded cases if the mutation resulted in STOP codon. 
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/1b428814-64f8-4c2d-8824-dc111d7725a8/Untitled.png)
+    
+    Now, you can clearly see that the mutation preserving its original functionality shows a higher score (score>0) tendency. However, this relation is not absolute, and many of the mutations that lost their functionality also showed high scores. 
+    
+4. Using information about effect of protein mutations at these sites -  both the scores and the experimental data in the drive, come up with 5 mutations for each student along with how you came up with them and why you believe they would work. 2 of the variants you submit must have mutations in the transmembrane region (refer to notes above on what amino acid positions these are) and 2 of them must be in the soluble region . Remember that you can also use the pBLAST to see which residues are conserved and not mutate them if you want to. 
+
+One easy way to generate sequence mutations could be to look for residue positions and mutations that are have a positive mutational effect either in the experimental or have a positive score from step 1. And pick a combination of those mutations. 
+    
+    ### Answer
+    
+    To be independent to DnaJ, mutation in soluble region will be needed since DnaJ bind to soluble region of MS2-L. To list the possible mutation that will retain lysis functionality while becoming independent to DnaJ, I restricted the candidates to mutations shown in the experimental data. Also, I excluded mutations that doesn’t have lysis functionality because anyway these mutations will not achieve the goal. Now, let’s extract the mutations that have lysis functionality and sort them with descending order. You can find the code for this [here](https://colab.research.google.com/drive/1PLDxJBTCQ0bnZHlxsRbwjk-I4x1stJcf?usp=drive_link). 
+    
+    - sorted List
+        
+        `[{'Amino Acid': 'W',
+          'Origianl Amino Acid': 'R',
+          'Position': 20,
+          'Score': 2.1814887523651123,
+          'lysis': 1},
+         {'Amino Acid': 'W',
+          'Origianl Amino Acid': 'R',
+          'Position': 20,
+          'Score': 2.1814887523651123,
+          'lysis': 1},
+         {'Amino Acid': 'P',
+          'Origianl Amino Acid': 'L',
+          'Position': 44,
+          'Score': 1.5864309072494507,
+          'lysis': 1},
+         {'Amino Acid': 'P',
+          'Origianl Amino Acid': 'L',
+          'Position': 44,
+          'Score': 1.5864309072494507,
+          'lysis': 1},
+         {'Amino Acid': 'H',
+          'Origianl Amino Acid': 'R',
+          'Position': 19,
+          'Score': 1.1027252674102783,
+          'lysis': 1},
+         {'Amino Acid': 'I',
+          'Origianl Amino Acid': 'R',
+          'Position': 18,
+          'Score': 1.0127227306365967,
+          'lysis': 1},
+         {'Amino Acid': 'I',
+          'Origianl Amino Acid': 'R',
+          'Position': 31,
+          'Score': 0.9332857131958008,
+          'lysis': 1},
+         {'Amino Acid': 'G',
+          'Origianl Amino Acid': 'R',
+          'Position': 18,
+          'Score': 0.8473854064941406,
+          'lysis': 1},
+         {'Amino Acid': 'S',
+          'Origianl Amino Acid': 'R',
+          'Position': 19,
+          'Score': 0.3805429935455322,
+          'lysis': 1},
+         {'Amino Acid': 'Q',
+          'Origianl Amino Acid': 'R',
+          'Position': 30,
+          'Score': 0.3674328327178955,
+          'lysis': 1},
+         {'Amino Acid': 'L',
+          'Origianl Amino Acid': 'R',
+          'Position': 30,
+          'Score': 0.129835844039917,
+          'lysis': 1},
+         {'Amino Acid': 'L',
+          'Origianl Amino Acid': 'R',
+          'Position': 20,
+          'Score': 0.10537219047546387,
+          'lysis': 1},
+         {'Amino Acid': 'F',
+          'Origianl Amino Acid': 'I',
+          'Position': 46,
+          'Score': 0.09554791450500488,
+          'lysis': 1},
+         {'Amino Acid': 'A',
+          'Origianl Amino Acid': 'S',
+          'Position': 15,
+          'Score': -0.0363774299621582,
+          'lysis': 1},
+         {'Amino Acid': 'P',
+          'Origianl Amino Acid': 'A',
+          'Position': 45,
+          'Score': -0.037619590759277344,
+          'lysis': 1},
+         {'Amino Acid': 'L',
+          'Origianl Amino Acid': 'P',
+          'Position': 13,
+          'Score': -0.09994792938232422,
+          'lysis': 1},
+         {'Amino Acid': 'L',
+          'Origianl Amino Acid': 'P',
+          'Position': 13,
+          'Score': -0.09994792938232422,
+          'lysis': 1},
+         {'Amino Acid': 'E',
+          'Origianl Amino Acid': 'K',
+          'Position': 23,
+          'Score': -0.17726922035217285,
+          'lysis': 1},
+         {'Amino Acid': 'E',
+          'Origianl Amino Acid': 'K',
+          'Position': 23,
+          'Score': -0.17726922035217285,
+          'lysis': 1},
+         {'Amino Acid': 'E',
+          'Origianl Amino Acid': 'K',
+          'Position': 23,
+          'Score': -0.17726922035217285,
+          'lysis': 1}]`
+        
+        ---
+        
+    
+    Now, we need to choose 5 mutation candidates. I chose three soluble mutations and two transmembrane mutations. For all mutations, I chose the mutations of which score higher than 0. For soluble mutation, I chose mutations that are not conservative. Especially, the soluble region is highly basic, and this property may facilitate the interaction with DnaJ. Therefore, I chose a missense mutation that replaced the basic amino acid with a non-polar amino acid. For transmembrane mutations, there were only two options so I just chose these two. 
+    
+    <aside>
+    💡
+    
+    ```
+    **Soluble domain mutation 1**
+    {'Amino Acid': 'W',
+      'Origianl Amino Acid': 'R',
+      'Position': 20,
+      'Score': 2.1814887523651123,
+      'lysis': 1}
+    ```
+    
+    ```
+    **Soluble domain mutation 2**
+    {'Amino Acid': 'I',
+      'Origianl Amino Acid': 'R',
+      'Position': 18,
+      'Score': 1.0127227306365967,
+      'lysis': 1}
+    ```
+    
+    ```
+    **Soluble domain mutation 3**
+    {'Amino Acid': 'I',
+      'Origianl Amino Acid': 'R',
+      'Position': 31,
+      'Score': 0.9332857131958008,
+      'lysis': 1}
+    ```
+    
+    ```
+    **Transmembrane domain mutation 1**
+    {'Amino Acid': 'P',
+      'Origianl Amino Acid': 'L',
+      'Position': 44,
+      'Score': 1.5864309072494507,
+      'lysis': 1}
+    ```
+    
+    ```
+    **Transmembrane domain mutation 2**
+    {'Amino Acid': 'F',
+      'Origianl Amino Acid': 'I',
+      'Position': 46,
+      'Score': 0.09554791450500488,
+      'lysis': 1}
+    ```
+    
+    </aside>
+    
+5. You can utilize Af2_Multimer to generate a Multimeric Assembly [TA: Ben Arias-Almeida]
+you can do this by making your query sequence as. We want to do this because -  A running hypothesis for how this protein function is that it *assembles* to make a perforation in the bacterial membrane. Our TA Ben Arias-Almeida discovered that when we predict the **assemble of 8 structures of the lysis protein***,* it indeed reveals a channel-like complex.
+
+    
+    ![Untitled-2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/1c451192-20ec-4caf-b188-eb1208b60dbf/Untitled-2.png)
+    
+    ![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/f530b8c0-caf0-4779-82fb-13819b52fcfc/Untitled.png)
+    
+    I will choose the first mutation above for this practice. 
+    
+    ```python
+    **Soluble domain mutation 1**
+    {'Amino Acid': 'W',
+      'Origianl Amino Acid': 'R',
+      'Position': 20,
+      'Score': 2.1814887523651123,
+      'lysis': 1}
+    ```
+    
+    To easily do this, I wrote some functions to create input sequence. 
+    
+    ```python
+    def replace_character(string, position, replace):
+        # Ensure position is within the bounds of the string
+        position = position-1
+        if position < 0 or position >= len(string):
+            return "Position is out of the string's range."
+    
+        # Replace the character at the specified position
+        new_string = string[:position] + replace + string[position+1:]
+        
+        return new_string
+    def repeat_string(string, mul):
+        # Repeat the string mul times, separated by a colon
+        repeated_string = (string + ':') * mul
+        # Remove the last colon
+        repeated_string = repeated_string.rstrip(':')
+        
+        return repeated_string
+    input_seq = replace_character(protein_sequence, 20, 'W')
+    input_seq = repeat_string(input_seq, 8)
+    input_seq
+    ```
+    
+    The result of this code is:
+    
+    ```
+    METRFPQQSQQTPASTNRRWPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRWPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRWPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRWPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRWPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRWPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRWPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRWPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    ```
+    
+    And I got the similar result as above
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/bf88a08c-90dc-492b-9162-bac34b6e46f8/Untitled.png)
+    
+    Although the confidence level is very low, it also shows the similar structure as original sequence, we can say the oligomer structure itself doesn’t change that much. The major difference is the number of alpha helices in one chain. it should be two as in the above picture since those regions remained the same. However, because of the unknown reason, I got this result. structure similarity is as expected since we chose a conservative missense mutation that doesn’t change the structure but sequence, so it possibly hampers DnaJ binding. 
+    
+
+### Mutagenesis using Af2-Multimer
+
+<aside>
+👤 TA: Manu Ponnapati, Allan Costa
+
+</aside>
+
+<aside>
+⚠️ This approach is probably not going to work. Because the 
+You can also try co-folding just the soluble domain with the AlphaFold2 complex instead of the whole sequence. You might notice that Af2 is not good at predictions here so it might be worth while to also try just folding the soluble domain.
+
+</aside>
+
+1. One of our goals is to prevent the interaction of L-Protein with DNAj
+2. We will co-fold the DNAj protein sequence with L-Protein and study if any mutations affect their interaction. 
+3. DNAj sequence - MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+4. CoFold this sequence with the L-Protein Sequence, in the complex predicted by AF2 Multimer is the interaction where the L-protein soluble region residues are ?
+5. You can use the information found in mutational analysis experiments [here](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0)
+6. Try to come up with two mutations each with mutations at least in 3 different residue positions. Only make these mutations in the soluble region of the L-protein (refer to notes above on what amino acid positions these are). Explain how you picked your mutations
+7. Submit 5 mutations
+8. Notebook for AF2-Multimer - https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
+
+### Mutagenesis using Rosetta
+
+<aside>
+⚠️ This requires learning about an entirely new tool. May not work at all and is computationally expensive to try. Manu will have office hours over the weekend if you want to try this approach. This is an older way of doing things. Rosetta has forcefields that can be used to compute the structure of a protein sequence as well - It takes significantly longer. We provided the Rosetta results for the PDB predictions
+
+</aside>
+
+![This is the L-Protein Structure according Ab-initio Rosetta Fold. Different from what Af2 gave you. You can find the PDB here - https://drive.google.com/drive/folders/12Hx0mv6_c0tbBt7FTobdDvHO0X71R9sj?usp=share_link](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/6e811d48-6d72-49d3-b9b7-faaa58760704/rostta.png)
+
+This is the L-Protein Structure according Ab-initio Rosetta Fold. Different from what Af2 gave you. You can find the PDB here - https://drive.google.com/drive/folders/12Hx0mv6_c0tbBt7FTobdDvHO0X71R9sj?usp=share_link
+
+<aside>
+👤 TA: Manu Ponnapati,  Allan Costa
+
+</aside>
+
+1. Fold the DNAj sequence and the sequence of the L-Protein using Af2-Multimer. 
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/92d868a0-3e4b-41f8-b921-e9598de33e5e/b02a2d3e-5a91-4fc2-a964-5efd57e1853c/Untitled.png)
+    
+2. Download the PDB file from Af2 Multimer
+3. We will utilize Rosetta (This is a non machine learning based computational protein engineering tool - and one of the most widely used protein engineering packages). We are going to run a protocol called “Point Mutation Scan”
+4. The notebook for it is here: https://colab.research.google.com/drive/1CW3BrzTbnIh9DUWevWsSz2_CIfrHpsb8?usp=sharing 
+5. Submit 5 mutations!
+6.  [Other rosetta tutorials can be found [here](https://rosettacommons.github.io/PyRosetta.notebooks/) ]
+7. If the multimer predictions are not good then you can try to do other things like using Rosetta PDB with ProteinMPNN or mutating the residues to find stabilizing mutants etc. 
+8. If the complex prediction doesn’t work you can try these tools as well - [AlphaRed], [Stabilize-PM] available to use online here -  https://r2.graylab.jhu.edu/apps/index [You have to login with your GitHub setup with an .edu account]
+
+### Random Mutagenesis
+
+<aside>
+👤 TA: Manu Ponnapati,  Allan Costa
+
+</aside>
+
+1. Create a python function to generate random mutation combinations at at least 2 residues by using the information found in mutational analysis experiments [here](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0)
+2. Co-Fold the random mutation with DNAj using Af2_Multimer. 
+DNAj sequence - MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+3. If the confidence of the multimer prediction is good. You can try docking it. And try the scoring strategy below
+4. Score the binding energy of the predicted complexes - You can refer to the Rosetta notebook if you want to use the interface analyzer in rosetta. And pick 5 mutations for each student and explain why you chose them. 
+5. [This is computationally expensive to run].

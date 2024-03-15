@@ -1,0 +1,246 @@
+# Week 5: Protein design (part 2)
+
+From the [homework description](https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21).
+
+> Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+> 
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/0622a572-9ec3-47a4-9f48-4f2bc0412e99/Untitled.png)
+
+source - https://www.oaepublish.com/articles/mrr.2023.28
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```markdown
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj.
+
+DNA sequence of the MS2 phage: 
+
+[V00642.1.fasta](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/816e4a2e-a014-4a9e-b291-92e6b7fdf34e/V00642.1.fasta)
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```markdown
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+```
+
+# Guiding design of L protein mutants
+
+## Structure of L protein
+
+![Screenshot 2024-03-11 at 9.04.40 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/09017d1f-1040-4f2a-9456-0b6654c8f17c/Screenshot_2024-03-11_at_9.04.40_PM.png)
+
+Figure 1a: Alphafold prediction of the original L protein sequence. The transmembrane sequence is highlighted in yellow, while the soluble region is shown in magenta
+
+![Screenshot 2024-03-11 at 9.05.14 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/3af8d0ec-ab2e-4a88-b43c-5f6fba668181/Screenshot_2024-03-11_at_9.05.14_PM.png)
+
+Figure 1b: Alphafold confidence scores for the L protein structure. We see that the soluble regions that interact with DNAj is low confidence and is likely somewhat “flexible.”
+
+## Literature review
+
+Mutational analysis of the MS2 lysis protein L
+
+[Chamakura 2017](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/)
+
+- “From a total of 396 clones, 67 were unique single base-pair changes that rendered L non-functional, of which 44 were missense mutants and 23 were nonsense mutants.”
+- “Most of the non-functional missense alleles that accumulated in levels comparable to the wild-type allele are localized in the **C-terminal half of L**, clustered in and around an **LS dipeptide sequence**.”
+- “[The genetic analysis] approach revealed that the host DnaJ chaperone was required for L function, interacting with the **N-terminal**, highly basic domain of L
+- the dipeptide sequence LS as a completely conserved motif
+
+![Screenshot 2024-03-10 at 9.07.10 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/6644d65f-b63d-4ab2-ad0b-9890b8b40a2d/Screenshot_2024-03-10_at_9.07.10_PM.png)
+
+**Figure 2:** We observe that:
+
+- The L protein has four domains, shown on the colored bar.
+- Alleles that resulted in lysis defects but nevertheless resulted in protein accumulation are shown above the sequence.
+- Amino acid changes that did not affect lytic function are shown below the sequence.
+- The green asterisks indicate all possible codon positions where a nonsense mutation could result from a single nucleotide sequence. We do not want to encode a DNA sequence that creates an mRNA transcript that prematurely encodes a stop codon.  Below the sequence
+
+## Annotating sequences in Benchling
+
+Before designing my L protein mutants, I wanted to understand the MS2 phage genome, so I started by visualizing it. I downloaded the DNA sequence of the MS3 phage [from EMBL](https://www.ebi.ac.uk/ena/browser/view/V00642) and imported the sequence into Benchling. I then annotated the protein-coding regions using annotations [from NCBI](https://www.ncbi.nlm.nih.gov/nuccore/V00642). The description of the proteins on the NCBI pages shows you the start and end of the DNA sequence of all the proteins; bases 1761..3398 for the L protein.
+
+![Screenshot 2024-03-10 at 9.44.49 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/c9464ce7-0757-4ae8-b43d-27d1d1783924/Screenshot_2024-03-10_at_9.44.49_PM.png)
+
+Figure 3: NCBI annotation of the L protein of the MS2 phage, including the position of the protein in the genome sequence (1761..3398). 
+
+![Screenshot 2024-03-10 at 9.48.29 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/ebe02bdd-fcd9-4a97-b5ea-9c429d32cc93/Screenshot_2024-03-10_at_9.48.29_PM.png)
+
+Figure 4: The annotated MS2 phage genome in Benchling. The coat protein is in green and the L protein is in orange. The figure shows that the L protein gene overlaps with genes encoding the coat protein and replicase, respectively. The non-overlapping region is from bases 1728-1760. These may be good candidates to mutate as they won’t cause issues in the other proteins. If we do change bases in the overlapping regions, we want to choose residues with codons that lead to synonymous mutations in the overlapping genes. 
+
+I next query the L protein on pBLAST and view it using the multiple sequence aligner view. The red regions show highly conserved proteins that we’ll likely want to avoid mutating. 
+
+![Screenshot 2024-03-10 at 9.59.01 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/b19667ff-79fc-4c91-9e26-c6707aa66e91/Screenshot_2024-03-10_at_9.59.01_PM.png)
+
+Figure 5: The L protein visualized the multiple sequence alignment tool on pBLAST. The red highlights show conserved areas. 
+
+I then annotated these conserved regions on benchling.
+
+![Screenshot 2024-03-10 at 10.18.00 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/4891c18a-b3a8-41a4-a03f-ecf64bd015ae/Screenshot_2024-03-10_at_10.18.00_PM.png)
+
+Figure 6: Conserved amino acids, as indicated by pBLAST in Fig. 5 are annotated in Benchling. 
+
+I then annotated specific amino acids in the L protein where mutations had caused MS2 phage to fail at lysing the host cell. Each annotation contains a note in which mutation broke the lysis function, as indicated in the [L-Protein Mutants spreadsheet](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0) compiled for the class. We probably want to avoid making mutations in regions where mutations frequently led to lysis failure. 
+
+ 
+
+![Screenshot 2024-03-10 at 10.51.48 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/4a17f195-b877-4f03-a344-489b5b8e709d/Screenshot_2024-03-10_at_10.51.48_PM.png)
+
+Figure 7: Annotation of mutated amino acids causing failure of lysis in the MS2 bacteriophage. 
+
+As a final annotation, I added the soluble domain and the transmembrane domain, as outlined in the assignment. The soluble domain interacts with DNAj. The transmembrane domain is important for cell lysis activity.  
+
+## Mutagenesis using Protein Language Models
+
+I’m using a protein language model to find plausible mutations in the L protein that will still lead to correct folding. I’m using the ESM-2 model ([Lin et al. 2023](https://doi.org/10.1126/science.ade2574)) implemented in [this notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd). From the notebook, we generate a heatmap showing the predicted fitness or “appropriateness” of mutations for the L protein sequence. I consider the heatmap score to be a proxy for the likeliness to fold.  
+
+Raw data for the heatmap: 
+
+[protein_mutations_scores.csv](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/adce28d4-a6b8-419e-841b-e3373f29d4c7/protein_mutations_scores.csv)
+
+![Screenshot 2024-03-11 at 11.44.45 AM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/b2a0a270-cfe8-475c-916f-bd537f3db0ad/Screenshot_2024-03-11_at_11.44.45_AM.png)
+
+Figure 8: Predicted effects of mutations on the protein sequence of the L protein in MS2 bacteriophage. Yellow indicates mutations expected to be positive for function while blue suggests it will be negative for function. 
+
+As a sanity check, I compare a few of the fitness predictions from ESM-2 with experimental data in the [L-Protein Mutants spreadsheet](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0). 
+
+| Amino acid position | Amino acid change | Lysis | Protein levels (ND=Not determined) | ESM-2 score |
+| --- | --- | --- | --- | --- |
+| 3 | T→I | 0 | 0 | -0.30 |
+| 25 | E→G | 1 | 0 | 0.45 |
+| 29 | C→R | 0 | 0 | 2.40 |
+| 46 | I→F | 1 | 1 | -0.10 |
+| 50 | K→N | 0 | 1 | 0.42 |
+| 56 | L→P | 0 | 0 | -1.26 |
+| 69 | T→S | 0 | 0 | 0.07 |
+
+Table 1: Comparing ESM-2 predicted amino acid mutation fitness with experimental data. 
+
+From Table 1 we see that some of the predictions between ESM-2 match experimental results, like at amino acid positions 3, 25, and 56, while others are not aligned with experimental findings (positions 29, 36, 50, and 69). For position 29, in particular, ESM-2 makes predicts a high log-likelihood for a C→R change, however, experimental data suggests this change results in lysis failure. While this validation of ESM-2 is by no means comprehensive, my analysis is that I should not update to hard on the ESM-2 predictions. Still, lacking better information, it probably makes sense to use ESM-2 to rule out certain amino acid changes and choose ones with a high log-likelihood ratio.   
+
+### L protein mutants 1-3
+
+Here, I describe my method for choosing the first three mutant L protein sequences. The factors I consider are as follows:
+
+- Do not mutate amino acids in highly conserved regions as indicated by pBLAST
+- Do not make mutations that result in lysis failure as indicated in existing experimental data.
+- Do not make mutations in regions of the L protein that overlap with the coat protein and replicase protein of the MS2 bacteriophage.
+- Do make mutations that have a high log-likelihood as indicated by ESM-2.
+
+I use my annotated L protein sequence in Benchling and ESM-2 to conform to these criteria. 
+
+![Screenshot 2024-03-11 at 12.11.02 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/2dbb12a1-9143-4426-8844-15e9e04da021/Screenshot_2024-03-11_at_12.11.02_PM.png)
+
+Figure 9: The non-overlapping region of the L protein is highlighted, with conserved regions shown in light brown and specific mutations resulting in lysis failure shown in yellow (the exact amino acid changes resulting in lysis failure are seen in the annotation details). 
+
+I look for amino acid changes from positions 18-27 that are scored highly by ESM-2. I avoid the conserved amino acids in positions 18, 20, 21, and 25-27. That leaves positions 19 and 22-24 suitable for modification. In position 23 there is a lysis failure of the codon encoding the K amino acid is changed to a stop codon (UAA), so we’ll avoid this as well. 
+
+All of these proteins are in the soluble domain of the L protein which interacts with DNAj. Changes in the soluble region don’t significantly change the structure since this region is not compactly folded as seen in the original structure (Fig 1a). 
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/44e15165-e3fd-4520-b1d3-0e16ecdfdf17/Untitled.png)
+
+Figure 10: ESM-2 predictions for amino acid changes from the non-overlapping region of the L protein from amino acid position 18-27. 
+
+**Mutant 1**
+
+- For Mutant 1, I make an amino acid change in L protein amino acid position 22, which corresponds to bases 1741-1743 in the MS2 genome.
+- We see from Figure 10 that the highest-ranked amino acid change is F→R with a log-likelihood score of 1.60, so let’s go with this mutation.
+- The current sequence is AAG for the forward strand, which turns into UUC during transcription, with UUC encoding phenylalanine (F).
+- To change F→R, we can change the mRNA sequence to CGA, CGG, CGC, or CGU – all of these encode arginine (R). Let’s use CGC so that we go from UUC→CGC. That means we need to change the forward strand from AAG→GCG
+
+```markdown
+# protein sequence
+METRFPQQSQQTPASTNRRRPRKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+
+# DNA sequence
+ATGGAAACCCGATTCCCTCAGCAATCGCAGCAAACTCCGGCATCTACTAATAGACGCCGGCCACGCAAACATGAGGATTACCCATGTCGAAGACAACAAAGAAGTTCAACTCTTTATGTATTGATCTTCCTCGCGATCTTTCTCTCGAAATTTACCAATCAATTGCTTCTGTCGCTACTGGAAGCGGTGATCCGCACAGTGACGACTTTACAGCAATTGCTTACTTAA
+```
+
+**Mutant 2**
+
+- I change the amino acid in position 23, corresponding to bases 1744-1746.
+- I change the amino acid from Lysine to Arginine (K→R) based on ESM-2 score
+- I change the forward strand from AAA to CGA, encoding arginine.
+
+```markdown
+# protein sequence
+METRFPQQSQQTPASTNRRRPFRHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+
+# DNA sequence
+ATGGAAACCCGATTCCCTCAGCAATCGCAGCAAACTCCGGCATCTACTAATAGACGCCGGCCATTCCGACATGAGGATTACCCATGTCGAAGACAACAAAGAAGTTCAACTCTTTATGTATTGATCTTCCTCGCGATCTTTCTCTCGAAATTTACCAATCAATTGCTTCTGTCGCTACTGGAAGCGGTGATCCGCACAGTGACGACTTTACAGCAATTGCTTACTTAA
+```
+
+**Mutant 3**
+
+- I change amino acid in position 24, corresponding to bases 1747-1749
+- I change the amino acid from Histidine to Arginine (H→R) based on ESM-2 score
+- I change the forward strand from CAT to CGT, encoding arginine.
+
+```markdown
+# protein sequence
+METRFPQQSQQTPASTNRRRPFKREDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT*
+
+# DNA sequence
+ATGGAAACCCGATTCCCTCAGCAATCGCAGCAAACTCCGGCATCTACTAATAGACGCCGGCCATTCAAACGTGAGGATTACCCATGTCGAAGACAACAAAGAAGTTCAACTCTTTATGTATTGATCTTCCTCGCGATCTTTCTCTCGAAATTTACCAATCAATTGCTTCTGTCGCTACTGGAAGCGGTGATCCGCACAGTGACGACTTTACAGCAATTGCTTACTTAA
+```
+
+### L protein mutants 4-5
+
+In these mutants, we target the transmembrane proteins spanning amino acid positions 39-61. 
+
+![Screenshot 2024-03-11 at 9.12.31 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/79342ebe-3aa3-4eb8-a565-8de0229acd1c/Screenshot_2024-03-11_at_9.12.31_PM.png)
+
+Figure 11: The transmembrane domain of the L protein is highlighted, with light brown showing conserved regions and yellow codons representing experimental data on the effect of some amino acid change on lysis. 
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/47ba1055-0940-4b23-8832-d47fcf56cb56/Untitled.png)
+
+Figure 12: ESM-2 log-likelihood scores from amino acids in the transmembrane domain of the L protein. 
+
+**Mutant 4**
+
+- I change amino acid in position 45, corresponding to bases 1810-1812.
+- I change the amino acid from Alanine to Leucine (A→L), corresponding to the most likely alternative suggested by ESM-2.
+- I change the DNA sequence from GCG to CTG
+
+```markdown
+# protein sequence
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLLIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+# DNA sequence
+ATGGAAACCCGATTCCCTCAGCAATCGCAGCAAACTCCGGCATCTACTAATAGACGCCGGCCATTCAAACATGAGGATTACCCATGTCGAAGACAACAAAGAAGTTCAACTCTTTATGTATTGATCTTCCTCCTGATCTTTCTCTCGAAATTTACCAATCAATTGCTTCTGTCGCTACTGGAAGCGGTGATCCGCACAGTGACGACTTTACAGCAATTGCTTACTTAA
+```
+
+![Screenshot 2024-03-11 at 9.32.01 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/44e87a39-fe3c-4385-b53e-318ad8275bc2/Screenshot_2024-03-11_at_9.32.01_PM.png)
+
+Figure 13: Here, I compare the Alphafold structure of the wild-type L protein (green) and mutant 4 L protein (green) with a single amino acid change at position 45, highlighted in magenta and yellow for the wildtype and mutant, respectively. 
+
+**Mutant 5**
+
+- I change amino acid 50, corresponding to bases 1825-1827
+- I change the amino acid from Lysine to Phenylalanine (K→F) as it has a high ESM score.
+- The corresponds to changing the DNA from AAA to TTT.
+
+```markdown
+# protein sequence
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSFFTNQLLLSLLEAVIRTVTTLQQLLT
+# DNA sequence
+ATGGAAACCCGATTCCCTCAGCAATCGCAGCAAACTCCGGCATCTACTAATAGACGCCGGCCATTCAAACATGAGGATTACCCATGTCGAAGACAACAAAGAAGTTCAACTCTTTATGTATTGATCTTCCTCGCGATCTTTCTCTCGTTTTTTACCAATCAATTGCTTCTGTCGCTACTGGAAGCGGTGATCCGCACAGTGACGACTTTACAGCAATTGCTTACTTAA
+```
+
+![Screenshot 2024-03-11 at 9.44.34 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/4e522f88-a6b1-49ef-9d58-3cba982afdc7/Screenshot_2024-03-11_at_9.44.34_PM.png)
+
+Figure 14: Here, I compare the Alphafold structure of the wild-type L protein (green) and mutant 5 L protein (green) with a single amino acid change at position 50, highlighted in magenta and yellow for the wildtype and mutant, respectively. 
+
+## Hypothesis: L proteins assemble into pore-forming protein complexes
+
+HTGAA TA Ben Arias-Almeida discovered that when we predict the **assemble of 8 structures of the lysis protein***,* it reveals a channel-like complex.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/fedbb04b-a1a3-4aa7-a6d4-d75481d81aa2/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b04d387-86d9-4590-b9bb-46e9b3e07f66/661d7a2f-71a7-4069-a460-bc641908f2b1/Untitled.png)
+
+Figure 15: Multimeric structure of eight L proteins from the MS2 bacteriophage using AlphaFold2 - Multimer 
+
+This is similar to pore-forming toxins expressed by some bacteria. For example, *Vibrio cholerae* makes a toxin that assembles into a hepatmer and creates a pore in the cell membrane, leading to cell damage or lysis. [De and Olson 2011](https://doi.org/10.1073/pnas.1017442108) has a really cool animation of the pore forming mechanism.
