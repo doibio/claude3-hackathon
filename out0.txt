@@ -1,0 +1,15 @@
+Tebentafusp is a novel immunotherapy drug developed for the treatment of metastatic uveal melanoma, a rare and aggressive type of eye cancer. It is a bispecific fusion protein that targets two different receptors simultaneously: gp100 on melanoma cells and CD3 on T-cells.
+
+Key points about tebentafusp:
+
+1. It is the first drug to improve overall survival in patients with metastatic uveal melanoma, which has historically been difficult to treat.
+
+2. Tebentafusp works by redirecting T-cells to recognize and kill gp100-expressing melanoma cells, harnessing the patient's immune system to fight cancer.
+
+3. In clinical trials, tebentafusp demonstrated a significant improvement in overall survival compared to the control group receiving immunotherapy with pembrolizumab, ipilimumab, or dacarbazine.
+
+4. Common side effects include cytokine release syndrome (CRS), rash, pyrexia, and edema, which are generally manageable with proper monitoring and treatment.
+
+5. Tebentafusp was granted approval by the U.S. Food and Drug Administration (FDA) in January 2022 under the brand name Kimmtrak, making it the first FDA-approved therapy for unresectable or metastatic uveal melanoma.
+
+This targeted immunotherapy approach represents a significant advance in the treatment of a rare and difficult-to-treat cancer, offering new hope for patients with metastatic uveal melanoma.
