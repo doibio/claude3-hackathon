@@ -16,5 +16,6 @@ To regenerate the results, please run the script on each student
 work.  To do this try:
 
 	zsh
-	for i in data/students/protein-design-part-2/* ; p claude3.py $i | tee out-$i:t
+	for i in data/students/protein-design-part-2/* ; p claude3-mark.py $i | tee out-$i:t
+
 
