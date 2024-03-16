@@ -1,0 +1,230 @@
+data/students/protein-design-part-2/daniela-guzman.txt
+----------
+# Class 4: Protein Design II
+
+## **Part B (Final Project: L-Protein Mutants)**
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+!https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/bbb2354b-ee49-47db-b00b-77dae8fa8d76/6fa8f596749f456c8ddb98d9e8d48735.jpg
+
+source - https://www.oaepublish.com/articles/mrr.2023.28
+
+You can read more about the final project description here - [https://www.notion.so/howtogrowalmostanything/How-to-Grow-Almost-Anything-2024-63a45d6c8f934456b70e30eee86f9b78?p=8945a45ee86b486aa62c79b0cfff119e&pm=c](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21)
+
+- ***Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)** METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+
+**DNAj sequence** MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj.
+
+Additional Information
+
+1. Using the mutational analysis of lysis protein from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/ Here is a list of some mutations and their effect on lysis https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0[Three columns highlighted ! Please copy the sheet before any edits).
+2. In the last class, we used pBLAST to find evolutionary sequences from other organisms and visualized it using clustalomega. BLAST results for L-protein are here - https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link . You can upload it to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments)https://docs.google.com/spreadsheets/d/15Ho8WCnXI7iYK6XSmsMG0diEDQhgZZVR9gfD13MCAgU/edit?usp=sharing
+
+### Mutagenesis using Protein Language Models
+
+Experimental data https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing
+
+Does the experimental data correlated with the scores from the notebook earlier ?
+
+**Mutation Results:**
+
+https://docs.google.com/spreadsheets/d/1BKLUShRgKcIPfYd7ZOner90b6YfLcK7H7FqMm4iJAms/edit?hl=es#gid=0
+
+- **Variations within the Guide Results**
+    
+    ![Captura de pantalla 2024-03-07 a la(s) 12.00.18.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/9c34991d-f737-427d-9133-53c2eb9b3c17/Captura_de_pantalla_2024-03-07_a_la(s)_12.00.18.png)
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 20.29.37.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/83e9c337-fcf2-4061-bc92-9a27c725cb2f/Captura_de_pantalla_2024-03-10_a_la(s)_20.29.37.png)
+    
+- **Mutation 1 (soluble region positions 1-34)**
+    
+    M 1—> I   Score= 5 (My results) This is yet the highest score of all the mutations both on the guide sheet and on the notebook trials I ran.
+    
+    IETRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    
+- **Mutation 2 (transmembrane region positions 38-75)**
+    
+    K67 → E Score= 1 (Guide’s Results) 
+    
+    This is the one of the first positions on the transmembrane region in which there was a positive score. Also there are two Ks in the whole sequence and one is located within the transmembrane region which means there is no major change in the sequence and it is more likely to work.
+    
+    METRFPQQSQQTPASTNRRRPFEHEDYPCRRQQRSSTLYVLIFLAIFLSEFTNQLLLSLLEAVIRTVTTLQQLLT
+    
+- **Results Display**
+    
+    
+    ![Captura de pantalla 2024-03-08 a la(s) 17.40.08.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/947e2d19-07aa-41a0-a1da-6b7b7dd69c00/Captura_de_pantalla_2024-03-08_a_la(s)_17.40.08.png)
+    
+    ![Captura de pantalla 2024-03-08 a la(s) 17.40.41.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/e2aecd2f-5ad3-4f98-87be-f9de946b0ea8/Captura_de_pantalla_2024-03-08_a_la(s)_17.40.41.png)
+    
+    ![Captura de pantalla 2024-03-08 a la(s) 17.41.09.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/fcbf3e20-809b-4da9-a5b2-52fee6156ac2/Captura_de_pantalla_2024-03-08_a_la(s)_17.41.09.png)
+    
+    ![Captura de pantalla 2024-03-08 a la(s) 17.41.20.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/954fbdda-c943-4aa6-ab9c-d00630c42cf5/Captura_de_pantalla_2024-03-08_a_la(s)_17.41.20.png)
+    
+    ![Captura de pantalla 2024-03-08 a la(s) 17.42.13.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/3308f5e8-a4f7-44c7-92cf-d305e3abcff5/Captura_de_pantalla_2024-03-08_a_la(s)_17.42.13.png)
+    
+    IETRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:IETRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:IETRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:IETRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:IETRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:IETRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:IETRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:IETRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    
+
+### Mutagenesis using Af2-Multimer
+
+Prevent the interaction of L-Protein with DNAj
+
+- **DNAj sequence**
+    
+    MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+    
+
+Co-fold the DNAj protein sequence with L-Protein and study if any mutations affect their interaction.
+
+- **Whole L-Protein sequence + DNAj sequence Fold**
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 17.27.46.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/7b272280-749b-4c6e-b614-b0daadc4dce1/Captura_de_pantalla_2024-03-10_a_la(s)_17.27.46.png)
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 17.48.16.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/3aabf244-0dac-4b74-b0a6-d5aca2c3d424/Captura_de_pantalla_2024-03-10_a_la(s)_17.48.16.png)
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 17.49.11.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/69f4a5b3-0f32-4879-9e0a-600f3c831174/Captura_de_pantalla_2024-03-10_a_la(s)_17.49.11.png)
+    
+- **L-Protein Soluble region + DNAj sequence Fold**
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 17.59.49.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/4614fb9c-5ca0-4c3d-9935-8f149b3e1e38/Captura_de_pantalla_2024-03-10_a_la(s)_17.59.49.png)
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 17.49.53.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/1ee5bf9d-17db-45cf-8fef-f67f0adfeff9/Captura_de_pantalla_2024-03-10_a_la(s)_17.49.53.png)
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 17.50.18.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/56851aac-bd54-46ca-9c45-53480e08bdfe/Captura_de_pantalla_2024-03-10_a_la(s)_17.50.18.png)
+    
+- **L-Protein Soluble Region (Reference)**
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 18.06.05.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/fd983386-f37e-4ab3-967c-4990eaddb686/Captura_de_pantalla_2024-03-10_a_la(s)_18.06.05.png)
+    
+- Mutation 1 +DNAj sequence Fold in soluble part
+    
+    
+
+Is the interaction where the L-protein soluble region residues are?
+
+- **Yes, clearly the interactions with DNAj is in the soluble region of the L-protein.**
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 19.17.23.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/05a44625-900a-4aea-b3bb-94e37fe36db3/Captura_de_pantalla_2024-03-10_a_la(s)_19.17.23.png)
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 18.49.47.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/d928a99c-32dd-4e4c-a84c-a7bc6eb27657/Captura_de_pantalla_2024-03-10_a_la(s)_18.49.47.png)
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 19.16.57.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/644da82d-8ef5-4b24-91f8-add8442252ed/Captura_de_pantalla_2024-03-10_a_la(s)_19.16.57.png)
+    
+    ![Captura de pantalla 2024-03-10 a la(s) 19.20.53.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/27c4ecc2-3f4a-4426-8ca7-1549189f2e44/Captura_de_pantalla_2024-03-10_a_la(s)_19.20.53.png)
+    
+
+![Captura de pantalla 2024-03-10 a la(s) 19.32.12.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/3d5dce4e-fe18-45e3-b449-f7e52c1aaa27/Captura_de_pantalla_2024-03-10_a_la(s)_19.32.12.png)
+
+**Point of contact between the two molecules. Quimera**
+
+Try to come up with two mutations each with mutations at least in 3 different residue positions. Only make these mutations in the soluble region of the L-protein. Explain how you picked your mutations.
+
+- **Mutation 1: Mutation in 3 different regions within soluble part of the L-protein**
+    
+    (1)M→T        (12, 16) T→ S    (19) R→L
+    
+    TETRFPQQSQQSPASSNRLRPFKHEDYPCRRQQR
+    
+    M→T increased the protein score to 5 points
+    
+    T→S Alters the middle region where the molecule interacts with the DNAj.
+    
+    R→L This position in the sequences aligned in Clustal Omega shows no conserved sites, which means a mutation most likely won’t affect the protein’s score too much.
+    
+- **Mutation 2: Mutation in 3 different region within soluble part of the L-protein**
+    
+      (1) M→I       (6, 17)T→S    (29)C→T
+    
+    IETRFLQQSQQTLASTNRRRPFKHEDYLTRRQQR
+    
+    M→I increased the protein score to 5 points
+    
+    P→ L alters the middle of the protein, where it reacts with the DNAj. Hopefully, this mutation will stop this engagement.
+    
+    C→T I don’t see the need to modify the molecule further, hence I modified the C which occupies only one position on the soluble part of the sequence.
+    
+
+### Mutagenesis using Rosetta
+
+DNAj +L-Protein sequence Fold in Af2-Multimer
+
+- **PDB File**
+    
+    [test_92387_unrelaxed_rank_004_alphafold2_multimer_v3_model_5_seed_000.pdb](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/0b4b358f-ec7c-4fa6-8116-963f45734e08/test_92387_unrelaxed_rank_004_alphafold2_multimer_v3_model_5_seed_000.pdb)
+    
+1. We will utilize Rosetta and run a protocol called “Point Mutation Scan”
+2. The notebook for it is herehttps://colab.research.google.com/drive/1CW3BrzTbnIh9DUWevWsSz2_CIfrHpsb8?usp=sharing
+3. [Other rosetta tutorials can be found [here](https://rosettacommons.github.io/PyRosetta.notebooks/)]
+
+### Random Mutagenesis
+
+- **Python Function for Random Mutation at 2 sites at least**
+    
+    import random
+    
+    def generate_mutations(sequence, num_mutations=2):
+    sequence_list = list(sequence)
+    sequence_length = len(sequence_list)
+    
+    ```
+    if num_mutations < 2 or num_mutations >= sequence_length:
+        raise ValueError("Number of mutations must be at least 2 and less than the sequence length.")
+    
+    mutation_positions = random.sample(range(sequence_length), num_mutations)
+    
+    mutations = []
+    for position in mutation_positions:
+        original_aa = sequence_list[position]
+        mutated_aa = original_aa
+        while mutated_aa == original_aa:
+            mutated_aa = random.choice('ACDEFGHIKLMNPQRSTVWY')
+        sequence_list[position] = mutated_aa
+        mutations.append((position, original_aa, mutated_aa))
+    
+    mutated_sequence = ''.join(sequence_list)
+    return mutated_sequence, mutations
+    
+    ```
+    
+    # Example usage:
+    
+    sequence = "METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT"
+    mutated_sequence, mutations = generate_mutations(sequence, num_mutations=3)
+    print("Mutated Sequence:", mutated_sequence)
+    print("Mutations:", mutations)
+    
+
+**Mutated Sequence: METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT**
+Mutations: [(66, 'V', 'A'), (42, 'S', 'K'), (29, 'S', 'F')]
+
+1. Co-Fold the random mutation with DNAj using Af2_Multimer. 
+    
+    ![Captura de pantalla 2024-03-12 a la(s) 13.08.44.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/02159f44-4913-4ca4-8e2e-a6875d331d3c/5ee52334-430a-44ce-bf8a-d74ca1a9cae1/Captura_de_pantalla_2024-03-12_a_la(s)_13.08.44.png)
+    
+2. Score the binding energy of the predicted complexes - You can refer to the Rosetta notebook if you want to use the interface analyzer in rosetta. Pick 2 mutations and explain why you chose them.
+
+------------------------------
+Thank you for providing the detailed information about your project and the student's work on generating L-protein mutants to enhance bacteriophage MS2's effectiveness against E. coli. Here is my evaluation of the student's performance:
+
+Positive aspects:
+1. The student demonstrated a good understanding of the project goal and the role of L-protein in the lysis mechanism.
+2. They utilized various computational tools, such as protein language models, Af2-Multimer, and Rosetta, to design and analyze the mutants.
+3. The student provided clear explanations for their choice of mutations, considering factors like protein scores, interaction with DnaJ, and sequence conservation.
+4. They generated a Python function for random mutagenesis, showing initiative in exploring different approaches.
+5. The student analyzed the co-folded structures of the mutants with DnaJ using Af2-Multimer, demonstrating their ability to interpret protein-protein interactions.
+
+Areas for improvement:
+1. The student could have provided a more detailed explanation of how the specific mutations they chose might affect the L-protein's interaction with DnaJ or its lysis activity.
+2. They did not complete the task of scoring the binding energy of the predicted complexes using Rosetta's interface analyzer. This step could have provided valuable insights into the effectiveness of the chosen mutations.
+3. The student could have explored a broader range of mutations and compared their effects to make more informed decisions about the best candidates for experimental testing.
+
+Overall grade: B+
+
+The student demonstrated a solid understanding of the project and applied various computational tools to design and analyze L-protein mutants. They provided clear explanations for their choices and showed initiative in exploring different approaches. However, there is room for improvement in providing more detailed analyses of the mutations' effects and completing all the assigned tasks. With some additional work on these areas, the student has the potential to excel in this project.
+==============================

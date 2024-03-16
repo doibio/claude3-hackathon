@@ -1,3 +1,5 @@
+data/students/protein-design-part-2/bagu-uda.txt
+----------
 # Week 4: Protein Design (Part 2)
 
 ## **Part B (Final Project: L-Protein Mutants)**
@@ -487,3 +489,27 @@ This homework requires computation that might take you a while to run. So please
         4. [This is computationally expensive to run]. If you want help running it scale - Contact Manu or Allan
 
            
+
+------------------------------
+Here is my assessment of the student's work on mutating the L-protein of bacteriophage MS2:
+
+The student did a thorough job analyzing the L-protein sequence and utilizing several different computational approaches to rationally design mutations. Specifically:
+
+1. They used protein language models to predict the effect of mutations at each residue position. This generated likelihood ratio scores that indicate if a mutation may be beneficial or detrimental.
+
+2. They compared these computational predictions to available experimental mutational data to see if there was any correlation. While not conclusive, they did find some agreement between predicted positive mutations and those shown experimentally to retain lytic activity. This helped validate the language model approach.
+
+3. They used pBLAST sequence alignments to identify conserved residues that should not be mutated. Avoiding highly conserved positions is a good strategy.
+
+4. They utilized AlphaFold2 Multimer to model the L-protein homo-oligomeric structure, revealing it may form a membrane perforating channel. This provides structural insight into the lytic mechanism.
+
+5. They selected a diverse set of 4 mutations (2 in soluble region, 2 in transmembrane region) spread across the sequence and supported by the language model scores, avoiding highly conserved residues. The selected mutations also maintained the overall hydrophobicity profile.
+
+In summary, the student demonstrated strong understanding of the problem, appropriately applied multiple computational tools, cross-referenced predictions with experimental data, and used the insights gained to rationally select a promising set of mutations to test. The work is comprehensive and at the level expected for a graduate student.
+
+The main things I would suggest for improvement are:
+1) Utilizing the AF2 model of the L-protein/DnaJ complex to help select mutations that specifically disrupt that interaction.  
+2) Providing a bit more detailed justification for why each of the 4 specific mutations were chosen.
+
+But overall this is excellent work showing strong grasp of the material and creative application of the tools learned in class. I would grade this as an A.
+==============================

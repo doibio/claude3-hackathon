@@ -1,3 +1,5 @@
+data/students/protein-design-part-2/bagu-uda.txt
+----------
 # Week 4: Protein Design (Part 2)
 
 ## **Part B (Final Project: L-Protein Mutants)**
@@ -487,3 +489,25 @@ This homework requires computation that might take you a while to run. So please
         4. [This is computationally expensive to run]. If you want help running it scale - Contact Manu or Allan
 
            
+
+------------------------------
+Here is my assessment of the student's performance on generating L-protein mutants:
+
+The student demonstrated a solid understanding of the materials and followed the suggested approaches well. Specifically:
+
+1. They ran the protein language model notebook to identify high-scoring mutations, and correlated those results with the experimental mutation data to assess how well the language model captures functional information about the L-protein sequence. This was a good analysis.
+
+2. They used the evolutionary conservation data from pBLAST alignments to avoid mutating highly conserved residues, which is a best practice in protein engineering. 
+
+3. In selecting their final mutations, the student appropriately chose a mix of mutations from the soluble N-terminal and transmembrane C-terminal regions, as instructed. Their selections were rational - focusing on high-scoring mutations from the language model that preserved overall hydrophobicity of the transmembrane region.
+
+4. The student checked the predicted effect of their combined mutations on overall hydrophobicity, which was an insightful analysis to ensure the mutant maintains appropriate hydrophobic/hydrophilic regions.
+
+5. The explanations provided for their mutation choices were clear and logical.
+
+A few areas for possible improvement:
+- The student could have done more comparison of their selected mutations with the experimental data to prioritize combinations with supporting lab evidence.
+- Using AlphaFold2 or Rosetta to model the impact of mutations on L-protein structure and interaction with DnaJ would have added additional support for their selections.
+
+Overall, the student's performance was at the expected level for a graduate student. They demonstrated clear understanding of the key concepts, performed the requested analyses competently, and provided reasonable justifications for their final proposed mutants. With some additional experimental validation, the mutations chosen seem promising for testing. I would grade this as a solid B+/A- level graduate performance.
+==============================

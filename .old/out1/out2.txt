@@ -1,0 +1,58 @@
+data/students/protein-design-part-2/ahmed-hasan.txt
+----------
+# Class #4: Protein design (Part II)
+
+Lysis protein sequence
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+**DNAJ** Sequence
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+**Amino Acids** list:
+
+- alanine - ala - A
+- arginine - arg - R
+- asparagine - asn - N
+- aspartic acid - asp - D
+- cysteine - cys - C
+- glutamine - gln - Q
+- glutamic acid - glu - E
+- glycine - gly - G
+- histidine - his - H
+- isoleucine - ile - I
+- leucine - leu - L
+- lysine - lys - K
+- methionine - met - M
+- phenylalanine - phe - F
+- proline - pro - P
+- serine - ser - S
+- threonine - thr - T
+- tryptophan - trp - W
+- tyrosine - tyr - Y
+- valine - val - V
+
+------------------------------
+Great question! Let's evaluate the student's performance based on the information provided.
+
+Firstly, the student correctly identified that the C-terminal end of the lysis protein requires the DnaJ chaperonin for proper folding. They also noted that the C-terminal end is not strictly necessary for lysis and that its deletion can lead to more rapid lysis. This demonstrates a good understanding of the background information and the role of the DnaJ chaperonin in the lysis protein's function.
+
+Secondly, the student's goal to mutate the L-protein to prevent the host from escaping infection by mutating DnaJ is a reasonable approach. However, the student did not provide any specific mutations or a detailed plan on how to achieve this goal. At the graduate level, it would be expected to see a more comprehensive proposal, including specific mutations, rationale behind the chosen mutations, and a plan for testing and validating the mutated L-protein's effectiveness.
+
+To improve their performance, the student could:
+
+1. Identify specific regions or residues in the L-protein that interact with DnaJ using computational tools or literature review.
+
+2. Propose specific mutations in the identified regions that could potentially reduce the dependence on DnaJ for proper folding while maintaining or enhancing the lysis function.
+
+3. Develop a plan to test the mutated L-protein's effectiveness against E. coli, including in vitro and in vivo experiments, and compare the results with the wild-type L-protein.
+
+4. Consider potential challenges or limitations of the proposed approach and discuss alternative strategies if the initial mutations do not yield the desired results.
+
+Considering the information provided, I would grade the student's performance as a "B-" or "C+". The student demonstrated a good understanding of the background information but lacked a detailed proposal and plan for executing the mutations and testing their effectiveness. To improve their grade, the student should provide a more comprehensive proposal addressing the points mentioned above.
+==============================

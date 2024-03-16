@@ -1,0 +1,30 @@
+data/students/protein-design-part-2/natalie-edwards.txt
+----------
+# Class #4: Protein Design (Part 2)
+
+> Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+
+------------------------------
+Thank you for providing the background and context for your protein design project. It's an interesting approach to tackle multidrug-resistant E. coli infections using a mutated MS2 bacteriophage. I appreciate that you have a clear goal of modifying the L-protein to make it more effective against E. coli and to prevent the host from escaping infection by mutating the DnaJ chaperonin.
+
+Regarding the student's performance in creating mutants of the L-protein, I would assess them based on the following criteria:
+
+1. Understanding of the problem: Did the student demonstrate a clear grasp of the project's objectives and the role of the L-protein in the lysis mechanism? (10 points)
+
+2. Literature review: Did the student conduct a thorough literature review to gather relevant information about the L-protein, its structure, and its interaction with the DnaJ chaperonin? (15 points)
+
+3. Mutation strategy: Did the student propose a well-thought-out mutation strategy based on the available information, such as targeting the C-terminal end of the L-protein or identifying specific residues that interact with DnaJ? (25 points)
+
+4. Computational modeling: Did the student utilize appropriate computational tools (e.g., homology modeling, protein-protein docking, molecular dynamics simulations) to predict the structure of the L-protein and its interaction with DnaJ, given the lack of PDB structures? (30 points)
+
+5. Analysis and interpretation: Did the student analyze and interpret the results of their computational models to propose specific mutations that could enhance the effectiveness of the L-protein and reduce its dependence on DnaJ? (15 points)
+
+6. Presentation and communication: Did the student effectively communicate their findings, including the rationale behind their mutation strategy, the results of their computational models, and the potential implications for the project? (5 points)
+
+Total: 100 points
+
+Based on the student's performance in each of these areas, I would assign a grade and provide constructive feedback to help them improve their skills in protein design and computational modeling.
+
+It's important to note that without the actual work submitted by the student, this is a general grading rubric. The specific grade would depend on the quality and depth of the student's work in each of the mentioned areas.
+==============================

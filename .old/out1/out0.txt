@@ -1,0 +1,18 @@
+Here is my evaluation of the student's performance on designing mutants of the MS2 lysis protein:
+
+Score: 2/5
+
+Feedback:
+The student has not provided any proposed mutations to the lysis protein sequence, so there is no work to evaluate in terms of designing mutants. To improve, the student should:
+
+1. Identify the C-terminal region of the lysis protein that interacts with the DnaJ chaperone. This could be done through literature research or computational prediction of protein-protein interaction sites.
+
+2. Propose specific amino acid substitutions, deletions, or insertions in the identified C-terminal region that could potentially disrupt the interaction with DnaJ while still maintaining the lysis function. Mutations could be designed based on principles such as changing polarity, charge, size, or hydrophobicity of residues.
+
+3. Provide a rationale for each proposed mutation, explaining how it might affect the interaction with DnaJ and the overall function of the lysis protein. 
+
+4. Consider potential unintended consequences of the mutations, such as effects on protein stability, solubility, or expression levels.
+
+5. Prioritize the proposed mutations based on their likelihood of success and design experiments to test their effects, such as site-directed mutagenesis followed by functional assays.
+
+In summary, the student needs to demonstrate a systematic approach to designing mutations, supported by scientific reasoning and a plan for experimental validation. Without any proposed mutations, the current work is incomplete and does not meet the expectations for this protein design assignment.

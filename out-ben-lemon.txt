@@ -1,0 +1,160 @@
+data/students/protein-design-part-2/ben-lemon.txt
+----------
+# *[4] Protein Design Part 2*
+
+## *Share final project Idea*
+
+*https://docs.google.com/presentation/d/1qpu3XuCZ6jDYEPVBJ7iQo8cSFdiiiM1nR5N47qbC-m0/edit#slide=id.g21db23d1707_0_0*
+
+## ***Part B (Final Project: L-Protein Mutants)***
+
+*Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (A-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (L-Protein) protein, the coat protein (cp), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (rep) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.*
+
+![source - https://www.oaepublish.com/articles/mrr.2023.28](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b78305b-456f-4c05-b109-555b9917d39a/bbb2354b-ee49-47db-b00b-77dae8fa8d76/6fa8f596749f456c8ddb98d9e8d48735.jpg)
+
+source - https://www.oaepublish.com/articles/mrr.2023.28
+
+*You can read more about the final project description here - [https://www.notion.so/howtogrowalmostanything/How-to-Grow-Almost-Anything-2024-63a45d6c8f934456b70e30eee86f9b78?p=8945a45ee86b486aa62c79b0cfff119e&pm=c](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21)*
+
+*****Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.*
+
+***Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT*
+
+*Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj.  
+
+Additional Information*
+
+1. *Using the mutational analysis of lysis protein from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/  Here is a list of some mutations and their effect on lysis  [https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) [Three columns highlighted ! Please copy the sheet before any edits).*
+2. *In the last class, we used pBLAST to find evolutionary sequences from other organisms and visualized it using clustalomega. BLAST results for L-protein are here - https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link .  You can upload it to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments)*
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b78305b-456f-4c05-b109-555b9917d39a/dc5e9de1-c187-4fe7-b112-35f3fd585910/Untitled.png)
+
+### *Mutagenesis using Protein Language Models*
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```python
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```python
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGG
+```
+
+Make 5 mutants
+
+1. Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein.  We want to identify possible mutations that are “positive” If you run this notebook - you will see a .CSV file in the sidebar. You can download it and look at it in the google sheets if that’s easier
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b78305b-456f-4c05-b109-555b9917d39a/563cf63f-3658-4cc6-8604-39047fdb2c0e/Untitled.png)
+    
+2. Use the experimental data here. This dataset contains information about mutants of the L-Protein and their effect on lysis in the lab - https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing
+3. First check, does the experimental data correlated with the scores from the notebook in (1) ? This should give you a clue on how well these language embeddings capture information about this protein sequence. 
+4. Using information about effect of protein mutations at these sites -  both the scores and the experimental data in the drive, come up with 5 mutations for each student along with how you came up with them and why you believe they would work. 2 of the variants you submit must have mutations in the transmembrane region (refer to notes above on what amino acid positions these are) and 2 of them must be in the soluble region . Remember that you can also use the pBLAST to see which residues are conserved and not mutate them if you want to. 
+
+One easy way to generate sequence mutations could be to look for residue positions and mutations that are have a positive mutational effect either in the experimental or have a positive score from step 1. And pick a combination of those mutations. 
+
+## Mutation 1 (soluble)
+
+```python
+METRFPQQSQQTPASTNRRRPFKHEDYPRRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Position 18 C→R
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b78305b-456f-4c05-b109-555b9917d39a/749babc3-5c4e-4b91-b457-22cbe8e3cf44/Untitled.png)
+
+```python
+METRFPQQQQQTPASTNRRRPFKHEDYPRRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Position 10 S→Q
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b78305b-456f-4c05-b109-555b9917d39a/30aab406-7a9a-49d7-985f-6ab2c8cb3e2b/Untitled.png)
+
+## Mutation 2 (Soluble)
+
+```python
+METRFPQQSQQTPASTNRRRPFKHEDYPRRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Position 18 C→R
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b78305b-456f-4c05-b109-555b9917d39a/749babc3-5c4e-4b91-b457-22cbe8e3cf44/Untitled.png)
+
+```python
+METRQPQQSQQTPASTNRRRPFKHEDYPRRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Position 5 F→Q
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b78305b-456f-4c05-b109-555b9917d39a/168644cc-1931-4806-89dd-8f7b11556acb/Untitled.png)
+
+## Mutation 3 (Transmembrane)
+
+```python
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSLFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Position 50 K→L
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b78305b-456f-4c05-b109-555b9917d39a/f1995812-345e-4498-b150-7661844c096a/Untitled.png)
+
+```python
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSLFTNQLLLSLLLAVIRTVTTLQQLLT
+```
+
+Position 61 E→L
+
+## Mutation 4(Transmembrane)
+
+```python
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSLFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Position 50 K→L
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b78305b-456f-4c05-b109-555b9917d39a/f1995812-345e-4498-b150-7661844c096a/Untitled.png)
+
+```python
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSLFTLQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Position 54 N→L
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9b78305b-456f-4c05-b109-555b9917d39a/51cc117a-f6c5-4c20-8e45-686b536a3c45/Untitled.png)
+
+1. You can utilize Af2_Multimer to generate a Multimeric Assembly [TA: Ben Arias-Almeida]
+you can do this by making your query sequence as. We want to do this because -  A running hypothesis for how this protein function is that it *assembles* to make a perforation in the bacterial membrane. Our TA Ben Arias-Almeida discovered that when we predict the **assemble of 8 structures of the lysis protein***,* it indeed reveals a channel-like complex.
+
+------------------------------
+Thank you for sharing your work on designing mutants of the MS2 bacteriophage L-protein to enhance its lytic activity against E. coli. Here is my evaluation and feedback on your project:
+
+Strengths:
+1. Good understanding of the goal - to mutate the L-protein, especially the C-terminal domain, to make the phage more effective and prevent E. coli from escaping infection through DnaJ mutations. 
+
+2. Utilized relevant data including experimental mutation data and evolutionary conservation analysis via pBLAST to guide mutation choices.
+
+3. Applied protein language model scores to predict effects of mutations, and checked correlation with experimental data to assess model utility.  
+
+4. Targeted mutations to both the soluble and transmembrane domains of the L-protein as instructed.
+
+5. Interesting hypothesis about multimeric assembly of L-protein forming a membrane pore. Using AF2 to model this complex is a great idea.
+
+Areas for Improvement:
+1. More detailed explanation needed for why each specific mutation was chosen. Scores alone don't provide full rationale.
+
+2. No discussion of how mutations may affect interaction with DnaJ chaperone and consequences for phage infectivity. This was part of the goal.
+
+3. Did not see 5 sets of mutations - only saw 4 presented. Instructions asked for 5 mutants per student. 
+
+4. More comprehensive analysis correlating language model predictions with experimental data would strengthen confidence in the approach.
+
+5. No results shared yet from the AF2 multimeric modeling - seeing those structures and analysis of the putative pore would be very informative.
+
+Overall, this is a good start demonstrating understanding of the system and application of computational tools to design mutants. The approach is logical but explaining the choices more thoroughly and providing the AF2 results would make the work stronger. I would assess this at a B/B+ level for a graduate student - competent work with room for greater depth. Keep refining the mutants based on the feedback.
+
+Let me know if you have any other questions! This is an exciting project with important biomedical applications.
+==============================

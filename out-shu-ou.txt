@@ -1,0 +1,164 @@
+data/students/protein-design-part-2/shu-ou.txt
+----------
+# Week 4 Protein Design (Part 2)
+
+## **Part B (Final Project: L-Protein Mutants)**
+
+### Context
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+You can read more about the final project in the [Final Project Page](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21). 
+
+![6fa8f596749f456c8ddb98d9e8d48735.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/1b35564c-3702-4f78-87fc-162bf1b09516/2a13b9e1-cab2-4669-9d49-386e75359ef0/6fa8f596749f456c8ddb98d9e8d48735.jpg)
+
+## **Goal:**
+
+Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+
+## L-Protein and DNAj Sequence
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj. 
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)** 
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+In this homework we will be doing the following steps. Step 2 might vary from student to student
+
+---
+
+### Conserved Sites
+
+I fed the [result from BLAST](https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link) to Clustal Omega to get a reference for the conserved site. Potential conserved sites: 21, 25, 28, 29, 33, 35, 36, 37, 40, 42, 44, 46, 50, 51, 52, 57, 58. I’ve learned that, as a rule of thumb, it is better to avoid making changes to these conserved sites so we can preserve the function, but when I scanned through the [experimental data](https://docs.google.com/spreadsheets/d/1mzw5j365G_DA6hxxYxOU4AvhSrrt17KQF_wwWqhqBw4/edit?usp=sharing) of these positions, a few mutations of these residues did show their effect on lysis. I wonder how I can tell whether these conserved sites are critical to the protein’s function.
+
+![MSA_2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1b35564c-3702-4f78-87fc-162bf1b09516/e4632e66-9e76-4d43-a72d-c478eaff4e5b/MSA_2.png)
+
+## Mutagenesis using Protein Language Models
+
+1. Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate, for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein. We want to identify possible mutations that are “positive” If you run this notebook - you will see a .CSV file in the sidebar. You can download it and look at it in the google sheets if that’s easier
+    
+    
+    ![heatmap.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1b35564c-3702-4f78-87fc-162bf1b09516/5ec764b6-0147-422b-9ca8-5d0483b51ec6/heatmap.png)
+    
+
+### Experimental Data vs. Protein Language Model Score
+
+- [Experimental data](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) from the class instruction on the L-Protein and their effect on lysis.
+
+To understand whether the score directionally follows the pattern of the experimental data, I first simplified the score into a set of true/false data to represent the positive vs. negative effect on the function. To validate the computational data, I filtered out the data in the scores that didn’t have experimental data. I also mapped the soluble domain, transmembrane, and potential conserved sites for reference. 
+
+Visually, the majority of the data align. However, I couldn’t quite identify any pattern of possibly why some of the mutations’ effects don’t match. 
+
+![Chart with Overlapped data _2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/1b35564c-3702-4f78-87fc-162bf1b09516/d152cfe5-4e69-404c-b784-f31a7fbce0de/Chart_with_Overlapped_data__2.png)
+
+A messy [workbook](https://docs.google.com/spreadsheets/d/1y9Co_cRgg2hnicBKTmkr_7E7BTl56KwV/edit?usp=sharing&ouid=105448066280497785958&rtpof=true&sd=true) can be found here.
+
+### Mutant 1 (Soluble)
+
+- K23 → R
+- I started by looking at the soluble domain and, being conservative, with the one in which the computational and experimental data are aligned. By excluding the conserved sites and the ones where the lysis failed, I was left with residues in positions 13, 15, and 23. I then compare the LLR score to determine this mutant.
+
+```
+METRFPQQSQQTPASTNRRRPFRHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+![Aligning the mutated model (blue) with the original one (green)](https://prod-files-secure.s3.us-west-2.amazonaws.com/1b35564c-3702-4f78-87fc-162bf1b09516/41b7e849-8bb0-4fcb-b265-84059383371b/Mutant_1_2.png)
+
+Aligning the mutated model (blue) with the original one (green)
+
+### Mutant 2 (Soluble)
+
+- S9 → Q
+- I used a different strategy this time and looked into the data that did not have experimental data. I then pick the mutation based on the LLR score.
+
+```
+METRFPQQQQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+![Aligning the mutated model (Magenta) with the original one (green)](https://prod-files-secure.s3.us-west-2.amazonaws.com/1b35564c-3702-4f78-87fc-162bf1b09516/56c5575f-c8fe-46a0-938d-75b22e1114fc/Mutant_2_2.png)
+
+Aligning the mutated model (Magenta) with the original one (green)
+
+### Mutant 3 (Transmembrane)
+
+- A45 → L
+- I used a strategy similar to mutant 1 and looked into the computationally and experimentally aligned data. I then excluded the conserved sites and the failed lysis, leaving me with residue position 45. I then pick the amino acid that has the highest rank for the LLR score.
+
+```
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLLIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+![Aligning the mutated model (yellow) with the original one (green)](https://prod-files-secure.s3.us-west-2.amazonaws.com/1b35564c-3702-4f78-87fc-162bf1b09516/7fe88b0b-a018-4484-8b2b-c151b089a8ae/Mutant_3.png)
+
+Aligning the mutated model (yellow) with the original one (green)
+
+### Mutant 4 (Transmembrane)
+
+- E61 → L
+- Following a similar logic as mutant 2, I looked into the residues that don’t yet have experimental data. After excluding the conserved site, I pick the mutation with the highest LLR score in the transmembrane protein section.
+
+```
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLLAVIRTVTTLQQLLT
+```
+
+![Aligning the mutated model (salmon) with the original one (green)](https://prod-files-secure.s3.us-west-2.amazonaws.com/1b35564c-3702-4f78-87fc-162bf1b09516/aac94984-8a13-48b4-aeca-20b1a37a3f12/Mutant_4_1.png)
+
+Aligning the mutated model (salmon) with the original one (green)
+
+### Mutant 5 (a not-so-well-conserved site)
+
+- D26 → R
+- I’ve learned that we should generally avoid changing the sites where multiple homologs have no change. Although site 26 has minimal change when comparing the alignments of multiple homologs, it has shown a positive effect on experimental data on lysis and a positive trend on function using the prediction model. I wondered if mutating this residue is worth experimenting with.
+
+```
+METRFPQQSQQTPASTNRRRPFKHERYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+![Aligning the mutated model (white) with the original one (green)](https://prod-files-secure.s3.us-west-2.amazonaws.com/1b35564c-3702-4f78-87fc-162bf1b09516/6b8f56ef-3973-4305-af86-a8d2d6ce7ee2/Mutatn_5_1.png)
+
+Aligning the mutated model (white) with the original one (green)
+
+Based on the alignment with the original protein. I picked mutation 1 & 5 as my final submission
+
+*Note: I still need to look into the overlapped proteins as noted in the [Design Consideration.](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21)*
+
+---
+
+1. You can utilize Af2_Multimer to generate a Multimeric Assembly [TA: Ben Arias-Almeida]
+you can do this by making your query sequence as. We want to do this because -  A running hypothesis for how this protein function is that it *assembles* to make a perforation in the bacterial membrane. Our TA Ben Arias-Almeida discovered that when we predict the **assemble of 8 structures of the lysis protein***,* it indeed reveals a channel-like complex.
+
+------------------------------
+Here is my assessment of the student's performance on the L-protein mutagenesis project, assuming a graduate level:
+
+The student demonstrated a solid understanding of the project goals and biological context. They appropriately utilized multiple computational tools and approaches to rationally design mutations predicted to impact L-protein function and its interaction with DnaJ chaperone.
+
+Specific strengths:
+
+- Leveraged results from sequence alignment (BLAST, Clustal Omega) to identify conserved sites and used this information to guide mutation selection. Good critical thinking around when it may be appropriate to mutate conserved residues.
+
+- Compared computational predictions from protein language models to available experimental data to assess the predictive power of the models. Nice data visualization to identify patterns.
+
+- Employed a few different rational strategies to select mutations in both the soluble and transmembrane domains, considering factors like model predictions, conservation, and experimental data when available. 
+
+- Generated 3D models of selected mutants and aligned to wild-type structure to visualize predicted structural impact of mutations.
+
+- Recognized the relevance of higher order L-protein assembly to membrane pore formation and lysis function. Took initiative to predict multimeric assembly using AlphaFold.
+
+Areas for improvement:
+- Would have liked to see more discussion of the predicted functional impact of the chosen mutations based on their location in the sequence/structure and the physiochemical properties of the amino acid changes. 
+- Could expand analysis to include other computational metrics like stability predictions.
+- Further examination of the predicted multimeric assembly and pore formation would strengthen the rational design.
+
+Overall, this represents very strong work at the graduate level. The student demonstrates comfort with applying computational tools to protein engineering, the ability to integrate various data types, and scientific creativity. The project would benefit from deeper exploration of structure-function relationships of the L-protein to drive mutation design. But the student is certainly on the right track and has generated a promising set of mutants to test experimentally.
+
+Grade: A-
+==============================

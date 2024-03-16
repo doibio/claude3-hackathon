@@ -1,0 +1,76 @@
+data/students/protein-design-part-2/martina-armas.txt
+----------
+# Class #4: Protein Design (Part 2)
+
+# **Part B (Final Project: L-Protein Mutants)**
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/0b972d19-52b1-482c-888d-6b8c46aca49f/Untitled.png)
+
+LYSIS PROTEIN INFORMATION:
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/bca3ec22-778d-43c9-9544-fdeb9b62c948/Untitled.png)
+
+- SEQUENCE
+
+**Mass (Da)**
+
+8,870
+
+**Length**
+
+75
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/7f0032aa-1543-4d34-9786-4ffd86649ccd/Untitled.png)
+
+- DNAj SEQUENCE
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+- CONSERVED SITES IF ANY
+
+There are any conserved sites for Lysis Protein Sequence
+
+Conserved sites of DNAj sequence
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/48bd0302-2ede-40ae-9f32-51e53cab8cea/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/0e00569f-b03e-4a91-ace9-43fae93a28ad/Untitled.png)
+
+## pBLAST L-protein
+
+Evolutionary sequences
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/0c3ee3dc-edb8-49ec-8ee3-5891de06284f/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/39f287f3-5a17-4a70-81a1-4b835188186b/Untitled.png)
+
+VARIANTS: 
+
+| 58 | C->T | 20 | R->W | 1 | 0 |
+| --- | --- | --- | --- | --- | --- |
+| 58 | C->T | 20 | R->W | 1 | 0 |
+
+From to Arginine to tryptophan
+
+------------------------------
+Thank you for providing the background information and details on the project to design mutants of the MS2 phage L-protein to enhance its efficiency against E. coli, especially in cases where the host mutates the DnaJ chaperonin. Here is my evaluation of the student's work:
+
+Strengths:
+1. The student has identified a relevant mutation site (position 20) in the L-protein sequence based on the evolutionary conservation data from pBLAST. Targeting a less conserved residue is a reasonable approach to introduce mutations without drastically altering the protein's overall structure and function.
+
+2. The student has chosen to mutate the arginine (R) at position 20 to a tryptophan (W). This mutation changes the amino acid properties from a positively charged, hydrophilic residue to a larger, aromatic, and hydrophobic one. Such a change could potentially alter the local protein structure and its interaction with the DnaJ chaperonin.
+
+Areas for improvement:
+1. The student should provide a more detailed rationale for selecting the specific R20W mutation. They should discuss how this mutation might affect the protein's structure, stability, and interaction with DnaJ, and why they believe it could lead to enhanced lysis efficiency.
+
+2. The student should consider designing additional mutants targeting the C-terminal region of the L-protein, as it is mentioned that this region is not strictly required and its deletion leads to more rapid lysis. Mutating or truncating the C-terminal region could be another promising approach.
+
+3. To strengthen their proposal, the student should consider using protein structure prediction tools (e.g., AlphaFold, I-TASSER) to model the mutant L-protein structure and assess the potential impact of the R20W mutation on the protein's folding and stability.
+
+4. The student should outline a plan for experimentally testing the designed mutants, such as expressing the mutant L-proteins, assessing their lysis efficiency in E. coli, and evaluating their performance in the presence of wild-type and mutant DnaJ chaperonins.
+
+Overall assessment:
+The student has made a reasonable attempt at designing an L-protein mutant based on the provided information. However, their work would benefit from a more detailed rationale, additional mutant designs targeting the C-terminal region, and a plan for experimental validation. Considering the complexity of the task and the student's level (graduate), I would grade their performance as a B- (7/10). To improve their grade, they should address the mentioned areas for improvement and provide a more comprehensive proposal.
+==============================

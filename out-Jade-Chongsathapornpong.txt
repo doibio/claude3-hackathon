@@ -1,0 +1,49 @@
+data/students/protein-design-part-2/Jade-Chongsathapornpong.txt
+----------
+# Week 4: Protein Design Part II
+
+# 3/5: Pranam Chatterjee’s lecture
+
+Today Pranam discussed the engineering of Cas9 enzymes, which by nature require adjacent sequences called PAMs in order to make a cut at a certain target sequence.
+
+- ML to predict the PAMs of found Cas9s
+- Engineering of existing Cas9s to have different PAMs
+- Combination of mutated Cas9s producing SpryC, a Cas9s with no PAM requirement.
+
+Also, creation of oocytes from stem cells (…why would we want to do this?)
+
+Also, computational design of peptides for interaction with target proteins, e.g. for therapeutics. Using machine learning (CLIP) and a dataset of protein-protein interactions to predict the interaction likelihood of different peptide snippets of proteins that are known to interact with other proteins. SnP (Chatterjee et al. 2023, Communications Biology). From there, one can use this model to try generating peptides from the latent space that might bind the protein, then using the CLIP model try to evaluate how well they may bind.
+
+The above (PepMLM), unlike a model like RFDiffusion, can work from just the target sequence, and doesn’t require the target structure. This is useful in floppy proteins that are sometimes involved in disease.
+
+**Future Outlook**: Right now we can e.g. design binding, design a structure, etc. But the next level of abstraction that needs to happen is… what sort of effect on a cell will raising/lowering the levels of this protein have? Can we design things so that a cell as a whole e.g. fixes nitrogen, or takes up more CO2?
+
+### random note on radiodurans
+
+Prof. Joe’s comment on radiodurans, a bacteria which can survive thousands of times more radiation than other organisms, by keeping many copies of its genome to enable templated repairs of double-stranded breaks from radiation. Typically 2-3 double stranded breaks on a single copy is too much for things to repair.
+
+------------------------------
+Thank you for providing the background information on your project. As a graduate-level student, I would evaluate their performance based on the following criteria:
+
+1. Understanding of the problem: The student should demonstrate a clear understanding of the project's goal, which is to mutate the L-protein of the MS2 phage to make it more effective against E.coli, particularly in cases where the host mutates DnaJ.
+
+2. Knowledge of the biological system: The student should exhibit knowledge of the MS2 phage, its lysis protein, and the role of the DnaJ chaperonin in the folding of the C-terminal end of the lysis protein.
+
+3. Approach to creating mutants: The student should have a well-thought-out strategy for creating L-protein mutants. This could include:
+   a. Identifying key residues or regions in the L-protein that could be targeted for mutation.
+   b. Designing mutations that could potentially make the L-protein less dependent on DnaJ for proper folding.
+   c. Considering the stability and functionality of the mutated L-protein.
+
+4. Experimental design: The student should have a clear plan for testing the created mutants, including:
+   a. Assays to assess the efficiency of the mutated L-protein in lysing E.coli cells.
+   b. Experiments to evaluate the effectiveness of the mutants against E.coli strains with mutated DnaJ.
+   c. Appropriate controls to compare the performance of the mutants against the wild-type L-protein.
+
+5. Data analysis and interpretation: The student should be able to analyze the results of their experiments and draw meaningful conclusions about the effectiveness of the L-protein mutants.
+
+6. Creativity and innovation: The student should demonstrate creativity in their approach to solving the problem, such as proposing novel mutation strategies or experimental techniques.
+
+7. Communication and presentation skills: The student should be able to effectively communicate their work, including the rationale behind their approach, the results obtained, and the implications of their findings.
+
+Based on the information provided, it is difficult to give a specific grade without knowing the details of the student's work. However, if the student has successfully addressed the majority of the points mentioned above, they would likely receive a high grade (e.g., A or B). If there are significant gaps in their understanding, approach, or execution, the grade would be lower (e.g., C or D).
+==============================

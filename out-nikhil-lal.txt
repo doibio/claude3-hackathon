@@ -1,0 +1,67 @@
+data/students/protein-design-part-2/nikhil-lal.txt
+----------
+# Class #4 Protein Design (Part 2)
+
+source - https://www.oaepublish.com/articles/mrr.2023.28
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/feca1285-1032-4fe4-8164-606764404b57/097c0013-b20d-4e73-9e39-0c5cd4ff2157/Untitled.png)
+
+## L-Protein Mutants
+
+Our goal for this week is to create mutants of the Lysis protein (L-protein) that self-fold without the need for additional proteins within the cell, these mutants are challenging to design as they are in the overlapping encoding region of the coat and reproduction proteins. This is challenging as there are many L-proteins that are likely able to self-fold, but very few of them will be able to overlap with the other significant proteins with the MS2 genome while maintaining functionality of the protein.
+
+Interestingly, a lot of the attempts in this space focus on creating mutations, but I’m wondering if it makes sense to just expand the gap between the coating protein and the replicase protein to allow for a larger, potentially more complex L-protein. 
+
+To get started I will first design the protein using the available mutation models, but as I explore I intend to find a method for expanding the L protein coding length.
+
+## L-Protein and DNAj Sequence
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```python
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj. 
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)** 
+
+```python
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+## Using ESM generate viable mutations
+
+   `Position Wild_Type_AA Mutation_AA  LLR_Score
+989         50            K           L   2.561464
+574         29            C           R   2.395427
+769         39            Y           L   2.241777
+575         29            C           S   2.043150
+173          9            S           Q   2.014323`
+
+------------------------------
+Dear Student,
+
+Thank you for your submission on the L-protein mutants for the MS2 bacteriophage. Your approach to the problem is interesting and shows a good understanding of the challenges involved in designing mutants in the overlapping encoding region of the coat and reproduction proteins.
+
+Strengths:
+1. You have identified the key challenge of maintaining functionality of the L-protein while also considering the constraints imposed by the overlapping coding regions.
+2. Your idea of exploring the possibility of expanding the gap between the coating protein and the replicase protein to accommodate a larger, more complex L-protein is creative and shows out-of-the-box thinking.
+3. You have provided the sequences of both the L-protein and the DNAj chaperone, which is essential for understanding the interaction between the two proteins.
+4. You have used the ESM (Evolutionary Scale Modeling) tool to generate viable mutations and provided a table with the top-scoring mutations.
+
+Areas for improvement:
+1. While you have mentioned the intention to design the protein using available mutation models, it would have been better to provide more details on the specific models you plan to use and how you intend to apply them.
+2. Expanding on your idea of increasing the L-protein coding length, it would be helpful to discuss potential strategies for achieving this and any potential drawbacks or challenges you anticipate.
+3. The mutations generated using ESM are a good starting point, but it would be beneficial to provide some analysis or discussion on why these specific mutations might be promising for creating a self-folding L-protein.
+4. Consider discussing how you plan to assess the functionality of the mutant L-proteins and their ability to lyse E. coli cells without relying on the DNAj chaperone.
+
+Overall, your submission demonstrates a solid understanding of the problem and proposes some interesting ideas for tackling the challenge of designing L-protein mutants. With some additional details and analysis, this could develop into a strong project proposal.
+
+Grade: B+
+
+Keep up the good work, and I look forward to seeing how your project progresses.
+
+Best regards,
+Your Instructor
+==============================

@@ -1,0 +1,215 @@
+data/students/protein-design-part-2/gauri-agarwal.txt
+----------
+# Week 4: Protein Design (Part 2)
+
+Part B and Final Project Ideas due in class on March 12th 
+
+# Part B: L-Protein Mutants
+
+### **L-Protein and DNAj Sequence**
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj. 
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)** 
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+```
+
+**Additional Information**
+
+1. Using the mutation analysis of lysis protein from: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/ 
+
+List of mutations that were tried and their effect on lysis observed: https://docs.google.com/spreadsheets/d/1PpPNnLIaN659eYKPzQsWB2s36j8m1cQvRxKICJp7HHo/edit#gid=0
+
+2. Using [clustalomega](https://www.ebi.ac.uk/jdispatcher/msa/clustalo) to get the alignments from the BLAST results for L-protein: 
+
+![Screenshot 2024-03-11 at 10.57.37 PM.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/29369203-32a2-4387-a776-5e78f89fa162/ae57d487-89bd-4aef-8ef7-665a3545d883/Screenshot_2024-03-11_at_10.57.37_PM.png)
+
+This alignment shows us that there are some regions of the protein that are essential for its stability and function (and remain unchanged across its family of proteins or across sequences of the protein in other organisms). Eg: In position 9, 10 (the amino acid S, Q) seems to be important to the function of the protein as it remains stable across all sequences. 
+
+1. There is some other useful information here: 
+[https://howtogrowalmostanything.notion.site/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21) 
+
+Asking ChatGPT to further explain some information in the above guide and summarizing this information for my own knowledge: 
+
+- Depending on where the cell starts to “read” the sequence (called Open Reading Frame), different proteins in this case (lysis, coat and replicase) can have encodings where they overlap.
+- Mutating a point in the L-protein can then affect the amino acid sequence of the coat or rep proteins too.
+- The idea of **Synonymous Mutations** are mutations change the DNA sequence but not the amino acid produced because there are redundancy in the genetic code.
+
+## **Performing Mutagenesis using Protein Language Models**
+
+1. Running this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing#scrollTo=AIeNsCQBrKha) for first identifying the **top 20 mutations by LLR score** as predicted by the protein language model (ESM): 
+****
+
+| Position | Region | Wild_Type_AA | Mutation_AA | LLR_Score |
+| --- | --- | --- | --- | --- |
+| 50 | Soluble | K | L | 2.5614638328552200 |
+| 29 | Transmembrane | C | R | 2.3954265117645300 |
+| 39 | Soluble | Y | L | 2.2417776584625200 |
+| 29 | Transmembrane | C | S | 2.043149709701540 |
+| 9 | Transmembrane | S | Q | 2.0143227577209500 |
+| 29 | Transmembrane | C | Q | 1.9970486164093000 |
+| 29 | Transmembrane | C | P | 1.97102689743042 |
+| 29 | Transmembrane | C | L | 1.9606447219848600 |
+| 50 | Soluble | K | I | 1.928797721862790 |
+| 53 | Soluble | N | L | 1.864930510520940 |
+| 61 | Soluble | E | L | 1.818096399307250 |
+| 52 | Soluble | T | L | 1.8139662742614700 |
+| 50 | Soluble | K | F | 1.8020658493042000 |
+| 29 | Transmembrane | C | T | 1.797245740890500 |
+| 29 | Transmembrane | C | K | 1.7958765029907200 |
+| 5 | Transmembrane | F | Q | 1.795245885849000 |
+| 5 | Transmembrane | F | R | 1.6597175598144500 |
+| 29 | Transmembrane | C | A | 1.6486542224884000 |
+| 27 | Transmembrane | Y | R | 1.6280598640441900 |
+| 22 | Transmembrane | F | R | 1.6020278930664100 |
+
+**Top mutations in the transmembrane region (0 -34):**
+
+| Amino Acid (mutated) | Position | Score |
+| --- | --- | --- |
+| R | 29 | 2.3954265117645300 |
+| S | 29 | 2.043149709701540 |
+| Q | 9 | 2.0143227577209500 |
+| Q | 29 | 1.9970486164093000 |
+| P | 29 | 1.97102689743042 |
+
+**Top mutations in the soluble region (start position is 38-61)**:
+
+| Amino Acid (mutated) | Position | Score |
+| --- | --- | --- |
+| L | 50 | 2.3954265117645300 |
+| L | 39 | 2.2417776584625200 |
+| I | 50 | 1.928797721862790 |
+| L | 53 | 1.864930510520940 |
+| L | 52 | 1.8139662742614700 |
+1. Comparing the above mutations from Protein LLM with the experimental data here - https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing
+    
+    
+    Green background indicates mutations data points for mutation.  
+    Red background indicates data points against mutation. 
+    
+    **Top mutations in the transmembrane region (0 -34):**
+    
+    | Amino Acid (mutated) | Position | Score | pBLAST | Experimental Results  |
+    | --- | --- | --- | --- | --- |
+    | R | 29 | 2.3954265117645300 | Remains unchanged across 52 sequences | Lysis=0 and Protein levels=0 |
+    | S | 29 | 2.043149709701540 | Remains unchanged across 52 sequences | No experimental results |
+    | Q | 9 | 2.0143227577209500 | Remains unchanged across 52 sequences | No experimental results |
+    | Q | 29 | 1.9970486164093000 | Remains unchanged across 52 sequences | No experimental results |
+    | P | 29 | 1.97102689743042 | Remains unchanged across 52 sequences | No experimental results |
+    
+    **Top mutations in the soluble region (start position is 38-61)**:
+    
+    | Amino Acid (mutated) | Position | Score | pBLAST | Experimental Results |
+    | --- | --- | --- | --- | --- |
+    | L | 50 | 2.3954265117645300 | Remains unchanged across 51 / 52 sequences | No experimental results |
+    | L | 39 | 2.2417776584625200 | Remains unchanged across 51/52 sequences. 
+    
+    One mutation Y→X | No experimental results  |
+    | I | 50 | 1.928797721862790 | Remains unchanged across 51/52 sequences | k→I showed lysis=0 and protein levels=1 |
+    | L | 53 | 1.864930510520940 | Remains unchanged across 49/52 sequences
+    
+    One sequence N→X | No experimental results |
+    | L | 52 | 1.8139662742614700 | Remains unchanged across 50/52 sequences | No experimental results  |
+    
+    Overall it seems like the protein large language models missed to identify mutations that have shown to be *experimentally promising* such as: 
+    
+    | Amino Acid Position | Amino Acid Change | Lysis | Protein Levels (ND=Not determined) |
+    | --- | --- | --- | --- |
+    | 13 | P->L | 1 | 1 |
+    | 13 | P->L | 1 | 1 |
+    | 15 | S->A | 1 | 1 |
+    | 18 | R->G | 1 | 1 |
+    | 18 | R->I | 1 | 1 |
+    | 30 | R->Q | 1 | 1 |
+    | 30 | R->L | 1 | 1 |
+    | 31 | R->I | 1 | 1 |
+    | 44 | L->P | 1 | 1 |
+    | 44 | L->P | 1 | 1 |
+    | 45 | A->P | 1 | 1 |
+    | 46 | I->F | 1 | 1 |
+    
+    The positions above do not show up in the top 20 mutations by LLR Score of the models. 
+    
+2. Using the same [notebook](https://colab.research.google.com/drive/1GDr1sjyLOc0G7qH0YtHedK7veWIUNItJ#scrollTo=IHS6t67RCwtk) above and looking at overall predicted effects of mutations on protein sequence (LLR) visually: 
+
+    
+    ![                            Overall predicted effects of mutations on the entire protein sequence](https://prod-files-secure.s3.us-west-2.amazonaws.com/29369203-32a2-4387-a776-5e78f89fa162/eac1a4a3-becf-4640-90c8-2039b76d5f54/download.png)
+    
+                                Overall predicted effects of mutations on the entire protein sequence
+    
+
+ pBLAST results: 
+
+https://www.ebi.ac.uk/jdispatcher/msa/clustalo/summary?jobId=clustalo-I20240312-025239-0667-59878433-p1m 
+
+1. 5 mutations that I have come up with are: 
+
+| Position | Wild_Type_AA | Mutation_AA | Reason |
+| --- | --- | --- | --- |
+| 39 (Soluble) | Y | L | The LLR score is 2.24, there are no experimental results, pBLAST shows one sequence which differs at this position.  |
+| 5 (Transmembrane) | F | Q/R | pBLAST shows variability in this position, LLR score is > 1.5 and other positions (29, 9) have low variability, Not experimentally verified.  |
+| 27 (Transmembrane) | Y | R | High LLR score, pBLAST results show variability (a few sequences with Y→N), no experimental results yet.  |
+| 53 (Soluble) | N | L | High LLR, pBLAST results has one sequences with (N → X), not experimentally validated yet.  |
+| 22 (Transmembrane) | F | R | High LLR, pBLAST results has variability, not experimentally validated.  |
+
+The above mutations can also be combined with the ones experimentally tested to “work” (i.e, perform lysis). 
+
+After talking to Manu in Office hours, she suggested I could try to use Af2_Multimer to see if the mutants mutated in multiple residues form the barrel structure of the L-protein or use Alpha Fold to compare the new structures with the original structure. 
+
+For example: 
+
+| Position 1 + Position 2 | Wild_Type_AA | Mutations | Reason  |
+| --- | --- | --- | --- |
+| 39 + 13 | Y , P | Y39L, P13L | Combination of high LLR prediction + Experimentally verified mutation |
+| 53 + 18 | N, R | N53R, R18G | Combination of high LLR prediction + Experimentally verified mutation |
+| 5 + 44 | F, L | F5Q, L44P | Combination of high LLR prediction + Experimentally verified mutation |
+
+**TBD: AlphaFold structures of these combinatorial mutants**
+
+------------------------------
+Marking Rubric for Graduate-Level Student Performance:
+
+Introduction and Background (10 points):
+- Clearly explained the background and motivation for the project (3 points)
+- Provided relevant information about the lysis protein and its interaction with DnaJ (3 points)
+- Stated the goal of creating L-protein mutants to prevent host escape (4 points)
+
+Score: 10/10
+
+Methods and Analysis (40 points):
+- Used appropriate tools (e.g., UniProtKB, pBLAST, clustalomega) to gather and analyze sequence data (10 points)
+- Utilized protein language models (e.g., ESM) to identify top mutations by LLR score (10 points)
+- Compared the predicted mutations with experimental data and identified discrepancies (10 points)
+- Visualized the overall predicted effects of mutations on the entire protein sequence (5 points)
+- Considered the impact of synonymous mutations and overlapping reading frames (5 points)
+
+Score: 38/40
+
+Results and Interpretation (30 points):
+- Presented the top mutations in the transmembrane and soluble regions based on LLR scores and pBLAST results (10 points)
+- Identified experimentally promising mutations that were missed by the protein language models (10 points)
+- Proposed 5 novel mutations based on LLR scores, pBLAST results, and experimental data (10 points)
+
+Score: 28/30
+
+Discussion and Future Directions (20 points):
+- Suggested combining the proposed mutations with experimentally verified ones (5 points)
+- Considered using AlphaFold and AlphaFold Multimer to analyze the structural impact of the proposed mutations (10 points)
+- Provided a clear plan for future experiments or analyses to validate the proposed mutations (5 points)
+
+Score: 18/20
+
+Total Score: 94/100
+
+Comments:
+The student has done an excellent job in gathering and analyzing relevant data, utilizing appropriate tools, and proposing novel mutations based on the available information. The comparison between the predicted mutations and experimental data is insightful, and the suggestion to combine the proposed mutations with experimentally verified ones is a good approach. The consideration of using AlphaFold and AlphaFold Multimer to analyze the structural impact of the mutations is a valuable addition to the project. To further improve, the student could provide more details on the specific plan for future experiments or analyses to validate the proposed mutations. Overall, this is a well-executed project demonstrating a strong understanding of the problem and a systematic approach to finding solutions.
+==============================

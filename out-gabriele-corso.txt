@@ -1,0 +1,105 @@
+data/students/protein-design-part-2/gabriele-corso.txt
+----------
+# Week 4: Design new L-protein
+
+For the design of a new L-protein I plan to try to optimize its stability so that it does not have to use the chaperone protein anymore and it can more easily fold on its own.
+
+## Get approximate complex fold
+
+First I folded the complex of the existing L-protein using AF2-Multimer:
+
+> METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLL
+> 
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a1895926-5c25-4442-a94c-6388d47fc98c/937f8ab5-8734-4269-8689-bf4c039328df/Untitled.png)
+
+Took highest plDDT predition. 
+
+## Improve stability through ProteinMPNN
+
+https://colab.research.google.com/drive/1XfdFhI8R2asm9-q2PnGTBM2uBC36r764?usp=sharing
+
+Run that through MPNN to get the transmembrane part to be redesigned (idea: make their affinity higher so the interaction does not need to be mediated by DNAj).
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a1895926-5c25-4442-a94c-6388d47fc98c/a209b070-9f6e-42a1-9f52-5abb2764b487/Untitled.png)
+
+| index | score | seqid | seq |
+| --- | --- | --- | --- |
+| 0 | 0.295 | 0.135 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLALLAALLALLAALLAAALAAAGAGAAAAAAAAAAALA |
+| 1 | 0.236 | 0.027 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAAAAAAAAAAAAAAAAAAAAGAGAAAAAAAAAAAAA |
+| 2 | 0.307 | 0.162 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLRLLALLAALLAAAEAAKIALQGAGAAAAAAALAAALA |
+| 3 | 0.264 | 0.027 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAAAAAAAAAAAAAAAAAAAAGAGAAAAAAAAAAAAA |
+| 4 | 0.265 | 0.027 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAAAAAAAAAAAAAAAAIAAAGAGAAAAAAAAAAAAA |
+| 5 | 0.325 | 0.189 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLALLLLLLALLLALLAALLALAGLGLALALLLLALALL |
+| 6 | 0.261 | 0.054 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAQAAAAAAAAAAAAAALALAGAGAAAAAAAAAAAAA |
+| 7 | 0.279 | 0.027 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAA |
+| 8 | 0.276 | 0.108 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLALLAALAAAAAAAAAAAAAAAGAGAAAAAAAAAAALA |
+| 9 | 0.319 | 0.108 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLALLLLLLALLAALAAAAIALAGAGLAAALALAAAALA |
+| 10 | 0.287 | 0.081 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAALLALALAAALAAAALALAGAGAAAAAAALAAALA |
+| 11 | 0.285 | 0.081 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAAAAAAAAATAAATAAAAAAGAGAAAAAAALAAALA |
+| 12 | 0.278 | 0.054 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAAAAAAAAAAAAAAAAAAAAGAGLAAAAAAAAAALA |
+| 13 | 0.337 | 0.162 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLLLLLLLLLLLLLLLKELEKEKGQGEAAAAAALAAALA |
+| 14 | 0.303 | 0.054 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAEQAAAAAAATAAAAAAIAAAAAAAAAAAAAAAAAAA |
+| 15 | 0.3 | 0.0 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAALLALALAAAAAAAAAAAAGAGAAAAAAAAAAAAA |
+| 16 | 0.285 | 0.108 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAAAAAAAAAAAATAAALALAGAGLAAAAAAAAAALA |
+| 17 | 0.307 | 0.054 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAQQAAAAAAAAAAAAAAIAAAGAGLAAALAAAAAALA |
+| 18 | 0.253 | 0.054 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAAAAAAAAAAAAAAAALALAGAGAAAAAAAAAAAAA |
+| 19 | 0.258 | 0.027 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAAAAAAAAAAAAAAAAAAAAGAGAAAAAAAAAAAAA |
+| 20 | 0.266 | 0.027 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAALAAAAAAAAAAAAAAAAAGAGAAAAAAAAAAAAA |
+| 21 | 0.303 | 0.027 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLARRAAEAAAAAAAAAAAIAAAGAGAAAAAAAAAAAAA |
+| 22 | 0.325 | 0.216 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLALLLLLLLLLLLLLLLLVLALGLGLLLAALALAAALA |
+| 23 | 0.298 | 0.081 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLAAAAAAAAAAAAAAAAAIAAAGAGAAAAAAALAAALA |
+| 24 | 0.314 | 0.081 | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLALLLLAALLAAAAAAAAAAAAGAGAAAAAAAAAAALA |
+
+Protein MPNN itself gave far too many substitutions that did not seem realistic. Moreover, ProteinMPNN does not consider the fact that this is a transmembrane domain. Instead tried to look at individual likelihoods when fixing the others.
+
+## Selecting individual mutations
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a1895926-5c25-4442-a94c-6388d47fc98c/38162862-7593-4565-a56c-f2e6c1398b6b/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a1895926-5c25-4442-a94c-6388d47fc98c/fd8bcf8c-f941-4bfe-94ee-c494ee18ee86/Untitled.png)
+
+Selected mutations on residues 60 and 62 from L and A to G. Which seem to allow the helix bundle to pack more closely. Below the sequences when changing one of them or both.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a1895926-5c25-4442-a94c-6388d47fc98c/41d06664-c863-4f60-894a-f0f8e79871bb/Untitled.png)
+
+```jsx
+Only the first
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLGEAVIRTVTTLQQLLT
+
+Only the second
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEGVIRTVTTLQQLLT
+
+Both
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLGEGVIRTVTTLQQLLT
+```
+
+## Testing the sequence by rerunning AF-Multimer
+
+Below the result of running AF-Multimer once again with both mutations. Small improvement in plDDT although this remains quite low.
+
+> METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLGEGVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLGEGVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLGEGVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLGEGVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLGEGVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLGEGVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLGEGVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLGEGVIRTVTTLQQLLT
+> 
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/a1895926-5c25-4442-a94c-6388d47fc98c/0b821a0e-8e16-4d07-ad66-9bfbe6480d1d/Untitled.png)
+
+------------------------------
+Here is my assessment of the student's work on designing a new L-protein for the MS2 bacteriophage:
+
+Strengths:
+- The student has a clear understanding of the goal - to mutate the L-protein to fold independently of the DnaJ chaperone so the bacteriophage can still infect E. coli if DnaJ mutates. 
+- They appropriately used AlphaFold2-Multimer to model the approximate fold of the existing L-protein complex as a starting point.
+- They attempted to use ProteinMPNN to redesign the transmembrane portion to improve stability and binding affinity. This was a reasonable approach to try.
+- When ProteinMPNN gave unrealistic results, they pivoted to manually selecting individual likely beneficial mutations based on the substitution scores. This showed good judgment.
+- The L60G and A62G mutations they chose seem reasonable to allow tighter packing of the transmembrane helix bundle. 
+- Re-running the mutated sequence through AF2-Multimer to check for improvement in predicted structure was a nice validation step.
+
+Areas for Improvement: 
+- The report could use more details on their reasoning and intermediate results at each step. Why did ProteinMPNN give unrealistic results - too many mutations, not considering transmembrane constraints? How much did plDDT scores improve after mutation?
+- Additional mutation rounds building off the initial L60G/A62G results could have been explored if time allowed. The final plDDT is still quite low.
+- Some discussion of how they would validate the mutant experimentally and what assays they would use to test improved chaperone-independent folding and lytic activity would have made the report even stronger.
+
+Overall, this is solid work for a graduate-level student given the challenging design goal. The student demonstrated good knowledge of modern protein modeling tools and made reasonable decisions in their design process. The proposal could benefit from more scientific discussion and additional design iterations, but it provides a promising starting point that is grounded in biophysical principles. 
+
+I would grade this as a B+. With some polishing and expansion, it would be A-level work.
+==============================

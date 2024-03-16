@@ -1,0 +1,65 @@
+data/students/protein-design-part-2/joshua-chen.txt
+----------
+# Class #4: Protein Design (Part 2)
+
+### **Part A (From Pranam)**
+
+<aside>
+⚠️ Optional for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12**
+
+</aside>
+
+1. Sign up for HuggingFace and request access for PepMLM:
+    
+    https://huggingface.co/ChatterjeeLab/PepMLM-650M
+    
+2. Find the amino acid sequence for SOD1 in UniProt (ID: [P00441](https://www.uniprot.org/uniprotkb/P00441/entry)), a protein when mutated, can cause Amyotrophic lateral sclerosis (ALS). In fact, the A4V (when you change position 4 from Alanine to Valine) causes the most aggressive form of ALS, so make that change in the sequence
+3. Enter your mutated SOD1 sequence into the PepMLM inference API and generate 4 peptides of length 12 amino acids (Step 5 takes a while so you can also just pick 1 or 2 peptides)
+4. To your list, add this known SOD1-binding peptide to your list: FLYRWLPSRRGG [from -https://genesdev.cshlp.org/content/22/11/1451]
+5. Go to AlphaFold-Multimer (https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb). This is similar to what you did for homework last week but instead for a protein-peptide complex
+* Set model_type: alphafold2_multimer_v3 (this model has been shown to recapitulate peptide-protein binding accurately: https://www.frontiersin.org/articles/10.3389/fbinf.2022.959160/full). * Add your query sequence - Its the SOD1Sequence:PeptideSequence. : is important.
+6. After running AlphaFold-Multimer with your 5 peptides alongside your mutated SOD1 sequence, plot the ipTM scores, which measures the relative confidence of the binding region.
+7. Provide a 1 paragraph write-up of your results and be sure to cite the relevant works
+
+## **Part B (Final Project: L-Protein Mutants)**
+
+<aside>
+⚠️ Mandatory for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12
+This homework requires computation that might take you a while to run. So please get started early.**
+
+</aside>
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+You can read more about the final project in the [Final Project Page](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21). 
+
+![source - https://www.oaepublish.com/articles/mrr.2023.28](https://prod-files-secure.s3.us-west-2.amazonaws.com/b74ec4f9-abb6-4d8d-a3bf-abdc66382aca/bbb2354b-ee49-47db-b00b-77dae8fa8d76/6fa8f596749f456c8ddb98d9e8d48735.jpg)
+
+source - https://www.oaepublish.com/articles/mrr.2023.28
+
+## **Goal:**
+
+Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+
+------------------------------
+Thank you for the detailed project description. It's an interesting and challenging task to design mutants of the bacteriophage MS2 L-protein to enhance its lytic activity against E. coli while potentially overcoming the dependency on the DnaJ chaperone. Here's my evaluation of the student's performance:
+
+Grade: B+
+
+Strengths:
+1. The student has a good understanding of the project goals and the importance of targeting the C-terminal region of the L-protein for mutations.
+2. They have correctly identified that deleting the C-terminal end can lead to more rapid lysis, which is a promising strategy for enhancing the efficacy of the phage against E. coli.
+3. The student recognizes the challenge posed by the lack of PDB structures for the L-protein-DnaJ complex, which limits the ability to use structure-guided protein design approaches.
+
+Areas for improvement:
+1. The student should provide more details on the specific mutations they have created in the L-protein. It would be helpful to know the rationale behind each mutation and how they are expected to impact the protein's function and interaction with DnaJ.
+2. The student could have explored additional computational tools or databases to gather more information about the L-protein and its interaction with DnaJ. For example, they could have searched for homologous proteins with known structures or used sequence-based prediction tools to identify potential binding sites or functionally important residues.
+3. The student should discuss their plans for experimentally testing the generated L-protein mutants to validate their efficacy against E. coli and their ability to function independently of DnaJ. This would demonstrate their understanding of the complete workflow from computational design to experimental validation.
+
+Recommendations:
+1. The student should provide a clear summary of the specific mutations they have introduced in the L-protein, along with the reasoning behind each mutation.
+2. They should consider using additional computational tools, such as sequence alignment, homology modeling, or binding site prediction algorithms, to gather more insights into the L-protein structure and its interaction with DnaJ.
+3. The student should outline a plan for experimental validation of the designed mutants, including assays to measure lytic activity and assess the impact of DnaJ mutations on phage infectivity.
+
+Overall, the student has demonstrated a good grasp of the project objectives and has taken steps to design L-protein mutants. With some additional details on the specific mutations, further computational analysis, and a clear plan for experimental validation, they can strengthen their work and contribute effectively to the development of an enhanced bacteriophage treatment for multidrug-resistant E. coli infections.
+==============================

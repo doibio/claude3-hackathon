@@ -1,0 +1,256 @@
+data/students/protein-design-part-2/megan-parmar.txt
+----------
+# Protein Design (Part 2)
+
+## Mutagenesis using Protein Language Models
+
+I chose to use the first approach: mutagenesis using protein language models. To get started, I looked through current literature on the MS2 bacteriophage and the lysis protein (L-protein).
+
+### Literature Review
+
+From the HTGAA project description:
+
+> *Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (A-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (L-Protein) protein, the coat protein (cp), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (rep) protein [Fig. 1]. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism.*
+> 
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/2cdfd016-711e-44c8-9b86-ec81d3ec9019/Untitled.png)
+
+Figure 1. MS2 bacteriophage genome (source: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5446614/)
+
+For this project and this particular approach, the L-protein is the target of interest. The goal is create L-protein mutants that affect its lysis activity and/or its interaction with DNAj. The full project outline can be read in the **[Final Project Page](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21)**.
+
+The L-protein has a soluble domain (green) which is responsible for interaction with DNAj and a transmembrane domain (blue) which affects the phage’s lysis activity.
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein sequence (source: https://www.uniprot.org/uniprotkb/P03609/entry#sequences)
+
+In the paper by [Chamakura et al. (2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/), they conducted random single base-pair mutations and noted the effect they had on the phage’s ability for lysis (cell death). This data was tabulated into an [excel spreadsheet](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0) and I used this for analysis later on.
+
+### Determining Regions for Mutations
+
+To visualize everything, I input the [MS2 phage genome](https://www.ncbi.nlm.nih.gov/nuccore/V00642) into Benchling, translated the region that coded for the L-protein (1678-1905), added annotations for the L-protein domains, and added annotations for the coat protein and replicase protein which overlap with the encoding region for the L-protein (Fig. 2).
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/9e6f124a-3e70-43f6-8496-2338ce4a8ad2/Untitled.png)
+
+Figure 2. Benchling screenshot of MS2 L-protein with additional areas of interest (labelled in image).
+
+**Conserved Regions**
+
+I wanted to see what areas of the L-protein I should not mess with (i.e. highly conserved), so I used [BlastP](https://blast.ncbi.nlm.nih.gov/Blast.cgi) to visualize the conservation areas (Fig. 3) then added those to my Benchling genome.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/dd83246d-9b6a-4a4b-8b8e-ae03658de193/Untitled.png)
+
+Figure 3. BlastP of MS2 L-protein sequence. Highly conserved areas highlighted in red.
+
+I also wanted to take into consideration whether or not mutations to the L-protein would affect the coat protein or replicase. From Fig. 2, I can see that there’s a region of the L-protein that does not overlap with either the coat protein or replicase (in the soluble domain), so that would be a good location for mutations. However, the transmembrane domain overlaps entirely with replicase, meaning any edits made to that domain could affect the replicase protein. Thus, I also blasted the replicase sequence to see if it had any conserved regions that overlapped with the L-protein (Fig. 4).
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/fd155aab-89eb-4181-8863-f133ee1fcd1f/Untitled.png)
+
+Figure 4. BlastP of MS2 replicase. Highly conserved areas highlighted in red.
+
+From Fig. 4, we can see that replicase is only conserved after about the 270th amino acid (aa), meaning there are no conserved regions of replicase that overlap with the transmembrane domain.
+
+**Previous Experimental Data**
+
+Using the previously mentioned [excel spreadsheet](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0) which outlines point mutations to the L-protein and their effect on lysis, I added annotations to my Benchling genome for which amino acids were mutated and whether lysis occurred or not (Fig. 5).
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/5170a967-3a1e-483f-8be9-0d80980840a6/Untitled.png)
+
+Figure 5. MS2 phage genome in Benchling with: L-protein translation (noted in dark blue), replicase protein (light green), coat protein (pink), start and stop codons (orange), conserved regions of L-protein (grey), mutations that caused lysis failure (beige), and mutations where lysis still occurred (green).
+
+**ESM Score**
+
+Using a protein language model (ESM) [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) for the L-protein sequence, the model produced a score for each amino acid position on the effect on the protein if it was mutated to a different amino acid. A positive score is supposed to be considered positive for the function of the protein.
+
+To determine how accurately this protein language model was with predicting ‘positive’ mutation outcomes, I compared it to the experimental data from the previous section (Fig. 6).
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/056d3677-c3f1-4bcb-aea4-b5e75dc25a67/Untitled.png)
+
+Figure 6. ESM score vs experimental lysis result for same amino acid mutations in L-protein.
+
+From this, it looks like there’s quite a bit of spread of what the scores are when lysis either occurs or not after a mutation. Thus, I calculated the average score for mutations where lysis did occur (-0.37) and used this as a reference, meaning for my chosen mutations I would use the one with a score closest to this value. I recognize this is a fairly arbitrary measure, but I thought it could be better than picking randomly.
+
+### Choosing Mutations
+
+When choosing spots for mutation, I used the following guidelines as constraints:
+
+- Not in areas of overlap with coat protein
+    - Note: when modifying transmembrane domain, cannot avoid overlap with replicase
+- Not in conserved regions of L-protein
+- Not in spots where mutations have previously been tried and caused lysis failure
+- Not in spots with a start or stop codon
+- Preference for spots where mutations had never been tried experimentally
+
+The aim was a total of 5 L-protein mutants, with 2 mutated in the soluble region and 2 mutated in the transmembrane region.
+
+**Mutation 1**
+
+- Soluble domain
+    - Restricted to area of non-overlap with coat protein
+    - Region: 18 - 27aa (Fig. 7)
+- Position for mutation: 22
+- Mutation: F → Y
+    - Chosen based on ESM score closest to -0.37 (F → Y: -0.3934)
+
+```
+**Protein sequence**
+METRFPQQSQQTPASTNRRRPYKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+
+**DNA sequence**
+atggaaacccgattccctcagcaatcgcagcaaactccggcatctactaatagacgccggccaTACaaacatgaggattacccatgtcgaagacaacaaagaagttcaactctttatgtattgatcttcctcgcgatctttctctcgaaatttaccaatcaattgcttctgtcgctactggaagcggtgatccgcacagtgacgactttacagcaattgcttacttaa
+```
+
+**Mutation 2**
+
+- Soluble domain
+    - Restricted to area of non-overlap with coat protein
+    - Region: 18 - 27aa (Fig. 7)
+- Position for mutation: 24
+- Mutation: H → Y
+    - Chosen based on ESM score closest to -0.37 (H → Y: -0.22033)
+
+```
+**Protein sequence**
+METRFPQQSQQTPASTNRRRPFKYEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+
+**DNA sequence**
+atggaaacccgattccctcagcaatcgcagcaaactccggcatctactaatagacgccggccattcaaaTATgaggattacccatgtcgaagacaacaaagaagttcaactctttatgtattgatcttcctcgcgatctttctctcgaaatttaccaatcaattgcttctgtcgctactggaagcggtgatccgcacagtgacgactttacagcaattgcttacttaa
+```
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/04af0192-aa37-4e45-9da1-3fff9a44509c/Untitled.png)
+
+Figure 7. Benchling MS2 genome. Region 18 - 27 aa for mutations in soluble region. 
+
+**Mutation 3**
+
+- Region between soluble domain and transmembrane domain: 35 - 37 aa (Fig. 8)
+- Position for mutation: 37
+    - Note: this is a conserved region
+- Mutation: T → C
+    - Chosen based on ESM score closest to -0.37 (T → C: -0.41788)
+
+```
+**Protein sequence**
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSCLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+
+**DNA sequence**
+atggaaacccgattccctcagcaatcgcagcaaactccggcatctactaatagacgccggccattcaaacatgaggattacccatgtcgaagacaacaaagaagttcaTGTctttatgtattgatcttcctcgcgatctttctctcgaaatttaccaatcaattgcttctgtcgctactggaagcggtgatccgcacagtgacgactttacagcaattgcttacttaa
+```
+
+**Mutation 4**
+
+- Transmembrane domain
+    - Region: 38 - 60aa (Fig. 8)
+- Position for mutation: 45
+    - Note: a mutation had been done here experimentally and lysis still occurred after (A → P), so I chose a different mutation
+- Mutation: A → G
+    - Chosen based on ESM score closest to -0.37 (A → G: -0.44881)
+
+```
+**Protein sequence**
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLGIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+
+**DNA sequence**
+atggaaacccgattccctcagcaatcgcagcaaactccggcatctactaatagacgccggccattcaaacatgaggattacccatgtcgaagacaacaaagaagttcaactctttatgtattgatcttcctcGGGatctttctctcgaaatttaccaatcaattgcttctgtcgctactggaagcggtgatccgcacagtgacgactttacagcaattgcttacttaa
+```
+
+**Mutation 5**
+
+- Transmembrane domain
+    - Region: 38 - 60aa (Fig. 8)
+- Position for mutation: 59
+- Mutation: L → S
+    - Chosen based on ESM score closest to -0.37 (L → S: -0.49836)
+
+```
+**Protein sequence**
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSSLEAVIRTVTTLQQLLT
+
+**DNA sequence**
+atggaaacccgattccctcagcaatcgcagcaaactccggcatctactaatagacgccggccattcaaacatgaggattacccatgtcgaagacaacaaagaagttcaactctttatgtattgatcttcctcgcgatctttctctcgaaatttaccaatcaattgcttctgtcgTCActggaagcggtgatccgcacagtgacgactttacagcaattgcttacttaa
+```
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/899c66d0-97d9-43e4-a117-d04beba738e3/Untitled.png)
+
+Figure 8. Benchling MS2 genome. Region 35 - 60 aa for mutations after soluble domain and into transmembrane domain. 
+
+### Checking Mutations
+
+To compare the mutated L-proteins against the natural L-protein, I used AlphaFold2 to predict the 3D structures of the proteins.
+
+For the natural L-protein, it can be seen that the transmembrane region is an alpha helix with quite a bit of confidence (IDDT value) and the soluble region prediction is very low confidence (Fig. 9).
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/b9f2b69f-103f-431a-acf1-8ecb95f82291/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/cefba539-1d71-46b3-99ee-6c9504879c12/Untitled.png)
+
+Figure 9. AlphaFold2 results for natural L-protein.
+
+Using the rank 1 model, I then visualized the natural L-protein in PyMol (Fig. 10).
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/ad65fb99-16b8-4320-8d74-bdc10666832d/Untitled.png)
+
+Figure 10. Natural L-protein in PyMol with coloured regions: soluble domain (blue) and transmembrane domain (pink).
+
+I then input each mutation into PyMol (Fig. 11) and aligned them to the natural protein (Fig. 12).
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/bba5c868-98a5-4db9-9727-c3e289a94b89/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/e972aee4-0ec2-47e4-b8c1-8e302d6be6e8/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/1d8677f9-bb4f-4b6c-bd3d-a0e3e2f9d580/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/8d2e832a-5702-45d8-a726-bfc341a5d669/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/dab5de8e-677c-477f-bf56-e62992db79ff/Untitled.png)
+
+Figure 11. L-protein mutants 1 to 5 from left to right (or top to bottom).
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/05296496-755f-47f2-bda8-ed646a5e3682/36edee22-b797-4f2b-b761-863bd6a4e321/Untitled.png)
+
+Figure 12. L-protein mutants 1 to 5 aligned with natural L-protein.
+
+It appears the soluble domain is the most affected by mutations, however it also is the region of lowest confidence in AlphaFold2, thus it’s hard to tell how accurate that part of the model is.
+
+Another check I did was to the replicase protein. As mutation 3, 4, and 5 were within the genomic sequence for replicase, I translated replicase the modified genome and compared to the original protein sequence. Mutation 4 had no effect on the replicase protein sequence, while mutation 3 and 5 each caused one amino acid change in the protein sequence. 
+
+I was unable to assess the structure of the replicase protein made from mutation 3 and 5 due to AlphaFold2 continually timing out on my attempts. However, the protein sequences are listed below.
+
+```
+**Mutation 3 replicase protein sequence**
+MSKTTKKFMSLCIDLPRDLSLEIYQSIASVATGSGDPHSDDFTAIAYLRDELLTKHPTLGSGNDEATRRTLAIAKLREANGDRGQINREGFLHDKSLSWDPDVLQTSIRSLIGNLLSGYRSSLFGQCTFSNGAPMGHKLQDAAPYKKFAEQATVTPRALRAALLVRDQCAPWIRHAVRYNESYEFRLVVGNGVFTVPKNNKIDRAACKEPDMNMYLQKGVGAFIRRRLKSVGIDLNDQSINQRLAQQGSVDGSLATIDLSSASDSISDRLVWSFLPPELYSYLDRIRSHYGIVDGETIRWELFSTMGNGFTFELESMIFWAIVKATQIHFGNAGTIGIYGDDIICPSEIAPRVLEALAYYGFKPNLRKTFVSGLFRESCGAHFYRGVDVKPFYIKKPVDNLFALMLILNRLRGWGVVGGMSDPRLYKVWVRLSSQVPSMFFGGTDLAADYYVVSPPTAVSVYTKTPYGRLLADTRTSGFRLARIARERKFFSEKHDSGRYIAWFHTGGEITDSMKSAGVRVIRTSEWLTPVPTFPQECGPASSPR
+```
+
+```
+**Mutation 4 replicase protein sequence**
+MSKTTKKFNSLCIDLPRDLSLEIYQSIASVVTGSGDPHSDDFTAIAYLRDELLTKHPTLGSGNDEATRRTLAIAKLREANGDRGQINREGFLHDKSLSWDPDVLQTSIRSLIGNLLSGYRSSLFGQCTFSNGAPMGHKLQDAAPYKKFAEQATVTPRALRAALLVRDQCAPWIRHAVRYNESYEFRLVVGNGVFTVPKNNKIDRAACKEPDMNMYLQKGVGAFIRRRLKSVGIDLNDQSINQRLAQQGSVDGSLATIDLSSASDSISDRLVWSFLPPELYSYLDRIRSHYGIVDGETIRWELFSTMGNGFTFELESMIFWAIVKATQIHFGNAGTIGIYGDDIICPSEIAPRVLEALAYYGFKPNLRKTFVSGLFRESCGAHFYRGVDVKPFYIKKPVDNLFALMLILNRLRGWGVVGGMSDPRLYKVWVRLSSQVPSMFFGGTDLAADYYVVSPPTAVSVYTKTPYGRLLADTRTSGFRLARIARERKFFSEKHDSGRYIAWFHTGGEITDSMKSAGVRVIRTSEWLTPVPTFPQECGPASSPR
+```
+
+
+
+------------------------------
+Thank you for your detailed work on designing mutants of the MS2 bacteriophage L-protein to improve its lytic activity against E. coli. Here is my evaluation of your performance:
+
+Strengths:
+- Thorough literature review to understand the background and identify key regions of the L-protein, including the soluble and transmembrane domains, and interactions with the DnaJ chaperone. 
+- Good use of bioinformatics tools like BLAST to identify conserved regions to avoid mutating.
+- Logical approach to select regions for mutagenesis, taking into account previous experimental data, avoiding start/stop codons and conserved regions.
+- Creative use of protein language models (ESM) to predict effects of mutations and select ones predicted to be neutral/beneficial. Validating ESM predictions against experimental data was a nice analysis.
+- Generating 3D models of the mutants and comparing to wild-type using AlphaFold and PyMol to assess structural impacts.
+- Checking if mutations in the overlapping region impact the replicase protein sequence. 
+
+Areas for Improvement:
+- The arbitrary ESM score cutoff of -0.37 based on the average of mutations allowing lysis has limitations. A more principled statistical analysis comparing the score distributions between lytic and non-lytic mutants would be better.
+- Mutations were made without a clear hypothesis of their mechanism - how might they impact interactions with DnaJ or pore formation? More targeted mutations could be designed with a specific improvement in mind.
+- AlphaFold models, especially of the soluble domain, are low confidence. More cautious interpretation of structural impacts is warranted. Molecular dynamics simulations could provide further insight.
+- Mutational effects on replicase structure couldn't be assessed due to AlphaFold limitations. Following up on this would be valuable.
+
+Overall, this represents excellent work demonstrating a logical approach leveraging both prior literature and modern computational tools. The major improvement would be formulating clearer mechanistic hypotheses to design mutations, but the overall strategy to identify sites and assess mutational impacts is sound. This is very promising work for a graduate student-level project.
+
+Score: 90/100
+
+Keep up the great work! Let me know if you have any other questions.
+==============================
