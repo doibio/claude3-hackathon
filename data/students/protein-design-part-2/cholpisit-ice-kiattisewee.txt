@@ -1,0 +1,285 @@
+# Class #4: Protein Design (Part 2)
+
+![nl-2016-02948r_0007.webp](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/74e2a5cc-3c31-4814-a5fe-745b08e88e48/nl-2016-02948r_0007.webp)
+
+![images_medium_nl-2016-02948r_0007.gif](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/cd88cee0-ed1f-4251-b3d4-b87b7161155c/images_medium_nl-2016-02948r_0007.gif)
+
+Engineered MS2/MCP from [A Selection for Assembly Reveals That a Single Amino Acid Mutant of the Bacteriophage MS2 Coat Protein Forms a Smaller Virus-like Particle | Nano Letters (acs.org)](https://pubs.acs.org/doi/10.1021/acs.nanolett.6b02948)
+
+[Class #4: Protein Design (Part 2)](https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21) 
+
+### ***Will skip Part A as it is optional~~~***
+
+## **Part B (Final Project: L-Protein Mutants)**
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+You can read more about the final project in the [Final Project Page](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21). 
+
+![source - https://www.oaepublish.com/articles/mrr.2023.28](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/bbb2354b-ee49-47db-b00b-77dae8fa8d76/6fa8f596749f456c8ddb98d9e8d48735.jpg)
+
+source - https://www.oaepublish.com/articles/mrr.2023.28
+
+## **Goal:**
+
+Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+
+***Note taking and relevant research works***
+
+[MS2 Lysis of Escherichia coli Depends on Host Chaperone DnaJ (asm.org)](https://journals.asm.org/doi/epub/10.1128/jb.00058-17)
+
+*This article explains how mutation at DnaJ led to resistance to MS2 phage and how mutation of L-protein of MS2 phage recover its lytic property!!! This finding ensures that mutation of L-protein in this campaign can improve capability of MS2 phage and prevent evolution of E. coli to fight with MS2 phage infection.*
+
+[Mutational analysis of the MS2 lysis protein L | Microbiology Society (microbiologyresearch.org)](https://www.microbiologyresearch.org/content/journal/micro/10.1099/mic.0.000485)
+
+*This article provides examples of mutations on L-protein that maintain lytic property of MS2 phage. See also this doc and filter for the ones that can still lyse E. coli membrane:* [L-Protein Mutants - Google Sheets](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0) — *see intuitive analysis below.*
+
+*Any mutation from 47th residue onward led to abolishment of lytic property.
+Deletion of the last 5 amino acid residues will likely abolish lytic property.
+Therefore, we should avoid mutation at residues beyond 47th amino acid: underscored part.
+The green part can be truncated and still remain functional.*
+
+```jsx
+METRFPQQSQQ^TPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAI^FLSKFTNQLLLSLLEAVIRTVTTL^QQLLT
+```
+
+## L-Protein and DNAj Sequence
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj. 
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)** 
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+In this homework we will be doing the following steps. Step 2 might vary from student to student
+
+![Untitled presentation.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/3c1fedd4-a593-4e16-aa99-6fa4c5286f1f/Untitled_presentation.png)
+
+**Additional Information**
+
+1. Using the mutational analysis of lysis protein from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/  Here is a list of some mutations and their effect on lysis  [https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) [Three columns highlighted ! Please copy the sheet before any edits).
+    
+    ![*This is a shortlisted candidates of L-protein mutants that remain functional.*](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/88d6a6c5-a415-49d1-9088-c45bf38a4bce/L-Protein_Lysis-filter.png)
+    
+    *This is a shortlisted candidates of L-protein mutants that remain functional.*
+    
+    *Any mutation from 47th residue onward led to abolishment of lytic property.
+    Deletion of the last 5 amino acid residues will likely abolish lytic property.
+    Therefore, we should avoid mutation at residues beyond 47th amino acid: underscored part.
+    The green part can be truncated and still remain functional.*
+    
+    ```jsx
+    METRFPQQSQQ^TPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAI^FLSKFTNQLLLSLLEAVIRTVTTL^QQLLT
+    ```
+    
+2. In the last class, we used pBLAST to find evolutionary sequences from other organisms and visualized it using clustalomega. BLAST results for L-protein are here - https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link .  You can upload it to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments)
+    
+    ![*Alignment in clustal omega*](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/0474c0e3-25df-45a3-8dfc-9f4597ec159d/Clustalo_L-protein-pBLAST.jpg)
+    
+    *Alignment in clustal omega*
+    
+3. Additional Information about the sequence is linked here - [https://www.notion.so/howtogrowalmostanything/L-Protein-Sequence-Information-7a29684affaa4e3b9adf070cbb7c9908?pvs=4](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21) 
+
+SUBMIT YOUR MUTATIONS HERE. Also add one sentence about what approach you are using. Just make a new sheet with your lastname_firstname_approach
+
+https://docs.google.com/spreadsheets/d/15Ho8WCnXI7iYK6XSmsMG0diEDQhgZZVR9gfD13MCAgU/edit#gid=0
+
+## Mutagenesis using Protein Language Models [Easiest One]
+
+1. Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein.  We want to identify possible mutations that are “positive” If you run this notebook - you will see a .CSV file in the sidebar. You can download it and look at it in the google sheets if that’s easier
+    
+    *Below is an output from my run.*
+    
+    | First half |  |  |  |  |
+    | --- | --- | --- | --- | --- |
+    | Amino Acid | Position | Score | Experimental |  |
+    | L | 50 | 2.5614638328552246 | Not tested |  |
+    | L | 39 | 2.2417776584625244 | Not tested |  |
+    | I | 50 | 1.928797721862793 | No lysis |  |
+    | L | 53 | 1.864930510520935 | Not tested, likely no lylsis |  |
+    | L | 52 | 1.8139662742614746 | Not tested |  |
+    | Second half |  |  |  |  |
+    | Position | Wild_Type_AA | Mutation_AA | Experimental | LLR_Score |
+    | 50 | K | L | Not tested, likely no lysis | 2.5614638328552246 |
+    | 29 | C | R | No lysis | 2.3954265117645264 |
+    | 39 | Y | L | Not tested | 2.2417776584625244 |
+    | 29 | C | S | Not tested | 2.043149709701538 |
+    | 9 | S | Q | Not tested | 2.0143227577209473 |
+    | 29 | C | Q | Not tested | 1.9970486164093018 |
+    | 29 | C | P | Not tested | 1.971027 |
+    | 29 | C | L | Not tested | 1.9606447219848633 |
+    | 50 | K | I | No lysis | 1.928797721862793 |
+    | 53 | N | L | Not tested, likely no lylsis | 1.864930510520935 |
+    | More 10 targets |  |  |  |  |
+    | 61 | E | L | Not tested | 1.818097 |
+    | 52 | T | L | Not tested | 1.813969 |
+    | 50 | K | F | Not tested | 1.802066 |
+    | 29 | C | T | Not tested | 1.797248 |
+    | 29 | C | K | Not tested | 1.795880 |
+    | 5 | F | Q | Not tested | 1.795245 |
+    | 5 | F | R | Not tested | 1.659717 |
+    | 29 | C | A | Not tested | 1.648657 |
+    | 27 | Y | R | Not tested | 1.628059 |
+    | 22 | F | R | Not tested | 1.602027 |
+2. Use the experimental data here. This dataset contains information about mutants of the L-Protein and their effect on lysis in the lab - ‣
+    
+    *Not really, mutations at suggested sites ended up abolishing the lytic property of L-protein according to experimental data.*
+    
+    | Amino Acid Position | Amino Acid Change | Lysis |
+    | --- | --- | --- |
+    | 9 | no data |  |
+    | 27 | Y->Stop | 0 |
+    | 29 | C->R | 0 |
+    | 29 | C->Stop | 0 |
+    | 39 | Y->H | 0 |
+    | 39 | Y->Stop | 0 |
+    | 50 | K->E | 0 |
+    | 50 | K->N | 0 |
+    | 50 | K->I | 0 |
+    | 50 | K->Q | 0 |
+    | 50 | K->Stop | 0 |
+    | 52 | T->N | 0 |
+    | 53 | N->S | 0 |
+    | 53 | N->D | 0 |
+    | 53 | N->H | 0 |
+    | 53 | N->I | 0 |
+    | 53 | N->K | 0 |
+    | 53 | N->Q | 0 |
+3. First check, does the experimental data correlated with the scores from the notebook in (1) ? This should give you a clue on how well these language embeddings capture information about this protein sequence. 
+    
+    *Analysis shown above. This model did suggest mutations beyond experimental dataset but mutations at those suggested positions led to abolished lytic property.*
+    
+4. Using information about effect of protein mutations at these sites -  both the scores and the experimental data in the drive, come up with 5 mutations for each student along with how you came up with them and why you believe they would work. 2 of the variants you submit must have mutations in the transmembrane region (refer to notes above on what amino acid positions these are) and 2 of them must be in the soluble region . Remember that you can also use the pBLAST to see which residues are conserved and not mutate them if you want to. 
+—One easy way to generate sequence mutations could be to look for residue positions and mutations that are have a positive mutational effect either in the experimental or have a positive score from step 1. And pick a combination of those mutations. 
+    
+    *My picks came from the top 10 listed above that hasn’t been tested previously.
+    Out of these lists, residues 9/29 is part of the soluble region (residue 1-36) while residue 39 is part of the transmembrane region (residue 39 onward).*
+    
+    | Position | Wild_Type_AA | Mutation_AA | Score | Experimental |
+    | --- | --- | --- | --- | --- |
+    | 5 | F | Q | 1.795245 | Not tested |
+    | 5 | F | R | 1.659717 | Not tested |
+    | 9 | S | Q | 2.014323 | Not tested |
+    | 22 | F | R | 1.602027 | Not tested |
+    | 27 | Y | R | 1.628059 | Not tested |
+    | 29 | C | S | 2.043150 | Not tested |
+    | 29 | C | Q | 1.997049 | Not tested |
+    | 29 | C | P | 1.971027 | Not tested |
+    | 29 | C | L | 1.960645 | Not tested |
+    | 29 | C | T | 1.797248 | Not tested |
+    | 29 | C | K | 1.795880 | Not tested |
+    | 29 | C | A | 1.648657 | Not tested |
+    | 39 | Y | L | 2.241778 | Not tested |
+    
+    ***Let’s redo this with more hits? — Analyzed additional 10 hits and include those candidates to the table***
+    
+    ## **~~~Finalizing Candidates~~~**
+    
+    Selection Criteria: 2 mutations from Soluble region (residue 1-36), 2 mutations from Intermembrane region (residues 39 onward), and maybe a combination of mutations
+    
+    | Position | Wild_Type_AA | Mutation_AA | Score | Reasoning | Final protein sequence |
+    | --- | --- | --- | --- | --- | --- |
+    | 5 | F | Q | 1.795 | Mutation in the soluble region | METRQPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+    | 9 | S | Q | 2.014 | Mutation in the soluble region | METRFPQQQQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+    | 29 | C | S | 2.043 | Mutation in the soluble region | METRFPQQSQQTPASTNRRRPFKHEDYPSRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+    | 39 | Y | L | 2.242 | Mutatio in the intermembrane region | METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTYYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+    | combined 9, 39 | S, Y | Q, L | not available | Combination of mutations | METRFPQQQQQTPASTNRRRPFKHEDYPCRRQQRSSTYYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+    
+    If I have to choose just one, I will go for **Y39L** mutant because I believe intermembrane mutation is more interesting.
+    I also copied it here to the shared drive — new sheet [Kiattisewee_Ice_Cholpisit_PLM](https://docs.google.com/spreadsheets/d/15Ho8WCnXI7iYK6XSmsMG0diEDQhgZZVR9gfD13MCAgU/edit#gid=1524153801)
+    To this point, it looks like everyone who use the language model approach will end up with similar results since we use the same pre-trained model. However, our intuitive selections might differ depending on how we analyze the residues we want to mutate.
+    
+5. You can utilize Af2_Multimer to generate a Multimeric Assembly (Skipped)
+    
+    Try generating a few variants (or all?), including the original one.
+    Can run it by using 8 repeating sequences of the L-protein with “:” as a separator. e.g. METRF___QQLLT:METRF___QQLLT:METRF___QQLLT:METRF___QQLLT:METRF___QQLLT:METRF___QQLLT:METRF___QQLLT:METRF___QQLLT
+    
+
+![L-Protein 8mer generated by AF2-multimer AlphaFold2.ipynb colab notebook](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/9886aa8f-4968-4c38-a1dc-d7ac8cc801ba/8mer_L-protein.png)
+
+L-Protein 8mer generated by AF2-multimer AlphaFold2.ipynb colab notebook
+
+![Y39L 8mer looks the same. No need to predict the other mutants, I guess.](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/783dc846-e7e5-4464-a5e0-592c77bdf842/8mer_Y39L.png)
+
+Y39L 8mer looks the same. No need to predict the other mutants, I guess.
+
+### Mutagenesis using Af2-Multimer
+
+Notebook for AF2-Multimer - https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
+
+1. One of our goals is to prevent the interaction of L-Protein with DNAj
+2. We will co-fold the DNAj protein sequence with L-Protein and study if any mutations affect their interaction. 
+3. DNAj sequence - MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+4. CoFold this sequence with the L-Protein Sequence, in the complex predicted by AF2 Multimer is the interaction where the L-protein soluble region residues are ?
+5. You can use the information found in mutational analysis experiments [here](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0)
+6. Try to come up with two mutations each with mutations at least in 3 different residue positions. Only make these mutations in the soluble region of the L-protein (refer to notes above on what amino acid positions these are). Explain how you picked your mutations
+7. Submit 5 mutations
+
+**Try co-fold with this input using DnaJ and 34 AA of L-Protein (soluble part)**
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR : METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQR 
+```
+
+Screenshots below are interactive residues: R18, K23, Y27, and C27
+
+![R18 residue](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/33910f60-2384-4d72-9d62-cbce3b27ca01/DnaJ-Lp_R18.png)
+
+R18 residue
+
+![Y27 residue](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/a4669c20-3a28-447a-8b50-ca78e4f46e1c/DnaJ-Lp_Y27.png)
+
+Y27 residue
+
+![K23 residue](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/5c73558b-764d-4dc7-9f98-0ef05e227f64/DnaJ-Lp_K23.png)
+
+K23 residue
+
+![C29 residue](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/51c35cf1-e3fc-4576-bab9-71833d6b744d/DnaJ-Lp_C29.png)
+
+C29 residue
+
+Previously function mutants are
+
+| Amino Acid Position | Amino Acid Change | Lysis | Possible mutation |
+| --- | --- | --- | --- |
+| 18 | R->G | 1 | R18G |
+| 18 | R->I | 1 | R18I |
+| 23 | K->E | 1 | K23E |
+| 23 | K->Stop | 0 |  |
+| 27 | Y->Stop | 0 | Y27F |
+| 29 | C->R | 0 | C29S |
+| 29 | C->Stop | 0 |  |
+
+| Mutations | Interaction type | Final protein sequence |
+| --- | --- | --- |
+| R18G | tested | METRFPQQSQQTPASTNGRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+| R18I | tested | METRFPQQSQQTPASTNIRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+| K23E | tested | METRFPQQSQQTPASTNRRRPFEHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+| Y27F | Hydroxyl group H-bond | METRFPQQSQQTPASTNRRRPFKHEDFPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+| C29S | Disulfide? Didn’t see its pair. Part of candidates from Protein Language Model | METRFPQQSQQTPASTNRRRPFKHEDYPSRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+| R18I, K23E, Y27F, C29S | Combined | METRFPQQSQQTPASTNIRRPFEHEDFPSRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT |
+
+Technically, R18G, R18I, and K23E testing are not necessary. C29S is also included in the Protein Language Model set. Thus, the interesting variant would be the new Y27F and a combined mutation variant. 
+
+![There’s no more specific interaction left after mutations at 4 residues](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/f70269bc-10f7-41f9-b5c1-734fec3db12c/4mut_L48_Zout.png)
+
+There’s no more specific interaction left after mutations at 4 residues
+
+![Zoom out view of 4-residue mutants](https://prod-files-secure.s3.us-west-2.amazonaws.com/9a88df6c-dc99-43ff-80bc-971528f575c1/e8e4affb-5acd-4952-bb99-a2b7e82a422f/4mut_L48.png)
+
+Zoom out view of 4-residue mutants
+
+### Mutagenesis using Rosetta (Skipped, need Af2 knowledge)
+
+The notebook for it is here: https://colab.research.google.com/drive/1CW3BrzTbnIh9DUWevWsSz2_CIfrHpsb8?usp=sharing 
+
+### Random Mutagenesis (Skipped, need Rosetta knowledge)

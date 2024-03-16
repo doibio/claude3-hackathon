@@ -1,0 +1,102 @@
+# Weekly assignment 4
+
+### **Part A (From Pranam)**
+
+<aside>
+⚠️ Optional for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12**
+
+</aside>
+
+1. Sign up for HuggingFace and request access for PepMLM:
+    
+    https://huggingface.co/ChatterjeeLab/PepMLM-650M
+    
+2. Find the amino acid sequence for SOD1 in UniProt (ID: [P00441](https://www.uniprot.org/uniprotkb/P00441/entry)), a protein when mutated, can cause Amyotrophic lateral sclerosis (ALS). In fact, the A4V (when you change position 4 from Alanine to Valine) causes the most aggressive form of ALS, so make that change in the sequence
+3. Enter your mutated SOD1 sequence into the PepMLM inference API and generate 4 peptides of length 12 amino acids (Step 5 takes a while so you can also just pick 1 or 2 peptides)
+4. To your list, add this known SOD1-binding peptide to your list: FLYRWLPSRRGG [from -https://genesdev.cshlp.org/content/22/11/1451]
+5. Go to AlphaFold-Multimer (https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb). This is similar to what you did for homework last week but instead for a protein-peptide complex
+6. * Set model_type: alphafold2_multimer_v3 (this model has been shown to recapitulate peptide-protein binding accurately: https://www.frontiersin.org/articles/10.3389/fbinf.2022.959160/full). * Add your query sequence - Its the SOD1Sequence:PeptideSequence. : is important.
+7. After running AlphaFold-Multimer with your 5 peptides alongside your mutated SOD1 sequence, plot the ipTM scores, which measures the relative confidence of the binding region.
+8. Provide a 1 paragraph write-up of your results and be sure to cite the relevant works
+9. **Part B (Final Project: L-Protein Mutants)**
+
+<aside>
+⚠️ Mandatory for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12
+This homework requires computation that might take you a while to run. So please get started early.**
+
+</aside>
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+You can read more about the final project in the [Final Project Page](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21). 
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/973eaa37-f37c-420c-a3a8-c1535ec2a29f/068792b0-da63-4906-9061-35cca22c217a/Untitled.png)
+
+## **Goal:**
+
+Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+
+## L-Protein and DNAj Sequence
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj. 
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**) MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR \**
+
+In this homework we will be doing the following steps. Step 2 might vary from student to student
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/973eaa37-f37c-420c-a3a8-c1535ec2a29f/6365a450-b2a4-46e3-b705-c1cc12d63e8d/Untitled.png)
+
+**Additional Information**
+
+1. Using the mutational analysis of lysis protein from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/  Here is a list of some mutations and their effect on lysis  [https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) [Three columns highlighted ! Please copy the sheet before any edits).
+2. In the last class, we used pBLAST to find evolutionary sequences from other organisms and visualized it using clustalomega. BLAST results for L-protein are here - https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link .  You can upload it to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments)
+3. Additional Information about the sequence is linked here - [https://www.notion.so/howtogrowalmostanything/L-Protein-Sequence-Information-7a29684affaa4e3b9adf070cbb7c9908?pvs=4](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21) 
+
+SUBMIT YOUR MUTATIONS HERE. Also add one sentence about what approach you are using. Just make a new sheet with your lastname_firstname_approach
+
+## Mutagenesis using Protein Language Models [Easiest One]
+
+<aside>
+⚠️ Designing these mutants with good computational confidence is hard. It will show you limitations of some of the structure based models. Ultimately you can pick various combinations of mutations and get lab results and then decide to pick the next round of mutations. But this assay won’t be easy to run at scale in this class. So using the information below you can either make a best guess or you can use the strategy Allan was talking about during recitation. Contact Manu or Allan if you need one on one help.
+
+</aside>
+
+1. Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein.  We want to identify possible mutations that are “positive” If you run this notebook - you will see a .CSV file in the sidebar. You can download it and look at it in the google sheets if that’s easier
+2. Use the experimental data here. This dataset contains information about mutants of the L-Protein and their effect on lysis in the lab - https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing
+3. First check, does the experimental data correlated with the scores from the notebook in (1) ? This should give you a clue on how well these language embeddings capture information about this protein sequence. Using information about effect of protein mutations at these sites -  both the scores and the experimental data in the drive, come up with 5 mutations for each student along with how you came up with them and why you believe they would work. 2 of the variants you submit must have mutations in the transmembrane region (refer to notes above on what amino acid positions these are) and 2 of them must be in the soluble region . Remember that you can also use the pBLAST to see which residues are conserved and not mutate them if you want to. 
+
+One easy way to generate sequence mutations could be to look for residue positions and mutations that are have a positive mutational effect either in the experimental or have a positive score from step 1. And pick a combination of those mutations. 
+
+4. You can utilize Af2_Multimer to generate a Multimeric Assembly [TA: Ben Arias-Almeida]
+you can do this by making your query sequence as. We want to do this because -  A running hypothesis for how this protein function is that it *assembles* to make a perforation in the bacterial membrane. Our TA Ben Arias-Almeida discovered that when we predict the **assemble of 8 structures of the lysis protein***,* it indeed reveals a channel-like complex.
+
+# Logo
+
+!https://weblogo.berkeley.edu/cache/filee9yV4B.png
+
+[LOGO.pdf](https://prod-files-secure.s3.us-west-2.amazonaws.com/973eaa37-f37c-420c-a3a8-c1535ec2a29f/146a4e5e-6538-4865-bfee-5a4ca5b524c1/LOGO.pdf)
+
+# Language Models predictions
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/973eaa37-f37c-420c-a3a8-c1535ec2a29f/2ea88ead-4fb4-4f41-ab6a-90f9b1bc6c09/Untitled.png)
+
+# Mutations
+
+To choose the mutations, I am gonna take into account the information provided by the logo, the experimental data of the tested mutations, and the IA model predicting mutations scores.
+
+1. First we can see that the F in the position 5 of the original sequence is not highly conserved in the logo, as the mutation F→ S can be found in evolution. The phenylalanine is a hydrophobic residue in a soluble domain with no inner core, this is not common and doesn’t contribute to the protein stability, in line with this, the change observed in the logo is for a polar residue. When we examine the language model predictions, the fifth position can is highly yellow, indicating that changes in this position could be positive. There is no experimental data available. I propose this mutations to try to achieve a change in the protein activity :
+    1. F→ S position 5
+    2. F→ Q position 5
+    3. F→ P position 5
+2. When we look at the C 29 in the heatmap of the language model, it appears almost every change is beneficial, but when we look at the logo, it is a really conserved position. Changing this cysteine for asparagine doesn’t produce lysis as shown by the experimental results(N). However, the heatmap assigns a high score to the change to an R. We could use this mutation to asses if this position can really  be changed.
+    1. C→ R position 29
+3. In the soluble region we can find the amino acid E in the position 61. This amino acid has a negative polar charge and as shown in the logo, can be changed by Aspartic acid which has the same negative charge. Although this is not a top score mutation in the language model,nor has experimental data, it has happened in the evolution:
+    1. E→ D position 61
+4. Again in the soluble region, the T 68 can be changed by an E according to the sequence logo, although the differences in the chemical proteins of both amino acids.
+    1. T→ e position 68

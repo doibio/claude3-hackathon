@@ -1,0 +1,4 @@
+# Class #4: Protein Design (Part 2)
+
+> Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+

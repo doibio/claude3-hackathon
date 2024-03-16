@@ -1,0 +1,475 @@
+# Class #4: Protein Design (Part 2)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/8efe1b7b-5469-4a52-b192-84ecbed82009/Untitled.png)
+
+source: [great lakes bioenergy research center](https://www.glbrc.org/news/computation-guided-design-split-protein-systems-controlling-cellular-function)
+
+[L-Protein Sequence Design Considerations](https://www.notion.so/L-Protein-Sequence-Design-Considerations-b08a620afdbe4af097579aec06c6786e?pvs=21)
+
+[Code Notebooks](https://www.notion.so/Code-Notebooks-7448044abdfc4f63a30af14795e161b4?pvs=21)
+
+### **Part A (From Pranam)**
+
+<aside>
+⚠️ Optional for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12**
+
+</aside>
+
+1. Sign up for HuggingFace and request access for PepMLM:
+    
+    https://huggingface.co/ChatterjeeLab/PepMLM-650M
+    
+2. Find the amino acid sequence for SOD1 in UniProt (ID: [P00441](https://www.uniprot.org/uniprotkb/P00441/entry)), a protein when mutated, can cause Amyotrophic lateral sclerosis (ALS). In fact, the A4V (when you change position 4 from Alanine to Valine) causes the most aggressive form of ALS, so make that change in the sequence
+    
+    
+3. Enter your mutated SOD1 sequence into the PepMLM inference API and generate 4 peptides of length 12 amino acids (Step 5 takes a while so you can also just pick 1 or 2 peptides)
+    
+    
+4. To your list, add this known SOD1-binding peptide to your list: FLYRWLPSRRGG [from -https://genesdev.cshlp.org/content/22/11/1451]
+    
+    
+5. Go to AlphaFold-Multimer (https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb). This is similar to what you did for homework last week but instead for a protein-peptide complex
+* Set model_type: alphafold2_multimer_v3 (this model has been shown to recapitulate peptide-protein binding accurately: https://www.frontiersin.org/articles/10.3389/fbinf.2022.959160/full). * Add your query sequence - Its the SOD1Sequence:PeptideSequence. : is important.
+    
+    
+6. After running AlphaFold-Multimer with your 5 peptides alongside your mutated SOD1 sequence, plot the ipTM scores, which measures the relative confidence of the binding region.
+    
+    
+7. Provide a 1 paragraph write-up of your results and be sure to cite the relevant works
+
+## **Part B (Final Project: L-Protein Mutants)**
+
+<aside>
+⚠️ Mandatory for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12
+This homework requires computation that might take you a while to run. So please get started early.**
+
+</aside>
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+You can read more about the final project description here on Lisa’s notes- [https://www.notion.so/howtogrowalmostanything/How-to-Grow-Almost-Anything-2024-63a45d6c8f934456b70e30eee86f9b78?p=8945a45ee86b486aa62c79b0cfff119e&pm=c](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/b93276df-2b69-449c-86cd-2c1e76e3de83/Untitled.png)
+
+source - https://www.oaepublish.com/articles/mrr.2023.28
+
+### **Goal:**
+
+Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+
+### **Mar. 7 - Recitation**
+
+**The Goal of mutated L-protein**
+
+- **make lysis faster**
+- **make DNAj less-dependent**
+
+### **L-Protein and DNAj Sequence**
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj. 
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)** 
+
+```
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+In this homework we will be doing the following steps. Step 2 might vary from student to student
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/037dc6b8-8417-4ac2-bd29-c90ee2e01acd/Untitled.png)
+
+**Additional Information**
+
+1. Using the mutational analysis of lysis protein from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/  Here is a list of some mutations and their effect on lysis  [https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) [Three columns highlighted ! Please copy the sheet before any edits).
+    
+    
+2. In the last class, we used pBLAST to find evolutionary sequences from other organisms and visualized it using clustalomega. BLAST results for L-protein are here - https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link.  You can upload it to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments)
+    
+    
+    ## Clustalomega of L—protein
+    
+    ```c
+    CLUSTAL O(1.2.4) multiple sequence alignment
+    
+    P19903.1:3-71            ------QPSQPTRESTKKPVPFQHEEYPCQNQQRSSTLYVLICLAIFLSKFTNQLLASLLDLLIRIVTTLQQLLT 69
+    prf||1617103C:2-70       ------QPSQPTRESTKKPVPFQHEEYPCQNQQRSSTLYVLICLAIFLSKFTNQLLASLLDLLIRIVTTLQQLLT	69
+    SNQ28029.1:1-75          METRSPQQSQQTPGFINRSRPFQHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVETLRQLLT	75
+    ABQ02457.1:1-75          METQSPQQSQPTPESINRFRPFQHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVETLRQLLT	75
+    AAF67670.1:1-75          METQSPQQSQQTPVSTNRYRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVETLQQLLT	75
+    QNI21283.1:15-75         --------------STNRFRPFQHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLDAVIRTVETLQQLLT	61
+    ABO28588.1:1-75          METRSPQQSQQTPESTNRFRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVETLQQLLT	75
+    ABO33462.1:1-75          METRSPQQSQQTPESTNRFRPFQHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVETLQQLLT	75
+    ACN90646.1:1-71          MEIRFPRQSQQTPASTNRRRPFXHEDYPCRRQQRSSTXXVLIFLXIXLSKFTNQLLLSLLEAVIRTVTTLQ----	71
+    ACN90570.1:1-69          MEIRFPRQSQQTPAXXNRRRPFKXEDYPCRRQQRSSTLYVXIFLAIFLSKFTNQXLLSXLEAVIRXVTT------	69
+    ACN90574.1:1-65          MEIRFPRQSQQTPASXNRRRPFKXEDYPCRRQQRSSTLYVXIFLAIFLSKFTNQLLLSLLEAVIR----------	65
+    ACN90766.1:1-75          MEIRFPRQSQQTPASTNRCRPFKHEDNPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90590.1:1-75          MEIRFPRQSQQTPASTNRRRPFKHEDNPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90401.1:1-75          MXIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90314.1:1-75          MEIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAILLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90367.1:1-75          MEIRFPRQSQQTPASXNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90287.1:1-75          MEIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90343.1:1-74          MEIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLL-	74
+    AAF19634.1:1-75          METRFLRQSQQTPASTNRYRPFKHEDYPCRXQQRSSTLYVLIFLAIFLSKFTNQLLLSLLDAVIRTVTTFQQLLT	75
+    ACN90183.1:1-58          MEIRFPQQSQQTPASTNRXRPFKHEDYPCRRQQXSSTLYVLIFLAIFLXKFTXXLLLS-----------------	58
+    ACN90558.1:1-72          MEIRSPQQSQQTPASXNRRRPFKXEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSXLEAVIRTVTTLQQ---	72
+    ACN90550.1:1-75          MEIRXXXXSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90510.1:1-75          MEIRFPQQSQXTPASTNRRRPXKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEXVIRTVTTLQQLLT	75
+    ACN90437.1:1-75          MEIRFPQQSQQXPASTNRRRPFKHEDYPCRRXQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90378.1:1-69          MEIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIXXSKFTNQLLLSLLEAVIRTVTT------	69
+    ACN90311.1:1-73          MEIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQXXLSLLEAVIRTVTTLQQL--	73
+    AEB91416.1:1-75          MEIRFPQQSQQTPASTNIRRPSKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90349.1:1-75          MEIRSPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLXEAVIRTVTTLQQLLT	75
+    AEB91397.1:1-75          MEIRXPXQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90026.1:1-75          MEIRFPQQSQQTPASTNRRRPLKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLESVIRTVTTLQQLLT	75
+    ACN89902.1:1-75          MEIRFPQQSQQTPASTNRCRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90066.1:1-75          MEIRFPQQSQQTPASTNRRRPLKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLDAVIRTVTTLQQLLT	75
+    ACY07216.1:1-75          METRFPQQSQQIPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAISLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90070.1:1-75          MEIRSPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90269.1:1-75          MEIRFPQQSQQTPASTNRRRPSKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    AEB91381.1:1-75          MEIRFPQQSQQTPASTNRRRPXKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90233.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQXSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN89954.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLTFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    AEQ25570.1:1-75          METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAISLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    AEB91401.1:1-75          MEIRFPXQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90018.1:1-75          MEIRFPQQSQQTPASTNRRRPLKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90465.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRRQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ABO33466.1:1-75          METRFPQQSQQTPASTNRCRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90501.1:1-75          MEIRFPQQSQKTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACY07208.1:1-75          METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAISLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    YP_009640126.1:1-75      METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN89974.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLTIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90187.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTFQQLLT	75
+    ACN90626.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLDAVIRTVTTLQQLLT	75
+    ACN89890.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT	75
+    ACN90441.1:1-50          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSK-------------------------	50
+    ACN90250.1:1-43          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIF--------------------------------	43
+                                             :   *   *: **:  * ***  *                    
+    ```
+    
+    > An * (asterisk) indicates positions which have a single, fully conserved residue.
+    > 
+    > 
+    > A : (colon) indicates conservation between groups of strongly similar properties - scoring > 0.5 in the Gonnet PAM 250 matrix.
+    > 
+    > A . (period) indicates conservation between groups of weakly similar properties - scoring =< 0.5 in the Gonnet PAM 250 matrix.
+    > 
+    
+    [[link](https://biology.stackexchange.com/questions/17805/what-do-the-clustal-alignment-symbols-mean)]
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/4454585d-2fd5-4ca4-97da-d53cce78f0c5/Untitled.png)
+    
+    **Supplementary figure 4: Mutational analysis of MS2 L. [[link](https://www.sciencedirect.com/science/article/pii/S0021925820389651)]**
+    
+    The four domains of L are represented by numbered boxes. Missense alleles with lysis defects but without a defect in protein accumulation are indicated above the L sequence. Missense changes that do not affect lytic function are indicated below the L sequence. **Green asterisks** indicate all possible codon positions where a nonsense mutation could be accessed by a single nucleotide change; **underlined asterisks** indicate positions where no nonsense mutants were obtained in the mutagenesis. **Basic** and **acidic** residues are highlighted in red and blue, respectively. This research was originally published in *Microbiology*. Chamakura, K. R., Edwards, G. B., and Young, R. Mutational analysis of the MS2 lysis protein L. *Microbiology.* 2017; 163, 961-969. © Microbiology Society.
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/7e159777-94e2-4b0d-b2b0-afd97f0ff991/Untitled.png)
+    
+    **Supplementary figure 5: Alignment and conserved features of L-like Sgl proteins. [[link](https://www.sciencedirect.com/science/article/pii/S0021925820389651)]**
+    
+    L-like lysis proteins from different leviviruses are aligned with respect to the conserved **LS motif (yellow)**, preceded by a stretch of **hydrophobic residues (underlined)** and highly basic N-termini. **Basic** and **acidic** residues are highlighted in red and blue, respectively. GenBank accession numbers for the lysis proteins shown are as follows: MS2 (CAA23990.1), M12 (AAF19634.1), fr (CAA33137.1), GA (CAA27498.1), JP34 (AAA72211.1), KU1
+    (AAF67675.1), Hgal1 (YP_007237174.1), C1 (YP_007237128.1), AP205 (NP_085469.1), PP7 (NP_042306.1), PRR1
+    (YP_717670.1). This research was originally published in *Microbiology*. Chamakura, K. R., Edwards, G. B., and
+    Young, R. Mutational analysis of the MS2 lysis protein L. *Microbiology.* 2017; 163, 961-969. © Microbiology
+    Society.
+    
+3. Additional Information about the sequence is linked here - [https://www.notion.so/howtogrowalmostanything/L-Protein-Sequence-Information-7a29684affaa4e3b9adf070cbb7c9908?pvs=4](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21) 
+    
+    ‣
+    
+    SUBMIT YOUR MUTATIONS HERE. Also add one sentence about what approach you are using. Just make a new sheet with your lastname_firstname_approach
+    
+    https://docs.google.com/spreadsheets/d/15Ho8WCnXI7iYK6XSmsMG0diEDQhgZZVR9gfD13MCAgU/edit#gid=0
+    
+    | Approach | Description | Student 1 | Student 2 | Student 3 |
+    | --- | --- | --- | --- | --- |
+    | Mutagenesis using Protein Language Models | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+    | Mutagenesis using Af2-Multimer | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+    | Mutagenesis using Rosetta | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+    | Random Mutagenesis | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+    | Other | Only for students who have a background in protein engineering already |  |  |  |
+
+## Mutagenesis using Protein Language Models
+
+<aside>
+⚠️ Designing these mutants with good computational confidence is hard. It will show you limitations of some of the structure based models. Ultimately you can pick various combinations of mutations and get lab results and then decide to pick the next round of mutations. But this assay won’t be easy to run at scale in this class. So using the information below you can either make a best guess or you can use the strategy Allan was talking about during recitation. Contact Manu or Allan if you need one on one help.
+
+</aside>
+
+1. Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein.  We want to identify possible mutations that are “positive” If you run this notebook - you will see a .CSV file in the sidebar. You can download it and look at it in the google sheets if that’s easier
+    
+    
+2. Use the experimental data here. This dataset contains information about mutants of the L-Protein and their effect on lysis in the lab - https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing
+    
+    
+3. First check, does the experimental data correlated with the scores from the notebook in (1) ? This should give you a clue on how well these language embeddings capture information about this protein sequence. 
+    
+    
+4. Using information about effect of protein mutations at these sites -  both the scores and the experimental data in the drive, come up with 5 mutations for each student along with how you came up with them and why you believe they would work. 2 of the variants you submit must have mutations in the transmembrane region (refer to notes above on what amino acid positions these are) and 2 of them must be in the soluble region . Remember that you can also use the pBLAST to see which residues are conserved and not mutate them if you want to. 
+
+One easy way to generate sequence mutations could be to look for residue positions and mutations that are have a positive mutational effect either in the experimental or have a positive score from step 1. And pick a combination of those mutations. 
+
+    - **top_30_protein_mutations_scores**
+        
+        
+        | Position | Wild_Type_AA | Mutation_AA | LLR_Score |
+        | --- | --- | --- | --- |
+        | 50 | K | L | 2.561464309692380 |
+        | 29 | C | R | 2.3954272270202600 |
+        | 39 | Y | L | 2.2417798042297400 |
+        | 29 | C | S | 2.0431511402130100 |
+        | 9 | S | Q | 2.0143256187439000 |
+        | 29 | C | Q | 1.9970505237579300 |
+        | 29 | C | P | 1.97102952003479 |
+        | 29 | C | L | 1.960646629333500 |
+        | 50 | K | I | 1.9287974834442100 |
+        | 53 | N | L | 1.864931583404540 |
+        | 61 | E | L | 1.8180969953537000 |
+        | 52 | T | L | 1.8139691352844200 |
+        | 50 | K | F | 1.8020663261413600 |
+        | 29 | C | T | 1.7972476482391400 |
+        | 29 | C | K | 1.795879602432250 |
+        | 5 | F | Q | 1.7952446937561000 |
+        | 5 | F | R | 1.6597166061401400 |
+        | 29 | C | A | 1.6486568450927700 |
+        | 27 | Y | R | 1.628058910369870 |
+        | 22 | F | R | 1.602027416229250 |
+        | 5 | F | P | 1.5968902111053500 |
+        | 50 | K | V | 1.594571590423580 |
+        | 50 | K | S | 1.574554204940800 |
+        | 5 | F | T | 1.5590240955352800 |
+        | 5 | F | S | 1.5564165115356400 |
+        | 45 | A | L | 1.5392473936080900 |
+        | 39 | Y | S | 1.5174570083618200 |
+        | 27 | Y | S | 1.4970512390136700 |
+        | 40 | V | L | 1.4776298999786400 |
+        | 27 | Y | L | 1.4746367931366000 |
+    
+    ## Mutation Position
+    
+    | Position | Wild_Type_AA | Mutation_AA |
+    | --- | --- | --- |
+    |  |  |  |
+    |  |  |  |
+    |  |  |  |
+    |  |  |  |
+    |  |  |  |
+    
+5. You can utilize Af2_Multimer to generate a Multimeric Assembly [TA: Ben Arias-Almeida]
+you can do this by making your query sequence as. We want to do this because -  A running hypothesis for how this protein function is that it *assembles* to make a perforation in the bacterial membrane. Our TA Ben Arias-Almeida discovered that when we predict the **assemble of 8 structures of the lysis protein***,* it indeed reveals a channel-like complex.
+
+    
+    ![Untitled-2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/1c451192-20ec-4caf-b188-eb1208b60dbf/Untitled-2.png)
+    
+    ![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/f530b8c0-caf0-4779-82fb-13819b52fcfc/Untitled.png)
+    
+    ```jsx
+    METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLL
+    ```
+    
+
+### Mutagenesis using Af2-Multimer
+
+<aside>
+👤 TA: Manu Ponnapati, Allan Costa
+
+</aside>
+
+<aside>
+⚠️ This approach is probably not going to work. Because the 
+You can also try co-folding just the soluble domain with the AlphaFold2 complex instead of the whole sequence. You might notice that Af2 is not good at predictions here so it might be worth while to also try just folding the soluble domain.
+
+</aside>
+
+1. One of our goals is to prevent the interaction of L-Protein with DNAj
+    
+    DNAj sequence [[link](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3486835/)]: 
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/534fb840-c70b-473b-b59b-53239a7cef1e/Untitled.png)
+    
+2. We will co-fold the DNAj protein sequence with L-Protein and study if any mutations affect their interaction.
+    
+    
+    **Tutorials & Presentations**
+    
+    - ColabFold Tutorial presented at the Boston Protein Design and Modeling Club. [[video]](https://www.youtube.com/watch?v=Rfw7thgGTwI) [[slides]](https://docs.google.com/presentation/d/1mnffk23ev2QMDzGZ5w1skXEadTe54l8-Uei6ACce8eI).
+    
+    ```markdown
+    ## 1st Try
+    ACN90558.1:1-72 seq -> MEIRSPQQSQQTPASXNRRRPFKXEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSXLEAVIRTVTTLQQ---
+    DNAj            seq -> MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+    MEIRSPQQSQQTPASXNRRRPFKXEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSXLEAVIRTVTTLQQ:MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+    ```
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/561a5cdc-bb62-42cc-88a4-e503f8d01295/Untitled.png)
+    
+    - **with “-(hyphen)” might have error** 😢 **Need to delete it!**
+    
+    ### Result
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/f1c1478a-c531-4d76-a0bc-6b9016cf14fc/Untitled.png)
+    
+    - predicted Local Distance Difference Test (pLDDT) score (Confidence Score) which is a confidence metric per residue where blue is better
+        
+        ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/9d8f73ee-5d00-45a7-8402-86fd1f6b7f49/Untitled.png)
+        
+    
+    - AlphaFold-Multimer provides two intrinsic model accuracy estimates, pTM and ipTM. Both these scores estimate the average quality of the complex (or all interfaces of the complex), predicting the TM-score.
+        - predicted template modeling (pTM) score: global accuracy
+        - interface pTM (ipTM) score: computed pTM score between the interfaces of the different chains
+    
+    2024-03-10 20:32:46,087 alphafold2_multimer_v3_model_1_seed_000 recycle=3 pLDDT=76.9 pTM=0.52 ipTM=0.118 tol=2.07
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/e5f91f6d-47bf-46a5-81ef-00806c7e8052/Untitled.png)
+    
+    2024-03-10 20:36:23,740 alphafold2_multimer_v3_model_2_seed_000 recycle=3 pLDDT=77.3 pTM=0.53 ipTM=0.127 tol=3.34
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/7dfe99ef-95d1-4321-89da-0e6b58aae958/Untitled.png)
+    
+    2024-03-10 20:40:02,698 alphafold2_multimer_v3_model_3_seed_000 recycle=3 pLDDT=75.8 pTM=0.522 ipTM=0.133 tol=5.66
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/1bd4e17c-fe32-4f82-b711-c73ebddfa08e/Untitled.png)
+    
+    2024-03-10 20:43:41,413 alphafold2_multimer_v3_model_4_seed_000 recycle=3 pLDDT=75.6 pTM=0.525 ipTM=0.152 tol=1.85
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/0889c43b-7550-4a31-a598-f30058b8c186/Untitled.png)
+    
+    2024-03-10 20:47:20,650 alphafold2_multimer_v3_model_5_seed_000 recycle=3 pLDDT=74.9 pTM=0.519 ipTM=0.122 tol=2.25
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/31be9096-516c-4738-988b-57dc661fb0ef/Untitled.png)
+    
+    **2024-03-10 20:47:21,405 rank_001_alphafold2_multimer_v3_model_4_seed_000 pLDDT=75.6 pTM=0.525 ipTM=0.152 (rank 1)**
+    2024-03-10 20:47:21,406 rank_002_alphafold2_multimer_v3_model_3_seed_000 pLDDT=75.8 pTM=0.522 ipTM=0.133
+    2024-03-10 20:47:21,406 rank_003_alphafold2_multimer_v3_model_2_seed_000 pLDDT=77.3 pTM=0.53 ipTM=0.127
+    2024-03-10 20:47:21,407 rank_004_alphafold2_multimer_v3_model_5_seed_000 pLDDT=74.9 pTM=0.519 ipTM=0.122
+    2024-03-10 20:47:21,408 rank_005_alphafold2_multimer_v3_model_1_seed_000 pLDDT=76.9 pTM=0.52 ipTM=0.118
+    
+    ---
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/93ccad80-0f2b-4830-9264-ceb7a6ae8e00/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/cd01fb95-35ca-4291-956a-62466d960755/Untitled.png)
+    
+    [ACN905581172DNAj_b4bd9_unrelaxed_rank_001_alphafold2_multimer_v3_model_4_seed_000.pdb](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/c03b4c62-ebb8-4c61-b3ce-d7e1a920eecc/ACN905581172DNAj_b4bd9_unrelaxed_rank_001_alphafold2_multimer_v3_model_4_seed_000.pdb)
+    
+    [ACN905581172DNAj_b4bd9_scores_rank_001_alphafold2_multimer_v3_model_4_seed_000.json](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/c11e9763-4e5c-4946-b31e-809d9e2bdc6f/ACN905581172DNAj_b4bd9_scores_rank_001_alphafold2_multimer_v3_model_4_seed_000.json)
+    
+    **The Goal of mutated L-protein is to**
+    
+    - **make lysis faster**
+    - **make DNAj less-dependent (✓)**
+    
+3. DNAj sequence
+    
+    ```markdown
+    MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+    ```
+    
+4. CoFold this sequence with the L-Protein Sequence, in the complex predicted by AF2 Multimer is the interaction where the L-protein soluble region residues are ?
+    
+    
+5. You can use the information found in mutational analysis experiments [here](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0)
+    
+    
+6. Try to come up with two mutations each with mutations at least in 3 different residue positions. Only make these mutations in the soluble region of the L-protein (refer to notes above on what amino acid positions these are). Explain how you picked your mutations
+    
+    
+7. Submit 5 mutations
+    
+    
+8. Notebook for AF2-Multimer - https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
+
+### Mutagenesis using Rosetta
+
+<aside>
+⚠️ This requires learning about an entirely new tool. May not work at all and is computationally expensive to try. Manu will have office hours over the weekend if you want to try this approach. This is an older way of doing things. Rosetta has forcefields that can be used to compute the structure of a protein sequence as well - It takes significantly longer. We provided the Rosetta results for the PDB predictions
+
+</aside>
+
+![This is the L-Protein Structure according Ab-initio Rosetta Fold. Different from what Af2 gave you. You can find the PDB here - https://drive.google.com/drive/folders/12Hx0mv6_c0tbBt7FTobdDvHO0X71R9sj?usp=share_link](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/6e811d48-6d72-49d3-b9b7-faaa58760704/rostta.png)
+
+This is the L-Protein Structure according Ab-initio Rosetta Fold. Different from what Af2 gave you. You can find the PDB here - https://drive.google.com/drive/folders/12Hx0mv6_c0tbBt7FTobdDvHO0X71R9sj?usp=share_link
+
+<aside>
+👤 TA: Manu Ponnapati, Allan Costa
+
+</aside>
+
+1. Fold the DNAj sequence and the sequence of the L-Protein using Af2-Multimer.
+    
+     
+    
+2. Download the PDB file from Af2 Multimer
+    
+    
+3. We will utilize Rosetta (This is a non machine learning based computational protein engineering tool - and one of the most widely used protein engineering packages). We are going to run a protocol called “Point Mutation Scan”
+    
+    https://github.com/RosettaCommons/PyRosetta.notebooks
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/bba414a9-3007-4e79-a2ea-c02d5227b4c4/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/f9021cc3-b273-4e77-a78e-ab28f573f4c3/Untitled.png)
+    
+    - Keep getting Error 😢
+    
+    ```markdown
+    ## Rosetta Format
+    -           EDGE       start        end           jump_number
+    - FOLD_TREE EDGE <start position> <stop position> <edge type> 
+    ### My Protein 
+    - FOLD_TREE EDGE 1 69 -1  EDGE 1 70 1  EDGE 70 445 -1 
+    ```
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f768399d-c054-4a38-9976-2609fc9fda68/d3d46aa8-5131-4bc9-8ef4-69ea61e16de2/Untitled.png)
+    
+    When we change any dihedral angle of amino acids 1-50, we observe that chain B is not affected by the changes in chain A. This is because, for EDGE 1-50, EDGE 51-100 is like being in a parallel universe with no upstream or downstream relationship. In this case, the FoldTree can be understood as representing two separate polypeptide chains: 1 + (51-100) and 1-51. [[link](https://www.jianshu.com/p/6162f1751a1a)] [[link](https://www.jianshu.com/p/150485e8b2b4)] [[link](https://zhuanlan.zhihu.com/p/59863638)]
+    
+    **Assume: The mutated L-protein and DNAj do not have interaction (Two of the sequence are unrelated). (Y/N)**
+    
+    ---
+    
+    ### 0311 - Asia
+    
+    The fold tree is a way to tell Rosetta the connectivity between residues in a given structure. It defines what residues are UPSTREAM or parents and what residues are DOWNSTREAM or children"
+    
+    Austin Wongsatit, Global TA, Rayong, Thailand (2024年3月11日，20:10)
+    https://new.rosettacommons.org/demos/latest/tutorials/fold_tree/fold_tree
+    
+    ---
+    
+4. The notebook for it is here https://colab.research.google.com/drive/1CW3BrzTbnIh9DUWevWsSz2_CIfrHpsb8?usp=sharing 
+    
+    
+5. Submit 5 mutations!
+    
+    
+6. [Other rosetta tutorials can be found [here](https://rosettacommons.github.io/PyRosetta.notebooks/)]
+    
+    
+7. If the multimer predictions are not good then you can try to do other things like using Rosetta PDB with ProteinMPNN or mutating the residues to find stabilizing mutants etc. 
+    
+    
+8. If the complex prediction doesn’t work you can try these tools as well - [AlphaRed], [Stabilize-PM] available to use online here -  https://r2.graylab.jhu.edu/apps/index [You have to login with your GitHub setup with an .edu account]
+
+### Random Mutagenesis
+
+<aside>
+👤 TA: Manu Ponnapati,  Allan Costa
+
+</aside>
+
+1. Create a python function to generate random mutation combinations at at least 2 residues by using the information found in mutational analysis experiments [here](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0)
+2. Co-Fold the random mutation with DNAj using Af2_Multimer. 
+DNAj sequence
+    
+    ```markdown
+    MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+    ```
+    
+3. Score the binding energy of the predicted complexes - You can refer to the Rosetta notebook if you want to use the interface analyzer in rosetta. And pick 5 mutations for each student and explain why you chose them. 
+4. [This is computationally expensive to run]. If you want help running it scale - Contact Manu or Allan

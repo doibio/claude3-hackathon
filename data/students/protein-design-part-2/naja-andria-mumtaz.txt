@@ -1,0 +1,177 @@
+# Class #4 Protein Design Part 2
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/47302e58-bf84-4fde-82d8-f3f521eae77e/Untitled.png)
+
+**CLUSTAL OMEGA**
+
+```
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+P19903.1:3-71            ------QPSQPTRESTKKPVPFQHEEYPCQNQQRSSTLYVLICLAIFLSKFTNQLLASLL	54
+prf||1617103C:2-70       ------QPSQPTRESTKKPVPFQHEEYPCQNQQRSSTLYVLICLAIFLSKFTNQLLASLL	54
+SNQ28029.1:1-75          METRSPQQSQQTPGFINRSRPFQHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ABQ02457.1:1-75          METQSPQQSQPTPESINRFRPFQHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+AAF67670.1:1-75          METQSPQQSQQTPVSTNRYRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+QNI21283.1:15-75         --------------STNRFRPFQHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	46
+ABO28588.1:1-75          METRSPQQSQQTPESTNRFRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ABO33462.1:1-75          METRSPQQSQQTPESTNRFRPFQHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90646.1:1-71          MEIRFPRQSQQTPASTNRRRPFXHEDYPCRRQQRSSTXXVLIFLXIXLSKFTNQLLLSLL	60
+ACN90570.1:1-69          MEIRFPRQSQQTPAXXNRRRPFKXEDYPCRRQQRSSTLYVXIFLAIFLSKFTNQXLLSXL	60
+ACN90574.1:1-65          MEIRFPRQSQQTPASXNRRRPFKXEDYPCRRQQRSSTLYVXIFLAIFLSKFTNQLLLSLL	60
+ACN90766.1:1-75          MEIRFPRQSQQTPASTNRCRPFKHEDNPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90590.1:1-75          MEIRFPRQSQQTPASTNRRRPFKHEDNPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90401.1:1-75          MXIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90314.1:1-75          MEIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAILLSKFTNQLLLSLL	60
+ACN90367.1:1-75          MEIRFPRQSQQTPASXNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90287.1:1-75          MEIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90343.1:1-74          MEIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+AAF19634.1:1-75          METRFLRQSQQTPASTNRYRPFKHEDYPCRXQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90183.1:1-58          MEIRFPQQSQQTPASTNRXRPFKHEDYPCRRQQXSSTLYVLIFLAIFLXKFTXXLLLS--	58
+ACN90558.1:1-72          MEIRSPQQSQQTPASXNRRRPFKXEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSXL	60
+ACN90550.1:1-75          MEIRXXXXSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90510.1:1-75          MEIRFPQQSQXTPASTNRRRPXKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90437.1:1-75          MEIRFPQQSQQXPASTNRRRPFKHEDYPCRRXQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90378.1:1-69          MEIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIXXSKFTNQLLLSLL	60
+ACN90311.1:1-73          MEIRFPRQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQXXLSLL	60
+AEB91416.1:1-75          MEIRFPQQSQQTPASTNIRRPSKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90349.1:1-75          MEIRSPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLX	60
+AEB91397.1:1-75          MEIRXPXQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90026.1:1-75          MEIRFPQQSQQTPASTNRRRPLKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN89902.1:1-75          MEIRFPQQSQQTPASTNRCRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90066.1:1-75          MEIRFPQQSQQTPASTNRRRPLKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACY07216.1:1-75          METRFPQQSQQIPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAISLSKFTNQLLLSLL	60
+ACN90070.1:1-75          MEIRSPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90269.1:1-75          MEIRFPQQSQQTPASTNRRRPSKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+AEB91381.1:1-75          MEIRFPQQSQQTPASTNRRRPXKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90233.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQXSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN89954.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLTFLAIFLSKFTNQLLLSLL	60
+AEQ25570.1:1-75          METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAISLSKFTNQLLLSLL	60
+AEB91401.1:1-75          MEIRFPXQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90018.1:1-75          MEIRFPQQSQQTPASTNRRRPLKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90465.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRRQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ABO33466.1:1-75          METRFPQQSQQTPASTNRCRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90501.1:1-75          MEIRFPQQSQKTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACY07208.1:1-75          METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAISLSKFTNQLLLSLL	60
+YP_009640126.1:1-75      METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN89974.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLTIFLSKFTNQLLLSLL	60
+ACN90187.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90626.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN89890.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+ACN90441.1:1-50          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSK----------	50
+ACN90250.1:1-43          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIF-----------------	43
+```
+
+**MUTAGENESIS USING PROTEIN LANGUAGE MODELS**
+
+- M → T
+    
+    The mutated sequence is: ['T', 'E', 'T', 'R', 'F', 'P', 'Q', 'Q', 'S', 'Q', 'Q', 'T', 'P', 'A', 'S', 'T', 'N', 'R', 'R', 'R', 'P', 'F', 'K', 'H', 'E', 'D', 'Y', 'P', 'C', 'R', 'R', 'Q', 'Q', 'R', 'S', 'S', 'T', 'L', 'Y', 'V', 'L', 'I', 'F', 'L', 'A', 'I', 'F', 'L', 'S', 'K', 'F', 'T', 'N', 'Q', 'L', 'L', 'L', 'S', 'L', 'L', 'E', 'A', 'V', 'I', 'R', 'T', 'V', 'T', 'T', 'L', 'Q', 'Q', 'L', 'L', 'T']
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/a4f47bb7-4f00-42ef-9afb-25448c79a836/Untitled.png)
+    
+- P → L
+    
+    The mutated sequence is: ['M', 'E', 'T', 'R', 'F', 'L', 'Q', 'Q', 'S', 'Q', 'Q', 'T', 'L', 'A', 'S', 'T', 'N', 'R', 'R', 'R', 'L', 'F', 'K', 'H', 'E', 'D', 'Y', 'L', 'C', 'R', 'R', 'Q', 'Q', 'R', 'S', 'S', 'T', 'L', 'Y', 'V', 'L', 'I', 'F', 'L', 'A', 'I', 'F', 'L', 'S', 'K', 'F', 'T', 'N', 'Q', 'L', 'L', 'L', 'S', 'L', 'L', 'E', 'A', 'V', 'I', 'R', 'T', 'V', 'T', 'T', 'L', 'Q', 'Q', 'L', 'L', 'T']
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/813fff0e-26e6-41ff-b5fc-2eec346a8a90/Untitled.png)
+    
+- L → P
+    
+    The mutated sequence is: ['M', 'E', 'T', 'R', 'F', 'P', 'Q', 'Q', 'S', 'Q', 'Q', 'T', 'P', 'A', 'S', 'T', 'N', 'R', 'R', 'R', 'P', 'F', 'K', 'H', 'E', 'D', 'Y', 'P', 'C', 'R', 'R', 'Q', 'Q', 'R', 'S', 'S', 'T', 'P', 'Y', 'V', 'P', 'I', 'F', 'P', 'A', 'I', 'F', 'P', 'S', 'K', 'F', 'T', 'N', 'Q', 'P', 'P', 'P', 'S', 'P', 'P', 'E', 'A', 'V', 'I', 'R', 'T', 'V', 'T', 'T', 'P', 'Q', 'Q', 'P', 'P', 'T']
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/9823ee9d-4753-4b23-b8bc-a1c2fc55450b/Untitled.png)
+    
+- V → E
+    
+    The mutated sequence is: ['M', 'E', 'T', 'R', 'F', 'P', 'Q', 'Q', 'S', 'Q', 'Q', 'T', 'P', 'A', 'S', 'T', 'N', 'R', 'R', 'R', 'P', 'F', 'K', 'H', 'E', 'D', 'Y', 'P', 'C', 'R', 'R', 'Q', 'Q', 'R', 'S', 'S', 'T', 'L', 'Y', 'E', 'L', 'I', 'F', 'L', 'A', 'I', 'F', 'L', 'S', 'K', 'F', 'T', 'N', 'Q', 'L', 'L', 'L', 'S', 'L', 'L', 'E', 'A', 'E', 'I', 'R', 'T', 'E', 'T', 'T', 'L', 'Q', 'Q', 'L', 'L', 'T']
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/2edbb8c7-cd51-4ce1-b2e4-c4070c7920f5/Untitled.png)
+    
+- E → G
+    
+    The mutated sequence is: ['M', 'G', 'T', 'R', 'F', 'P', 'Q', 'Q', 'S', 'Q', 'Q', 'T', 'P', 'A', 'S', 'T', 'N', 'R', 'R', 'R', 'P', 'F', 'K', 'H', 'G', 'D', 'Y', 'P', 'C', 'R', 'R', 'Q', 'Q', 'R', 'S', 'S', 'T', 'L', 'Y', 'V', 'L', 'I', 'F', 'L', 'A', 'I', 'F', 'L', 'S', 'K', 'F', 'T', 'N', 'Q', 'L', 'L', 'L', 'S', 'L', 'L', 'G', 'A', 'V', 'I', 'R', 'T', 'V', 'T', 'T', 'L', 'Q', 'Q', 'L', 'L', 'T']
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/9a3b4a91-3ffa-4211-9847-64b6a779a32c/Untitled.png)
+    
+
+**MUTAGENESIS USING AF2-MULTIMER**
+
+- SNQ28029.1:1-75          METRSPQQSQQTPGFINRSRPFQHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/5f3beaf0-373f-4a3e-a142-f29d6f80e237/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/ed9f8d00-1cb5-44b8-8d78-87963f57ebde/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/0c75db20-babe-4a2e-ae8f-7c72a02dccf6/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/ee39255c-4a4b-4188-8185-ee9524e9c674/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/35c907f1-01c7-4de8-a5cf-0dfaaefefb8f/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/c3382bef-ec68-4d02-bb9f-11dcf284ce0e/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/5ce080d1-ea3d-4153-8588-ac639a9c9569/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/8da3e6cf-46a9-4d39-9272-efc9e508a632/Untitled.png)
+    
+- AAF67670.1:1-75          METQSPQQSQQTPVSTNRYRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/c57fc8de-6814-4b79-baeb-3a24bb3b5ef4/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/b6030250-b468-45da-8b89-fa72f78fa45c/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/dd3e5e3b-ad91-4bdb-9dae-31fe5067217c/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/9e1d2b65-815d-49e9-9638-db73363ad4da/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/16ca9190-6e77-4ef2-b0b2-f49f7a29194d/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/3a2691eb-73bc-4701-b011-0aaea3b140c6/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/8d30e2e9-a5fc-4be6-bf25-e0551f2a0c57/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/991fee6b-9a92-437e-bca3-412e73194705/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/aa99c8cb-7d60-4658-bc34-00a47e4a7ad6/Untitled.png)
+    
+- ACN90250.1:1-43          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIF-----------------	43
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/0cd8644f-dbbf-4937-9daa-3316ada8bf62/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/e8c95b81-dcac-4034-a224-64cfddacb32c/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/4d9ffc4f-ccfc-4a33-9ca3-0805d7b482e1/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/3553a903-c221-4400-8e72-0ef802ff6782/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/cca670d5-4af7-429e-9c14-8d28e823858e/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/b5af90a2-adc2-414d-979a-c812e4924e3f/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/8bc24a38-cb7b-4269-bb5e-ca518dc0a2a4/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/7a8358a7-a099-4a27-99c2-e2a42bbce27e/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/ef8b2abf-f7ca-42c5-ac11-949a2026a42e/Untitled.png)
+    
+- QNI21283.1:15-75         --------------STNRFRPFQHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	46
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/4fd30a7b-209c-4688-87f1-af646f24432f/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/b9f4d3de-8d64-4643-b089-490489afcfa9/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/66fd32d2-3158-42ff-90d8-8427cfef97b6/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/e5479c68-d724-43e9-bbaa-f6f368f8d7c5/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/a9405162-2d43-48f5-b233-08043e60cf0a/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/3dd3a847-d497-4e09-854c-a2efe72d8134/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/e6aa97ce-5bb8-4c36-85cc-3725b216e778/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/27c05165-7c0a-4c73-944e-1d9ffb387779/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/b122ee5c-f44a-4b0c-a2f3-388538915bb6/3096173f-7304-4729-ada0-d5d9e6f7af07/Untitled.png)
+    
+- ACN89890.1:1-75          MEIRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLL	60

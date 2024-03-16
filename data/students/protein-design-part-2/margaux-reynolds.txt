@@ -1,0 +1,146 @@
+# Week 4: Protein Design Part 2
+
+# Mutagenesis using Protein Language Models
+
+Rules:
+
+1. Avoid mutations in highly conserved regions
+2. Make mutations that have a high log-likelihood, per ESM-2.
+3. Do not make mutations that result in lysis failure as indicated in experimental data.  
+4. Do not make mutations in regions of the L protein that overlap with the coat protein and replicase protein:
+
+## Rule 1: Avoid mutations in highly conserved regions
+
+I blasted the **L-Protein sequence** using pBlast and viewed it in Mutiple Alignment Viewer to visualize what residues are conserved (red) and what residues seem to be open to mutation. The green section represents the soluble domain and transmembrane protein (blue).
+
+```
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+![alignmentsNEW.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/ab28f6bd-2100-4d00-9f60-6ab2ea264e99/alignmentsNEW.png)
+
+These are the residue positions in the soluble domain and transmembrane protein that have evolutionary mutations and therefore the positions I would want to mutate:
+
+1   2 3 4 5 6 7 8 11 12 15 16 19 22 23 24 31 32 34
+M E T R F P Q Q Q  T  S   T   R  F   K   H   R   Q   R
+
+38 39 41 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+ L    Y   L   L   A    I     F   L   S   K   F   T    N   Q  L    L    L   S   L    L
+
+## Rule 2: Make mutations with a high log-likelihood, per ESM-2.
+
+1. Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein.  We want to identify possible mutations that are “positive” If you run this notebook.
+
+![heatmap.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/1b302a97-3e7d-4d88-b811-28c12742d11e/heatmap.png)
+
+![heatmap2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/fb489a10-d787-462a-a548-9e739654255f/heatmap2.png)
+
+![This tells me STOP codons are predicted to result in a low functioning protein and that any other mutation would improve the sequence.](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/70865c57-c68e-4995-90ca-5f426b389bac/Stop_Codons.png)
+
+This tells me STOP codons are predicted to result in a low functioning protein and that any other mutation would improve the sequence.
+
+## Rule 3: Avoid mutations that result in lysis failure (<1) per the experimental data.
+
+**Does the [experimental data](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) correlate with the scores from the notebook in (1) ?** 
+
+Of the positions that were not well conserved, I mapped their experimental mutations and ELM scores. For some residues there is polarities, where a functioning lysis was negatively scored and vice versa, especially in the Transmembrane Region.
+
+Soluble Domain:
+
+![mutations.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/2e484c7c-58fb-4890-a069-a2c2c3a080c8/mutations.png)
+
+Transmembrane Region
+
+![mutations1.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/fa872c33-406f-48da-b402-ab0615a4a5a6/mutations1.png)
+
+![mutations2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/332665bf-bca0-4940-9ab5-3177ef629a50/mutations2.png)
+
+Of the non-conserved positions where there wasn’t experimental data, I used the heatmap and scores to look for the highest scoring AA Mutations:
+
+![heatmap.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/1b302a97-3e7d-4d88-b811-28c12742d11e/heatmap.png)
+
+4R Low positives
+5F High Positives
+7Q Mostly negatives
+12T Mostly negative, low positives
+16T Mostly negative, low positives
+22F R, S had higher scores
+24H > S, L, R (highest scores)
+
+38L all negative scores
+58S > L,Q (had positive ESM-2 scores, otherwise negative)
+59L all negative scores
+
+## Rule 4: Do not make mutations in regions of the L protein that overlap with the coat protein and replicase protein (or be careful to preserve those proteins)
+
+![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/759bbdc5-7306-4a58-a898-ff58b395f48b/Untitled.png)
+
+Non-overlapping region exists between position 17-28. That helped filter the results from above.
+
+1. Using information about effect of protein mutations at these sites -  both the scores and the experimental data in the drive, come up with 5 mutations for each student along with how you came up with them and why you believe they would work. 2 of the variants you submit must have mutations in the transmembrane region (refer to notes above on what amino acid positions these are) and 2 of them must be in the soluble region. 
+
+1. You can utilize Af2_Multimer to generate a Multimeric Assembly [TA: Ben Arias-Almeida]
+you can do this by making your query sequence as. We want to do this because -  A running hypothesis for how this protein function is that it *assembles* to make a perforation in the bacterial membrane. Our TA Ben Arias-Almeida discovered that when we predict the **assemble of 8 structures of the lysis protein***,* it indeed reveals a channel-like complex.
+    
+    
+    With all of this information, I came up with the possible Mutations:
+    
+    Soluble Domain: 
+    
+    **Mutation 1: Position 23,  Change: K> E** 
+    -Not from a conserved region
+    -In a Non-overlapping region
+    - Experimental Data: 1, positive ESM Score: 0.177)
+    
+    ```
+    METRFPQQSQQTPASTNRRRPF**E**HEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    ```
+    
+    ![assembly1.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/e614aa1c-2e19-4f8b-b372-8aad484676aa/assembly1.png)
+    
+    **Position 22, Change: F>R** 
+    -Not from a conserved region
+    -In a Non-overlapping region
+    -(Experimental Data: N/A, high ESM-2 Score: 1.602)
+    
+    ```
+    METRFPQLSQQTLASTNRRRP**R**EHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    ```
+    
+    ![assembly2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/a6a615f1-f9de-41b5-9505-856040676c1a/assembly2.png)
+    
+    **Position 24, Change: H>R** 
+    
+    -Not from a conserved region
+    -In a Non-overlapping region
+    -Experimental Data: N/A, high ESM-2 Score: 1.23
+    
+    ```
+    MESRFPQQSQQTLASTNRRRPFE**R**EDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    ```
+    
+    ![assembly3.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/707f8641-8179-4cfa-b19c-a50790ede0a0/assembly3.png)
+    
+    Transmembrane Region
+    
+    **Position 45, Change A>P** 
+    -Not from a conserved region
+    -Experimental Data: 1, Score: 0.446
+    
+    ```
+    
+    METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLILL**P**IFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    ```
+    
+    ![assembly4.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/8db1d7d9-e6c9-4bb1-859c-e02293b8adf7/assembly4.png)
+    
+    **Position 58, Change S > L**
+    -Not from a conserved region
+    Data N/A, Score: 0.868 (Highest of the scores for mutations in this area without experimental data)
+    
+    ```
+    METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLPIFLSKFTNQLLLL**L**LEAVIRTVTTLQQLLT
+    ```
+    
+
+![assembly5.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5eb40168-7ad8-49c6-93c8-7c4ba7999eea/2edd4b0a-b268-4e32-8d35-1450abf350fa/assembly5.png)

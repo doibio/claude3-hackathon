@@ -1,0 +1,204 @@
+# Class #4: Protein design part 2
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/39e95c81-b976-4f96-b694-2172a7ed8ece/Untitled.png)
+
+## **Part B (Final Project: L-Protein Mutants)**
+
+<aside>
+⚠️ Mandatory for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12
+This homework requires computation that might take you a while to run. So please get started early.**
+
+</aside>
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+You can read more about the final project in the [Final Project Page](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21). 
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/1425e95e-4a2e-4482-97cd-e7e349144f7f/Untitled.png)
+
+## **Goal:**
+
+Our goal for this part of the homework is to **create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj.** Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+
+# Gathering information about L protein
+
+## 1.1 Protein and DNAj Sequence
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj.
+
+**DNAj sequence  (UniProtKB ID:** https://www.uniprot.org/uniprotkb/P08622/entry**)** 
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/585bf523-bc75-4d7c-846e-34037b43dad9/Untitled.png)
+
+## 1.2 Conserved sites
+
+I submitted the  [alignment from BLAST results for L-protein](https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link)  to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments). But I also used [NCBI MSA viewer](https://www.ncbi.nlm.nih.gov/projects/msaviewer/?key=NCID_1_378007_130.14.22.10_9147_1710299468_2706628290_0MetA0__S_NC_PhyloTree&coloring=cons) to see differences and conserved sites.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/1d0222cc-d330-474b-8b93-4b1b4938ebd7/Untitled.png)
+
+conservation sites, which are located from the position 17 to 43
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/8a2cb145-1138-42ef-8bd6-900b7b067137/Untitled.png)
+
+## 1.3 Known mutational effects from research
+
+## MS2 genome
+
+MS2 genome codes for: 
+
+- Mat, the maturation or **attachment protein** (one molecule per virion, named as **A** in MS2)
+- a major capsid protein (Coat)
+- RNA-dependent RNA polymerase or replicase (Rep)
+- L protein: which is overlapping the coat and rep region (in purple)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/e680d3d5-c5d6-49a3-a7b5-93ed0dbb26e3/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/f8aa1b13-cda9-46e2-8f76-4aca748184ec/Untitled.png)
+
+Taking into account that L protein is overlapping the coat and rep region, we should mutate only the non overlapping region to don’t affect the other proteins (position 1728-1760) 
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/e11d7562-8331-4d01-a618-2b524da026fd/Untitled.png)
+
+## L protein
+
+### Structure
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/9fce13ca-5f54-4401-b6df-42c1f451df14/Untitled.png)
+
+4 domains:
+
+1. **N-terminal domain**:  positively charged domain, highly basic, “the simplest notion is that it is in the cytosol, as it interacts with DnaJ”
+    
+     “the lytic function of L requires an interaction with the host chaperone DnaJ, and that this requirement could be by passed by **deletion of the basic N-terminal domain “** 
+    
+    “The simplest interpretation is that even in the dispensable N-terminal Domain 1, missense changes can occur that block function. “
+    
+2. **Domain 2**: hydrophobic, rich in beta-branched aliphatic residues 
+3. **LS**: dipeptide conserved motif
+4. **C-terminal domain**: C-terminal truncations were found to be non-functional 
+
+Studies suggest that L makes a specific protein-protein contact that depends on these* mutationally sensitive residues, rather than acting as a membrane-disrupting peptide or an oligomeric lytic factor. 
+
+***L44V, F47L, F47Y, S49T (similar a S49C), F51L y L56F** 
+
+- Mutations:
+    - S49C, conferred an absolute lysis deffect
+
+“Thus, although MS2 L, and, by extension, the other L proteins are undoubtedly membrane proteins, canonical requirements for a simple TMD cannot be met. “
+
+Models for the recruitment of the PG biosynthetic complexes to sites of negative membrane curvature have been proposed and supported. Disruption of such a system by L interacting with a membrane-embedded target protein would account for the **ability of L proteins to effect lysis without inhibiting net incorporation of PG into the existing wall,** as has been reported for MS2 L [32, 33]. Thus interaction of L with its target, perhaps via attraction to distorted membrane, would lead to a lytic catastrophe. To address this general hypothesis for L lysis, experiments are underway to assess the distribution of L molecules relative to the sites of PG biosynthesis.
+
+ [Chamakura et al](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/). 
+
+# Making sequence variants
+
+## information
+
+In this homework we will be doing the following steps. Step 2 might vary from student to student
+
+![Untitled presentation.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/3c1fedd4-a593-4e16-aa99-6fa4c5286f1f/Untitled_presentation.png)
+
+**Additional Information**
+
+1. Using the mutational analysis of lysis protein from [Chamakura et al](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/)  Here is a list of some mutations and their effect on lysis  [https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) [Three columns highlighted ! Please copy the sheet before any edits).
+2. In the last class, we used pBLAST to find evolutionary sequences from other organisms and visualized it using clustalomega. BLAST results for L-protein are here - https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link .  You can upload it to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments)
+3. Additional Information about the sequence is linked here - [https://www.notion.so/howtogrowalmostanything/L-Protein-Sequence-Information-7a29684affaa4e3b9adf070cbb7c9908?pvs=4](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21) 
+
+SUBMIT YOUR MUTATIONS HERE. Also add one sentence about what approach you are using. Just make a new sheet with your lastname_firstname_approach
+    
+    https://docs.google.com/spreadsheets/d/15Ho8WCnXI7iYK6XSmsMG0diEDQhgZZVR9gfD13MCAgU/edit#gid=0
+    
+    | Approach | Description | Student 1 | Student 2 | Student 3 |
+    | --- | --- | --- | --- | --- |
+    | Mutagenesis using Protein Language Models | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+    | Mutagenesis using Af2-Multimer | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+    | Mutagenesis using Rosetta | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+    | Random Mutagenesis | https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+    | Other | Only for students who have a background in protein engineering already |  |  |  |
+
+### **Mutagenesis using Protein Language Models**
+
+[data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==](data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==)
+
+Designing these mutants with good computational confidence is hard. It will show you limitations of some of the structure based models. Ultimately you can pick various combinations of mutations and get lab results and then decide to pick the next round of mutations. But this assay won’t be easy to run at scale in this class. So using the information below you can either make a best guess or you can use the strategy Allan was talking about during recitation. Contact Manu or Allan if you need one on one help.
+
+Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein.  We want to identify possible mutations that are “positive” If you run this notebook - you will see a .CSV file in the sidebar. You can download it and look at it in the google sheets if that’s easier
+
+Use the experimental data here. This dataset contains information about mutants of the L-Protein and their effect on lysis in the lab - **[11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing)**
+
+First check, **does the experimental data correlated with the scores from the notebook in (1) ?** This should give you a clue on how well these language embeddings capture information about this protein sequence.
+
+### Heatmap
+
+Anything highlighted in **yellow is a mutation that is expected to be positive** for the function of the protein and anything in blue is a bad mutation for the protein.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/39868c38-1bbf-447f-81a8-6fd6f0c8a3a0/Untitled.png)
+
+| Amino Acid Position
+ | Amino Acid Change
+ | Lysis
+ | score |
+| --- | --- | --- | --- |
+| 18 | R->G | 1 | -0.8474 |
+| 44 | L->V | 0 | -0.6823 |
+| 44 | L->P | 1 | -1.5864 |
+| 49 |  S -> C | conferred an absolute lysis deffect | -1.5972 |
+| 69 | T->S | 0 | 0.0717 |
+
+I interpret that based on the heatmap, the more negative the value is, the worse the mutation is for lysis function, but the computational results do not represent completely the experimental results, for instance among the mutations compared the mutations T69S or L69S were supposed to get the lower scores but as they have proved obstacle to the lysis function. 
+
+!https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fpublic.notion-static.com%2F8fb58690-ee50-4584-b9fd-ca9b524f56aa%2Fgoogle-drive-icon-19632.png?width=200&userId=&cache=v2
+
+1. Using information about effect of protein mutations at these sites -  both the scores and the experimental data in the drive, come up with 5 mutations for each student along with how you came up with them and why you believe they would work. **2 of the variants you submit must have mutations in the transmembrane region** (refer to notes above on what amino acid positions these are) and **2 of them must be in the soluble region**.Remember that you can also use the pBLAST to see which residues are conserved and not mutate them if you want to. 
+
+One easy way to generate sequence mutations could be to look for residue positions and mutations that are have a positive mutational effect either in the experimental or have a positive score from step 1. And pick a combination of those mutations. 
+
+Taking into account that the L protein genes overlap the coat and rep genes, but is encoded on a different ORF, I will consider 3 mutations within the non overlapping region (position **17 to 28**), one overlapping coat region and the last one overlapping rep region. Besides, I’ll conserve the conserved regions and the LS domain. Note:  transmembrane region is composed of some of the last 35 residues and the soluble region by the first 34 aa. Likewise, I won’t be changing any of the conserved sites.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/5ae6176a-2ab4-4351-b913-a36ec35a4a13/575ab32c-1e3f-4fac-8b26-830ed9e31c0a/Untitled.png)
+
+Based on the score: 
+
+1. Mutation in soluble region
+    
+     A → T 
+    
+    - Score 0.40185546875
+    - Position: 14
+2. Mutation in soluble region, which doesn’t overlap 
+    
+    Q → R
+    
+    - Score 0.7414571046829224
+    - Position: 32
+3. Mutation in transmembrane region (38 - 60)
+    
+    Here is the LS domain so I’ll change those which are further
+    
+    Y → R
+    
+    - Score 1.06419038772583
+    - Position:39
+4. Mutation in transmembrane region
+    
+    N → L
+    
+    - Score 1.864930510520935
+    - Position: 53
+5. Mutation in transmembrane region
+    
+    A → P
+    
+    - Score 0.037619590759277344
+    - In lab it makes lysis possible (based on https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0)
+    - Position: 45

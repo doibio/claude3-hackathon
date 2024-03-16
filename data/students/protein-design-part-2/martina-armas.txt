@@ -1,0 +1,53 @@
+# Class #4: Protein Design (Part 2)
+
+# **Part B (Final Project: L-Protein Mutants)**
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/0b972d19-52b1-482c-888d-6b8c46aca49f/Untitled.png)
+
+LYSIS PROTEIN INFORMATION:
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/bca3ec22-778d-43c9-9544-fdeb9b62c948/Untitled.png)
+
+- SEQUENCE
+
+**Mass (Da)**
+
+8,870
+
+**Length**
+
+75
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/7f0032aa-1543-4d34-9786-4ffd86649ccd/Untitled.png)
+
+- DNAj SEQUENCE
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+- CONSERVED SITES IF ANY
+
+There are any conserved sites for Lysis Protein Sequence
+
+Conserved sites of DNAj sequence
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/48bd0302-2ede-40ae-9f32-51e53cab8cea/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/0e00569f-b03e-4a91-ace9-43fae93a28ad/Untitled.png)
+
+## pBLAST L-protein
+
+Evolutionary sequences
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/0c3ee3dc-edb8-49ec-8ee3-5891de06284f/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0030edf0-a9e2-4ced-af56-a145ceac7ff6/39f287f3-5a17-4a70-81a1-4b835188186b/Untitled.png)
+
+VARIANTS: 
+
+| 58 | C->T | 20 | R->W | 1 | 0 |
+| --- | --- | --- | --- | --- | --- |
+| 58 | C->T | 20 | R->W | 1 | 0 |
+
+From to Arginine to tryptophan

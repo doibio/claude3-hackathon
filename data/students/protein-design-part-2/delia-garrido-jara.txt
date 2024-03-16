@@ -1,0 +1,152 @@
+# Class #4: Protein Design (Part 2)
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/a45269d0-17a0-49e3-a0e5-086dee8df911/image.png)
+
+### **Part B (Final Project: L-Protein Mutants)**
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+You can read more about the final project in the [Final Project Page](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21). 
+
+![source - https://www.oaepublish.com/articles/mrr.2023.28](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/bbb2354b-ee49-47db-b00b-77dae8fa8d76/6fa8f596749f456c8ddb98d9e8d48735.jpg)
+
+source - https://www.oaepublish.com/articles/mrr.2023.28
+
+## **Goal:**
+
+Our goal for this part of the homework is to create mutants of L-protein that affect its **lysis activity** and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+
+**Main considerations**
+
+- The mutated sequence should keep the lysis activity
+- The mutated aa should not be in the segments of the aa sequence that are coded in the genome overlapping other genes of the phage (coat protein - replicase protein)
+- Avoid Higly conserved regions
+- Evaluate Predicted Folding Structure by AF2
+
+**First Steps: Setting the Background**
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+
+```jsx
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+```
+
+- Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj.
+    
+    1-37 Soluble Domain
+    
+    38-75 Transmembrane Domain
+    
+
+- The Soluble Domain is mainly polar residues, and the transmembrane domainleans towards hydrophobic residues
+    
+    Polar
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/11c7b287-c143-4871-8e96-1138d47c6f19/Untitled.png)
+    
+    Hydrophobic
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/d2685d6f-cb16-4279-a66a-e3a59ee9a43d/Untitled.png)
+    
+
+- Overlapping of other genes that codes proteins in the genome
+    
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/69677849-0824-4209-ac9e-dc2201f46900/Untitled.png)
+    
+    Overlap with coat protein 1-17 aa
+    
+    Overlap with rep gene 29-75 aa
+    
+
+- The alignment of 52 homologs in from pBLAST using Clustal Omega, shows a higly conservated sequence throughout spicies
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/cdf756b3-0218-4c9f-90b6-e58139ac7752/Untitled.png)
+    
+
+- Literature: Important conserved sites with specific Electrophysiological properties
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/e7e44ab6-c0b9-4290-81e1-8766e7afe1d7/Untitled.png)
+    
+    *“L-like lysis proteins from different leviviruses are aligned with respect to the conserved LS motif (yellow), preceded by a stretch of hydrophobic residues (underlined) and highly basic N-termini. Basic and acidic residues are highlighted in red and blue, respectively.”* https://doi.org/10.1099%2Fmic.0.000485
+    
+
+- AF2 of the Wild type Protein
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/f03812c9-c1f0-49f8-8013-ed15acd2f3f7/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/4e58be35-1ed1-416e-8153-ad16a3188cd1/Untitled.png)
+    
+
+## Mutagenesis using Protein Language Models [Easiest One]
+
+1. Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein.  We want to identify possible mutations that are “positive” If you run this notebook - you will see a .CSV file in the sidebar. You can download it and look at it in the google sheets if that’s easier
+
+**The Notebook predict high scores por mutations in sites overlapping the other proteins in the genomes (not considered in the script)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/90168382-3555-47d9-a2be-b8fcba224e73/Untitled.png)
+
+- Highest scores from the Notebook
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/345ea288-cbe0-410f-9248-4865d98c621a/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/75b22201-60ca-44f2-a430-9e510a30bcb5/Untitled.png)
+    
+1. Use the experimental data here. This dataset contains information about mutants of the L-Protein and their effect on lysis in the lab - https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing
+- Experimental Data suggest that mutations before 13th residue and after 46th residue will disrupt lysis activity (The folding of the transmembrane domain is likekly affected, and/or disruption of r protein)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/07eb9020-0400-43fd-9098-03915c9e4c85/Untitled.png)
+    
+1. First check, does the experimental data correlated with the scores from the notebook in (1) ? This should give you a clue on how well these language embeddings capture information about this protein sequence. 
+- The data is not fully correlated. Some important considerations (i.e., genomic context) are missing. Tho further custom each PLM for the analyzed proteind could improve that.
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/021f0c38-eafe-42d9-9555-3506fc3c844c/Untitled.png)
+    
+
+The mutations proposed were made considering all the infromation shown above
+
+**Mutations on the Soluble Domain (2)**
+
+- Soluble Domain Mutations
+
+1.- 30 R —> I  
+
+- METRFPQQSQQTPASTNRRRPFKHEDYPCIRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/45347fcc-0ce0-4189-bb38-d0250690655d/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/ab2c3af0-76ec-441c-9340-025858666701/Untitled.png)
+    
+
+2.- 18  R—>N   
+
+- METRFPQQSQQTPASTNNRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/92473a4e-c2cc-4b6e-add2-e30411b05482/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/3f6dafa9-6377-4b82-903e-839246f2b22b/Untitled.png)
+    
+
+3.- 30 R—>I ; 18 R—>N
+
+- METRFPQQSQQTPASTNNRRPFKHEDYPCIRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/bb5bc7db-8ba6-42b8-ace5-a93dddabd89a/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/b72b47f0-9dfa-4d42-ac51-d73a0cd70c22/Untitled.png)
+    
+
+**Transmembrane Domain Mutations**
+
+4.-  45 A—>S
+
+- METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLSIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/31c84917-1279-4a28-8d31-b9276fcafba9/Untitled.png)
+    
+    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9d9490c8-5a16-4d0c-9daa-5e839bcf4f11/d7c93c24-4e42-4507-a9b0-3c8a20625903/Untitled.png)
+    
+
+5.-  46  I —> R
+
+- METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLARFLSKFTNQLLLSLLEAVIRTVTTLQQLLT

@@ -1,0 +1,127 @@
+# Week 4: Protein design (Part 2)
+
+### **Part A (From Pranam)**
+
+<aside>
+⚠️ Mandatory for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12**
+
+</aside>
+
+1. Sign up for HuggingFace and request access for PepMLM:
+    
+    https://huggingface.co/ChatterjeeLab/PepMLM-650M
+    
+2. Find he amino acid sequence for SOD1 in UniProt (ID: [P00441](https://www.uniprot.org/uniprotkb/P00441/entry)), a protein when mutated, can cause Amyotrophic lateral sclerosis (ALS). In fact, the A4V (when you change position 4 from Alanine to Valine) causes the most aggressive form of ALS, so make that change in the sequence
+3. Enter your mutated SOD1 sequence into the PepMLM inference API and generate 4 peptides of length 12 amino acids (Step 5 takes a while so you can also just pick 1 or 2 peptides)
+4. To your list, add this known SOD1-binding peptide to your list: FLYRWLPSRRGG [from -https://genesdev.cshlp.org/content/22/11/1451]
+5. Go to AlphaFold-Multimer (https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb). This is similar to what you did for homework last week but instead for a protein-peptide complex
+    
+    Set model_type: alphafold2_multimer_v3 (this model has been shown to recapitulate peptide-protein binding accurately: https://www.frontiersin.org/articles/10.3389/fbinf.2022.959160/full). Add your query sequence - Its the SOD1Sequence:PeptideSequence. : is important.
+    
+6. After running AlphaFold-Multimer with your 5 peptides alongside your mutated SOD1 sequence, plot the ipTM scores, which measures the relative confidence of the binding region.
+7. Provide a 1 paragraph write-up of your results and be sure to cite the relevant works
+
+2 peptides were designed (P1: WRSGAAALELWE; P2: HLYGVAAARHKE) + 1 sequence from the Article (FLYRWLPSRRGG)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fd3c17c2-7cb2-4709-a1b5-2501773f7d91/1367de23-5a10-453d-9805-e56598adec79/Untitled.png)
+
+the three molecule prove to attached to different parts of the protein, whether they were run alone or the three at once. The binding sites correspond to loops (hydrophilic part) of the enzyme, proving that it may be a good place to try the interference when designing peptides.
+
+---
+
+## **Part B (Final Project: L-Protein Mutants)**
+
+<aside>
+⚠️ Mandatory for MIT/Harvard Students. **Due at the start of class March 12
+This homework requires computation that might take you a while to run. So please get started early.**
+
+</aside>
+
+Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fd3c17c2-7cb2-4709-a1b5-2501773f7d91/2e80e668-7d06-422b-90ed-b9d41e051815/Untitled.png)
+
+You can read more about the final project description here -
+
+****Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other approaches. These mutants will be tested in the lab.
+
+**Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+
+Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj.  
+
+**DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)** 
+
+```jsx
+MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+```
+
+In this homework we will be doing the following steps. Step 2 might vary from student to student
+
+Additional Information
+
+1. using the mutational analysis of lysis protein from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/  Here is a list of some mutations and their effect on lysis  [https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) [Three columns highlighted ! Please copy the sheet before any edits)
+2. In the last class, we used pBLAST to find evolutionary sequences from other organisms and visualized it using clustalomega. BLAST results for L-protein are here - https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link .  You can upload it to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments)
+3. Additional Information about the sequence is linked here - [https://www.notion.so/howtogrowalmostanything/L-Protein-Sequence-Information-7a29684affaa4e3b9adf070cbb7c9908?pvs=4](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21) 
+
+SUBMIT YOUR MUTATIONS HERE. Also add one sentence about what approach you are using. Just make a new sheet with your lastname_firstname_approach
+
+| Approach | NF - Description |
+| --- | --- |
+| Mutagenesis using Protein Language Models | - Search information: 1. L protein annotations 2. Model L Protein 3. Model DNAj 4. Docking L protein/DNAj (online server) 5. Aminoacid (AA) structure and properties
+-  Generate Mutations: 1. Look AA that directly interact between the 2 proteins and their properties in L protein and DNAj. 2. Change soluble part of L protein Nonpolar AA to Polar AA 3. Change soluble part of L protein Polar AA to Nonpolar AA
+- Prove: 1. Model L protein mutations alone. 2. Compare the original L protein with mutants using protein aligment. 3. Model L protein mutations as an octamer. 4. Docking L protein mutants/DNAj. 
+- Result: Choose the mutations that keep function, add more AA to the binding site |
+| Mutagenesis using Af2-Multimer | - Search information: 1. L protein annotations 2. Model L Protein 3. Model DNAj 4. Docking L protein/DNAj (Alpha fold server) 5. Aminoacid (AA) structure and properties
+-  Generate Mutations: 1. Look AA that directly interact between the 2 proteins and their properties in L protein and DNAj. 2. Change soluble part of L protein Nonpolar AA to Polar AA 3. Change soluble part of L protein Polar AA to Nonpolar AA
+- Prove: 1. Model L protein mutations with DNAj (Alpha fold server). 
+- Result: Choose the mutations that keep function or add more AA to the binding site |
+
+## Mutagenesis using Protein Language Models [Easiest One]
+
+- Search information: 1. L protein annotations 2. Model L Protein 3. Model DNAj 4. Docking L protein/DNAj (online server) 5. Aminoacid (AA) structure and properties
+
+Docking DNAj +L protein
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fd3c17c2-7cb2-4709-a1b5-2501773f7d91/44641b12-b250-490e-99e3-3f56abe8150f/Untitled.png)
+
+| Original AA | Position  | Changed to | Reason |
+| --- | --- | --- | --- |
+| P | 5 | C | Nonpolar and insoluble to sulfur containing AA |
+| S | 9 | L | polar and soluble to Nonpolar and insoluble |
+| R | 18 | P | polar and soluble to Nonpolar and insoluble |
+| R | 19 | P | polar and soluble to Nonpolar and insoluble |
+| R | 20 | P | polar and soluble to Nonpolar and insoluble |
+
+-  Generate Mutations: 1. Look AA that directly interact between the 2 proteins and their properties in L protein and DNAj. 2. Change soluble part of L protein Nonpolar AA to Polar AA 3. Change soluble part of L protein Polar AA to Nonpolar AA
+
+- First mod: R18P
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fd3c17c2-7cb2-4709-a1b5-2501773f7d91/eac66176-26e4-44a1-b6e9-dbb994fb07b4/Untitled.png)
+
+- Prove: 1. Model L protein mutations alone. 2. Compare the original L protein with mutants using protein aligment. 3. Model L protein mutations as an octamer. 4. Docking L protein mutants/DNAj. 
+- Result: Choose the mutations that keep function, add more AA to the binding site
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/fd3c17c2-7cb2-4709-a1b5-2501773f7d91/eba4e8e9-244e-42c4-8164-cad8b11f9360/Untitled.png)
+
+### Mutagenesis using Af2-Multimer
+
+<aside>
+👤 TA: Manu Ponnapati, Allan Costa
+
+</aside>
+
+<aside>
+⚠️ This approach is probably not going to work. Because the 
+You can also try co-folding just the soluble domain with the AlphaFold2 complex instead of the whole sequence. You might notice that Af2 is not good at predictions here so it might be worth while to also try just folding the soluble domain.
+
+</aside>
+
+1. One of our goals is to prevent the interaction of L-Protein with DNAj
+2. We will co-fold the DNAj protein sequence with L-Protein and study if any mutations affect their interaction. 
+3. DNAj sequence - MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+4. CoFold this sequence with the L-Protein Sequence, in the complex predicted by AF2 Multimer is the interaction where the L-protein soluble region residues are ?
+5. You can use the information found in mutational analysis experiments [here](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0)
+6. Try to come up with two mutations each with mutations at least in 3 different residue positions. Only make these mutations in the soluble region of the L-protein (refer to notes above on what amino acid positions these are). Explain how you picked your mutations
+7. Submit 5 mutations
+8. Notebook for AF2-Multimer - https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb

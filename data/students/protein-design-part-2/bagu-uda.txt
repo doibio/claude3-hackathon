@@ -1,0 +1,513 @@
+# Week 4: Protein Design (Part 2)
+
+[L Protein Sequence Information](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21)
+
+[Code Notebooks](https://www.notion.so/Code-Notebooks-d7037f94017041dc86beb6f69962f4a4?pvs=21)
+
+### **Part A (From Pranam)**
+
+<aside>
+⚠️ Optional for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12**
+
+</aside>
+
+- Content
+    1. Sign up for HuggingFace and request access for PepMLM:
+        
+        https://huggingface.co/ChatterjeeLab/PepMLM-650M
+        
+    2. Find the amino acid sequence for SOD1 in UniProt (ID: [P00441](https://www.uniprot.org/uniprotkb/P00441/entry)), a protein when mutated, can cause Amyotrophic lateral sclerosis (ALS). In fact, the A4V (when you change position 4 from Alanine to Valine) causes the most aggressive form of ALS, so make that change in the sequence
+    3. Enter your mutated SOD1 sequence into the PepMLM inference API and generate 4 peptides of length 12 amino acids (Step 5 takes a while so you can also just pick 1 or 2 peptides)
+    4. To your list, add this known SOD1-binding peptide to your list: FLYRWLPSRRGG [from -https://genesdev.cshlp.org/content/22/11/1451]
+    5. Go to AlphaFold-Multimer (https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb). This is similar to what you did for homework last week but instead for a protein-peptide complex
+    * Set model_type: alphafold2_multimer_v3 (this model has been shown to recapitulate peptide-protein binding accurately: https://www.frontiersin.org/articles/10.3389/fbinf.2022.959160/full). * Add your query sequence - Its the SOD1Sequence:PeptideSequence. : is important.
+    6. After running AlphaFold-Multimer with your 5 peptides alongside your mutated SOD1 sequence, plot the ipTM scores, which measures the relative confidence of the binding region.
+    7. Provide a 1 paragraph write-up of your results and be sure to cite the relevant works
+
+## **Part B (Final Project: L-Protein Mutants)**
+
+<aside>
+⚠️ Mandatory for MIT/Harvard Students and Committed Listeners. **Due at the start of class March 12
+This homework requires computation that might take you a while to run. So please get started early.**
+
+</aside>
+
+- Content
+    - Intro
+        
+        Bacteriophage MS2 is a single stranded RNA virus whose genome only encodes 4 proteins -the maturation protein (*A*-protein), the [lysis](https://en.wikipedia.org/wiki/Lysis) (*L-Protein*) protein, the coat protein (*cp*), and the [replicase](https://en.wikipedia.org/wiki/Replicase) (*rep*) protein. Bacteriophages infect E-coli. Upon infection, the L-Protein forms pores in the E-coli cell membrane which eventually leads to breakdown of the membrane (Lysis). DnaJ is a chaperone protein in E-coli (chaperone proteins are proteins that assist during protein folding). It is thought to be involved in the lysis mechanism. In this homework, we will explore if computational models we learnt about in the last class are useful for designing variants/mutants of the lysis protein sequence. We will study the effects of L-protein mutants on the bacteriophage infectivity.
+        
+        You can read more about the final project description here on [Lisa’s notes](https://www.notion.so/Group-Final-Project-8945a45ee86b486aa62c79b0cfff119e?pvs=21) 
+        
+        ![source - https://www.oaepublish.com/articles/mrr.2023.28](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/bbb2354b-ee49-47db-b00b-77dae8fa8d76/6fa8f596749f456c8ddb98d9e8d48735.jpg)
+        
+        source - https://www.oaepublish.com/articles/mrr.2023.28
+        
+    - **Goal:**
+        
+        Our goal for this part of the homework is to create mutants of L-protein that affect its lysis activity and/or its interaction with DNAj. Making a mutation for L-protein without a way to computationally predict what happens to lysis or its interaction with DNAj is hard. So we are going to try various hypotheses on how to use the models from last week and also try a few other tools. These mutants will be tested in the lab.
+        
+    
+    ## L-Protein and DNAj Sequence
+    
+    - **Lysis Protein Sequence (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)**
+        
+        ```jsx
+        METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+        ```
+        
+        Lysis protein contains a soluble N-terminal domain followed by a transmembrane protein (blue/last 35 residues). Transmembrane protein affects the lysis activity. The soluble domain (green) is the domain responsible for interaction with DNAj. 
+        
+        **DNAj sequence  (UniProtKB ID:**  https://www.uniprot.org/uniprotkb/P03609/entry**)** 
+        
+        ```jsx
+        MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR 
+        ```
+        
+        In this homework we will be doing the following steps. Step 2 might vary from student to student
+        
+        ![Untitled presentation.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/3c1fedd4-a593-4e16-aa99-6fa4c5286f1f/Untitled_presentation.png)
+        
+    - **Additional Information**
+        1. Using the mutational analysis of lysis protein from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5775895/  Here is a list of some mutations and their effect on lysis  [https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit#gid=0](https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing) [Three columns highlighted ! Please copy the sheet before any edits).
+        2. In the last class, we used pBLAST to find evolutionary sequences from other organisms and visualized it using clustalomega. BLAST results for L-protein are here - https://drive.google.com/drive/folders/1eQeuwL9WiO16bw6Lb8z-TVpbWIoAF4EH?usp=share_link .  You can upload it to clustalomega - https://www.ebi.ac.uk/jdispatcher/msa/clustalo to get the alignments. Usually a good idea to not make mutations in the conserved sites (the amino acid positions where you see no changes in the alignments)
+        
+            - Result:
+                
+                https://www.ebi.ac.uk/jdispatcher/msa/clustalo/summary?jobId=clustalo-I20240314-195034-0068-86108458-p1m
+                
+                Supposed conserved sites:
+                
+                Fully conserved:
+                
+                21 P
+                
+                25 E
+                
+                28 P
+                
+                29 C
+                
+                33 Q
+                
+                35 S
+                
+                36 S
+                
+                37 T
+                
+                40 V
+                
+                Conserved, but in some sequences (-):
+                
+                1 M
+                
+                9 S
+                
+                10 Q
+                
+                46 I
+                
+                50 K 
+                
+                51 F
+                
+                52 T
+                
+                58 S
+                
+                64 I
+                
+                65 R
+                
+                67 V
+                
+                69 T
+                
+                72 Q
+                
+                73 L
+                
+                74 L
+                
+                Conserved, but in some sequences (X):
+                
+                24 X
+                
+                34 R
+                
+                38 L
+                
+                39 Y
+                
+                41 L 
+                
+                Conserved but in some sequences (X) and (-):
+                
+                2 E
+                
+                48 L
+                
+                49 S
+                
+                53 N
+                
+                54 Q
+                
+                55 L
+                
+                56 L
+                
+                59 L
+                
+                60 L
+                
+                Red is the conserved one
+                
+                ```jsx
+                METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+                ```
+                
+        3. Additional Information about the sequence is linked here - [https://www.notion.so/howtogrowalmostanything/L-Protein-Sequence-Information-7a29684affaa4e3b9adf070cbb7c9908?pvs=4](https://www.notion.so/L-Protein-Sequence-Design-Considerations-7a29684affaa4e3b9adf070cbb7c9908?pvs=21) 
+        
+        SUBMIT YOUR MUTATIONS HERE. Also add one sentence about what approach you are using. Just make a new sheet with your lastname_firstname_approach
+        ‣
+        https://docs.google.com/spreadsheets/d/15Ho8WCnXI7iYK6XSmsMG0diEDQhgZZVR9gfD13MCAgU/edit#gid=0
+        
+        | Approach | Description | Student 1 | Student 2 | Student 3 |
+        | --- | --- | --- | --- | --- |
+        | Mutagenesis using Protein Language Models | See Description https://www.notion.so/9754985e615d47979df5946e7659b4f4?pvs=21 |  |  |  |
+        | Mutagenesis using Af2-Multimer | See Description https://www.notion.so/9754985e615d47979df5946e7659b4f4?pvs=21 |  |  |  |
+        | Mutagenesis using Rosetta | See Description https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+        | Random Mutagenesis | See Description https://www.notion.so/Class-4-Protein-Design-Part-2-d55d2d6db430437ea335ed41149e042a?pvs=21 |  |  |  |
+        | Other | Only for students who have a background in protein engineering already |  |  |  |
+    
+    ## Mutagenesis using Protein Language Models
+    
+    - Content
+        1. Run this [notebook](https://colab.research.google.com/drive/1tFSwLWkSeu9KdsLPdepzPfGW1LBy2RPd?usp=sharing) to generate for each position in the amino acid sequence, a “score” for what would happen to the protein if you mutated into another amino acid. It can be positive or negative for the protein.  We want to identify possible mutations that are “positive” If you run this notebook - you will see a .CSV file in the sidebar. You can download it and look at it in the google sheets if that’s easier
+            1. 
+            
+            <aside>
+            🧬 Position Wild_Type_AA Mutation_AA  LLR_Score
+            989         50            K           L   2.561464
+            574         29            C           R   2.395427
+            769         39            Y           L   2.241777
+            575         29            C           S   2.043150
+            173          9            S           Q   2.014323
+            573         29            C           Q   1.997049
+            572         29            C           P   1.971027
+            569         29            C           L   1.960646
+            987         50            K           I   1.928798
+            1049        53            N           L   1.864932
+            1209        61            E           L   1.818097
+            1029        52            T           L   1.813965
+            984         50            K           F   1.802066
+            576         29            C           T   1.797246
+            568         29            C           K   1.795877
+            93           5            F           Q   1.795245
+            94           5            F           R   1.659717
+            560         29            C           A   1.648655
+            534         27            Y           R   1.628060
+            434         22            F           R   1.602028
+            
+            </aside>
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/09dbfea7-0935-4961-a611-f0bab8e71d12/Untitled.png)
+            
+            b. 
+            
+            <aside>
+            🧬 Amino Acid  Position     Score
+            0          L        50  2.561464
+            1          L        39  2.241777
+            2          I        50  1.928798
+            3          L        53  1.864932
+            4          L        52  1.813965
+            
+            </aside>
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/65547468-2f91-4cde-b557-80d01d56dedd/Untitled.png)
+            
+            c. 
+            
+            <aside>
+            🧬 Position Wild_Type_AA Mutation_AA  LLR_Score
+            10          1            N           M   4.505937
+            14          1            N           R   1.718681
+            209        11            Y           L   1.462627
+            149         8            H           L   1.441145
+            5           1            N           G   1.349430
+            152         8            H           P   1.306826
+            143         8            H           E   1.274381
+            129         7            K           L   1.240901
+            9           1            N           L   1.214590
+            154         8            H           R   1.209761
+            
+            </aside>
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/db6fe00e-6ee5-470c-b31e-00577367404c/Untitled.png)
+            
+            d. 
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/1bd96094-c408-491b-8a62-8402dbd43299/Untitled.png)
+            
+            If we connect it with the a part, we can see that the result can be seen through the heatmap above. E.g. the 50th AA mutation from K to L is said to have a good high LLR score on part a, which can be seen in the visualization above as yellow-ish colour (the LLR score above 2).
+            
+            e. 
+            
+            <aside>
+            🧬 Position Wild_Type_AA Mutation_AA  LLR_Score
+            989         50            K           L   2.561464
+            574         29            C           R   2.395427
+            769         39            Y           L   2.241777
+            575         29            C           S   2.043150
+            173          9            S           Q   2.014323
+            573         29            C           Q   1.997049
+            572         29            C           P   1.971027
+            569         29            C           L   1.960646
+            987         50            K           I   1.928798
+            1049        53            N           L   1.864932
+            1209        61            E           L   1.818097
+            1029        52            T           L   1.813965
+            984         50            K           F   1.802066
+            576         29            C           T   1.797246
+            568         29            C           K   1.795877
+            93           5            F           Q   1.795245
+            94           5            F           R   1.659717
+            560         29            C           A   1.648655
+            534         27            Y           R   1.628060
+            434         22            F           R   1.602028
+            92           5            F           P   1.596889
+            997         50            K           V   1.594573
+            995         50            K           S   1.574555
+            96           5            F           T   1.559024
+            95           5            F           S   1.556416
+            889         45            A           L   1.539248
+            775         39            Y           S   1.517457
+            535         27            Y           S   1.497052
+            789         40            V           L   1.477629
+            529         27            Y           L   1.474638
+            
+            </aside>
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/ff2d8ca5-3192-46d7-8f71-73556b2d8012/Untitled.png)
+            
+        2. Use the experimental data here. This dataset contains information about mutants of the L-Protein and their effect on lysis in the lab - https://docs.google.com/spreadsheets/d/11WzDDNkQDEiqbUSGV0ZCqITGctyNFpD7xnPlhsj2BhE/edit?usp=sharing
+        
+        3. First check, does the experimental data correlated with the scores from the notebook in (1) ? This should give you a clue on how well these language embeddings capture information about this protein sequence. 
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/1bd96094-c408-491b-8a62-8402dbd43299/Untitled.png)
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/f0ee6dcb-47cd-4e51-a4a6-e651803d082b/Untitled.png)
+            
+            I don’t know if the result from both sources above is fully correlated. But, we can see that through the LM product, the LLR score for AA no. 1, M mutation into I and T are blue in color or probably have a low LLR score below 0. This then may translates into the 0 in lysis and protein level of the lab result. 
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/920ad340-3314-4af4-ac5c-8f7656fed3e5/Untitled.png)
+            
+            Checking on the positive result, AA no. 30 from R to Q/L not necessarily colored yellow of have LLR score higher than 2. But, from my view, the color itself for those mutations are lighter (lighter green) than the rest (green and blue), which might mean that the score is above 0 at least, and may translates into the 1 lysis and protein level of the lab result. 
+            
+        4. Using information about effect of protein mutations at these sites -  both the scores and the experimental data in the drive, come up with 5 mutations for each student along with how you came up with them and why you believe they would work. 2 of the variants you submit must have mutations in the transmembrane region (refer to notes above on what amino acid positions these are) and 2 of them must be in the soluble region . Remember that you can also use the pBLAST to see which residues are conserved and not mutate them if you want to.
+        
+        One easy way to generate sequence mutations could be to look for residue positions and mutations that are have a positive mutational effect either in the experimental or have a positive score from step 1. And pick a combination of those mutations. 
+        
+            - As a reminder, here is the sequence:
+                
+                Red is the conserved one
+                
+                ```jsx
+                METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT
+                ```
+                
+                The hydrophobicity status for the wild type sequence: 
+                
+                ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/ca8788fa-2301-4adc-a78f-aad1ef515b80/Untitled.png)
+                
+            
+            Fully conserved:
+            
+            21 P, 25 E, 28 P, 29 C, 33 Q, 35 S, 36 S, 37 T, 40 V
+            
+            Picked Mutations:
+            
+            Soluble N-region mutation:
+            
+            173          9            S           Q   2.014323
+            93           5            F           Q   1.795245
+            94           5            F           R   1.659717
+            96           5            F           T   1.559024
+            95           5            F           S   1.556416
+            534         27            Y           R   1.628060
+            434         22            F           R   1.602028
+            92           5            F           P   1.596889
+            535         27            Y           S   1.497052
+            529         27            Y           L   1.474638
+            
+            Conserved region mutation:
+            
+            574         29            C           R   2.395427
+            575         29            C           S   2.043150
+            573         29            C           Q   1.997049
+            572         29            C           P   1.971027
+            569         29            C           L   1.960646
+            576         29            C           T   1.797246
+            568         29            C           K   1.795877
+            560         29            C           A   1.648655
+            789         40            V           L   1.477629
+            
+            Mutation from lab experiment that are tested to work (with estimation of score from the heatmap):
+            
+            13            P           L   0 to 0.05       
+            15            S           A  ~0.0  
+            18            R           G  -0.5 to -1.0
+            18            R           I    ~-1.0
+            30            R           Q  0.0 to -0.5, middle
+            30            R           L   0.0 to -0.5, upper
+            31            R           I   -0.75 to -1.00
+            44            L           P   -1.0 to -1.5, upper
+            45            A          P   0.5 to 0.0, upper
+            46            I            F   ~0.0
+            
+            Transmembrane region mutation:
+            
+            989         50            K           L   2.561464
+            769         39            Y           L   2.241777
+            987         50            K           I   1.928798
+            1049        53            N           L   1.864932
+            1209        61            E           L   1.818097
+            1029        52            T           L   1.813965
+            984         50            K           F   1.802066
+            997         50            K           V   1.594573
+            995         50            K           S   1.574555
+            889         45            A           L   1.539248
+            775         39            Y           S   1.517457
+            
+            If we opt out the mutation from 47th AA onwards (as the lab experiment showed the loss of lytic ability) - purple is soluble N-terminal region and orange is transmembrane region
+            
+            769         39            Y           L   2.241777
+            173          9            S           Q   2.014323
+            93           5            F           Q   1.795245
+            94           5            F           R   1.659717
+            534         27            Y           R   1.628060
+            434         22            F           R   1.602028
+            92           5            F           P   1.596889
+            96           5            F           T   1.559024
+            95           5            F           S   1.556416
+            889         45            A           L   1.539248
+            775         39            Y           S   1.517457
+            535         27            Y           S   1.497052
+            529         27            Y           L   1.474638
+            
+            The one I picked from the ESM’s result (with consideration of other’s submission as well to not have redundant sequences):
+            
+            94           5            F           R   1.659717
+            
+            534         27            Y           R   1.628060
+            
+            775         39            Y           S   1.517457
+            
+            889         45            A           L   1.539248
+            
+            Hydrophobicity of the protein after the mutation (all combined)
+            
+            **METRRPQQSQ
+            QTPASTNRRR
+            PFKHEDRPCR
+            RQQR**SST**LSV
+            LIFLLIFLSK
+            FTNQLLLSLL**
+            EAVIRTVTTL
+            QQLLT
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/e5e8e418-a3b4-430e-a277-fdb71a63ca72/Untitled.png)
+            
+            Overall, the hydrophobicity status is similar to the wild type protein, as the transmembrane region (blue region, 38-60, or 35 onwards) still retain its hydrophobicity showed from the positive score of the Hphob scale. The soluble region (1-34) also retain it’s hydrophilicity, only changing in the Hphob degree of the mutated region to a more negative value. 
+            
+        5. You can utilize Af2_Multimer to generate a Multimeric Assembly [TA: Ben Arias-Almeida]
+        you can do this by making your query sequence as. We want to do this because -  A running hypothesis for how this protein function is that it *assembles* to make a perforation in the bacterial membrane. Our TA Ben Arias-Almeida discovered that when we predict the **assemble of 8 structures of the lysis protein***,* it indeed reveals a channel-like complex.
+        
+            
+            ![Untitled-2.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/1c451192-20ec-4caf-b188-eb1208b60dbf/Untitled-2.png)
+            
+            ![Untitled.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/f530b8c0-caf0-4779-82fb-13819b52fcfc/Untitled.png)
+            
+            ```jsx
+            METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLLT:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQRSSTLYVLIFLAIFLSKFTNQLLLSLLEAVIRTVTTLQQLL
+            ```
+            
+        
+    
+    ### Mutagenesis using Af2-Multimer
+    
+    - Content
+        
+        <aside>
+        👤 TA: Manu Ponnapati, Allan Costa
+        
+        </aside>
+        
+        <aside>
+        ⚠️ This approach is probably not going to work. Because the 
+        You can also try co-folding just the soluble domain with the AlphaFold2 complex instead of the whole sequence.
+        
+        </aside>
+        
+        1. One of our goals is to prevent the interaction of L-Protein with DNAj
+        2. We will co-fold the DNAj protein sequence with L-Protein and study if any mutations affect their interaction. 
+        3. DNAj sequence - MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+        4. CoFold this sequence with the L-Protein Sequence, in the complex predicted by AF2 Multimer is the interaction where the L-protein soluble region residues are ?
+        5. You can use the information found in mutational analysis experiments [here](https://www.notion.so/9754985e615d47979df5946e7659b4f4?pvs=21)
+        6. Try to come up with two mutations each with mutations at least in 3 different residue positions. Only make these mutations in the soluble region of the L-protein (refer to notes above on what amino acid positions these are). Explain how you picked your mutations
+        7. Submit 5 mutations
+        8. Notebook for AF2-Multimer - https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb
+    
+    ### Mutagenesis using Rosetta
+    
+    - Content
+        
+        <aside>
+        ⚠️ This requires learning about an entirely new tool. Manu will have office hours over the weekend if you want to try this approach
+        
+        </aside>
+        
+        <aside>
+        👤 TA: Manu Ponnapati,  Allan Costa
+        
+        </aside>
+        
+        1. Fold the DNAj sequence and the sequence of the L-Protein using Af2-Multimer. 
+            - Sequence:
+                
+                ```jsx
+                MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR:METRFPQQSQQTPASTNRRRPFKHEDYPCRRQQR 
+                ```
+                
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/e19f6e2d-7aad-44d8-ab1b-a9ab8e331643/Untitled.png)
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/51cc1adc-f03b-407d-9da1-ce5bc4ee3aec/Untitled.png)
+            
+            ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9ad195aa-6e74-47e0-afe2-ea3ca2edf678/c7cb2a04-3837-48b5-aa1a-a1c3c33cda59/Untitled.png)
+            
+        2. Download the PDB file from Af2 Multimer
+        3. We will utilize Rosetta (This is a non machine learning based computational protein engineering tool - and one of the most widely used protein engineering packages). We are going to run a protocol called “Point Mutation Scan”
+        4. The notebook for it is herehttps://colab.research.google.com/drive/1CW3BrzTbnIh9DUWevWsSz2_CIfrHpsb8?usp=sharing 
+        5. Submit 5 mutations!
+        6.  [Other rosetta tutorials can be found [here](https://rosettacommons.github.io/PyRosetta.notebooks/) ]
+    
+    ### Random Mutagenesis
+    
+    - Content
+        
+        <aside>
+        👤 TA: Manu Ponnapati,  Allan Costa
+        
+        </aside>
+        
+        1. Create a python function to generate random mutation combinations at atleast 2 residues by using the information found in mutational analysis experiments [here](https://www.notion.so/9754985e615d47979df5946e7659b4f4?pvs=21)
+        2. Co-Fold the random mutation with DNAj using Af2_Multimer. 
+        DNAj sequence - MAKQDYYEILGVSKTAEEREIRKAYKRLAMKYHPDRNQGDKEAEAKFKEIKEAYEVLTDSQKRAAYDQYGHAAFEQGGMGGGGFGGGADFSDIFGDVFGDIFGGGRGRQRAARGADLRYNMELTLEEAVRGVTKEIRIPTLEECDVCHGSGAKPGTQPQTCPTCHGSGQVQMRQGFFAVQQTCPHCQGRGTLIKDPCNKCHGHGRVERSKTLSVKIPAGVDTGDRIRLAGEGEAGEHGAPAGDLYVQVQVKQHPIFEREGNNLYCEVPINFAMAALGGEIEVPTLDGRVKLKVPGETQTGKLFRMRGKGVKSVRGGAQGDLLCRVVVETPVGLNERQKQLLQELQESFGGPTGEHNSPRSKSFFDGVKKFFDDLTR
+        3. Score the binding energy of the predicted complexes - You can refer to the Rosetta notebook if you want to use the interface analyzer in rosetta. And pick 5 mutations for each student and explain why you chose them. 
+        4. [This is computationally expensive to run]. If you want help running it scale - Contact Manu or Allan
+
+           
