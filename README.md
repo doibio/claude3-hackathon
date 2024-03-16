@@ -1,7 +1,20 @@
 # claude3-hackathon
-claude3-hackathon
 
-original google doc
+For this hackathon, we designed a system to evaluate
+the performance of students in the MIT Media Lab class
+How To Grow Almost Anything (htgaa.org).  The students
+were given a task to design mutants of the lysis protein
+in the MS2 bacteriophage.  Our system tells Claude 3 Opus
+about the problem, and then gives it the students work.
+It then gives a detailed evaluation of the work as if
+it were at the graduate student level.
 
-https://docs.google.com/document/d/1D7VrsR_vkk_10DfHlKDOu1FTAa_LbDgYIy4LTuFUmNQ/edit#heading=h.bs6cb499407v
+All of the results are preprocessed and in the corresponding
+out-{student-name}.txt file.
+
+To regenerate the results, please run the script on each student
+work.  To do this try:
+
+	zsh
+	for i in data/students/protein-design-part-2/* ; p claude3.py $i | tee out-$i:t
 
