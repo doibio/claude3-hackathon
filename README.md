@@ -19,3 +19,7 @@ work.  To do this try:
 	for i in data/students/protein-design-part-2/* ; p claude3-mark.py $i | tee out-$i:t
 
 
+To regenerate the design part, please run:
+
+python3 claude3-design.py all-protein-design.txt| tee all-protein-design-out.txt
+
